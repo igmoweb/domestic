@@ -13,8 +13,8 @@
 // Check to see if rev-manifest exists for CSS and JS static asset revisioning
 //https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
 
-if ( ! function_exists( 'foundationpress_asset_path' ) ) :
-	function foundationpress_asset_path( $filename ) {
+if ( ! function_exists( 'domestic_asset_path' ) ) :
+	function domestic_asset_path( $filename ) {
 		$filename_split = explode( '.', $filename );
 		$dir            = end( $filename_split );
 		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/rev-manifest.json';
@@ -33,16 +33,16 @@ if ( ! function_exists( 'foundationpress_asset_path' ) ) :
 endif;
 
 
-if ( ! function_exists( 'foundationpress_scripts' ) ) :
-	function foundationpress_scripts() {
+if ( ! function_exists( 'domestic_scripts' ) ) :
+	function domestic_scripts() {
 
 		$localize = array();
 
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.4', 'all' );
+		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . domestic_asset_path( 'app.css' ), array(), '2.10.4', 'all' );
 
 		// Enqueue Foundation scripts
-		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
+		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
 
 		if ( is_home() ) {
 			wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
@@ -67,7 +67,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		wp_localize_script( 'foundation', 'domesticJS', $localize );
 	}
 
-	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
+	add_action( 'wp_enqueue_scripts', 'domestic_scripts' );
 endif;
 
 
