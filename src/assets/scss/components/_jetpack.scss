@@ -1,0 +1,19 @@
+body.infinite-scroll #post-nav {
+	display:none;
+}
+
+#infinite-handle > span {
+	@include button( true, $secondary-color );
+}
+
+span.infinite-loader {
+	margin-bottom: 2 * $global-margin;
+	width:37px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.jetpack-portfolio-shortcode {
+	font-size:90%;
+	@include headers-size( 0, small );
+}

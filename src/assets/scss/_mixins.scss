@@ -1,0 +1,67 @@
+@mixin colored-anchor( $color: inherit ) {
+	color:$color;
+	font-weight: $global-weight-bold;
+	&:hover,
+	&:focus {
+		color: $anchor-color-hover;
+		@if $anchor-text-decoration-hover != $anchor-text-decoration {
+			text-decoration: $anchor-text-decoration-hover;
+		}
+	}
+}
+
+@mixin dark-background() {
+	background:$black;
+	color: $white;
+	a {
+		color:$white;
+		font-weight: $global-weight-bold;
+		&:hover, &:focus {
+			color: $anchor-color-hover;
+			@if $anchor-text-decoration-hover != $anchor-text-decoration {
+				text-decoration: $anchor-text-decoration-hover;
+			}
+		}
+	}
+	h1,h2,h3,h4,h5,h6 {
+		color:$white;
+	}
+}
+
+@mixin line-after( $color: $black, $width: 35px ) {
+	text-align:center;
+	padding-bottom: $global-padding;
+	position:relative;
+	&:after {
+		content: '';
+		bottom: 0;
+		position: absolute;
+		width: $width;
+		height: 1px;
+		background: $color;
+		left: 50%;
+		margin-left: -( $width / 2 );
+	}
+}
+
+@mixin tag-card( $background: $light-gray, $color: $black ) {
+	font-size: 70%;
+	text-decoration:none;
+	padding: rem-calc( 5 ) rem-calc( 10 );
+	background: $background;
+	border-radius: $global-radius;
+	color: $color;
+	a {
+		@include colored-anchor( $black );
+		font-weight: $global-weight-normal;
+	}
+}
+
+@mixin headers-size( $size_increment: 0, $base: medium ) {
+	$headers: map-get( $header-styles, $base );
+	@each $header, $font-size in $headers {
+		#{$header} {
+			font-size:rem-calc( map-get( $font-size, 'font-size' ) + $size_increment );
+		}
+	}
+}

@@ -1,0 +1,79 @@
+#comments {
+	h3.comments-head-title {
+		padding-bottom:$global-padding;
+		@include line-after();
+	}
+
+	ol.comment-list {
+		margin-left:0;
+	}
+	ol.comment-list, ul.children {
+		list-style: none;
+	}
+
+	li.comment {
+
+	}
+
+	.comment-body {
+		border:1px solid $light-gray;
+		padding:$global-padding;
+		margin-bottom: 2 * $global-margin;
+		font-size:80%;
+		@include headers-size( 3, small );
+
+		header.comment-author {
+			display:flex;
+			margin-bottom: $global-margin;
+
+			.author-meta {
+				flex-grow: 2;
+				.comment-author-link {
+					font-weight: $global-weight-bold;
+				}
+				time a {
+					@include colored-anchor( $dark-gray );
+					font-weight: $global-weight-normal;
+					font-size:90%;
+				}
+			}
+
+			.avatar-wrap {
+				width:80px;
+				img {
+					border-radius: 80px;
+				}
+			}
+
+			.reply a {
+				@include button();
+				font-size: map-get( $button-sizes, small );
+			}
+		}
+	}
+}
+
+#respond {
+	background:$light-gray;
+	border:1px solid $dark-gray;
+	padding:$global-padding;
+	margin-bottom: $global-margin;
+	.cancel-comment-reply {
+		font-size:80%;
+		a {
+			@include button( false, $secondary-color );
+			font-size: map-get( $button-sizes, tiny );
+		}
+	}
+}
+
+#allowed_tags {
+	font-size:70%;
+	code {
+		background: $white;
+	}
+}
+
+textarea#comment {
+	height:200px;
+}

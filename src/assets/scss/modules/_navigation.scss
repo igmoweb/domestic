@@ -1,0 +1,137 @@
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(medium);
+}
+
+.desktop-menu,
+.site-navigation .top-bar-left {
+  @include show-for(medium);
+}
+
+// Site title
+.site-desktop-title a {
+  font-weight: bold;
+}
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+.off-canvas {
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+  }
+
+  .menu .active > a { background-color: #ccc; }
+
+}
+
+.title-bar-title {
+  a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+}
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+
+  .menu .is-active > a {
+    color: $primary-color;
+  }
+}
+
+// Tablet and desktop menu
+body.domestic-menu-schema-light .top-bar {
+  background:$white;
+  border-bottom: 1px solid $light-gray;
+  .menu a {
+    color: $black;
+  }
+}
+
+body.domestic-menu-schema-dark .top-bar {
+  background:$black;
+  border-bottom:1px solid darken( $topbar-background, 10% );
+  .menu a {
+    color: $white;
+  }
+}
+
+.top-bar {
+  border-top:1px solid $light-gray;
+  border-bottom:1px solid darken( $topbar-background, 10% );
+  padding: $global-padding / 2;
+  background:$black;
+  .top-bar-title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+    padding-left: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu {
+    margin: 0 auto;
+    background:inherit;
+  }
+
+  .menu a {
+    color: $white;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: rem-calc( 16px );
+    line-height: 1;
+  }
+
+  .menu .active > a { background-color: $primary-color; }
+
+  .menu>li:not(.menu-text)>a { padding: 1rem; }
+
+  .dropdown.menu .submenu { border: 0; }
+  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+.nav-next {
+  float:right;
+}
+
+#post-nav, .post-navigation {
+  margin-bottom: 2 * $global-margin;
+  a {
+    @include button( false, $secondary-color );
+  }
+
+  .nav-previous a:before {
+    content: '← ';
+  }
+  .nav-next a:after {
+    content: ' →';
+  }
+}

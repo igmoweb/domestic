@@ -1,0 +1,15 @@
+.footer {
+	font-size:70%;
+	padding-top:3 * $global-padding;
+	color: darken( $white, 5% );
+	@include dark-background();
+	.site-info {
+		padding: $global-padding 0;
+		border-top:1px solid $light-gray;
+		margin-top:$global-margin;
+		color:$dark-gray;
+		a {
+			@include colored-anchor( $dark-gray );
+		}
+	}
+}
