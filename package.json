@@ -1,9 +1,9 @@
 {
-  "name": "foundationpress",
-  "title": "FoundationPress",
-  "version": "2.10.4",
-  "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
-  "homepage": "https://foundationpress.olefredrik.com",
+  "name": "domestic",
+  "title": "Domestic Theme",
+  "version": "1.0",
+  "description": "Domestic Theme for WordPress",
+  "homepage": "https://igmoweb.com",
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
@@ -15,10 +15,8 @@
     "phpcbf": "gulp phpcbf"
   },
   "keywords": [
-    "FoundationPress",
     "WordPress",
-    "starter theme",
-    "Foundation",
+    "Theme",
     "semantic",
     "mobile first",
     "customizable",
@@ -69,10 +67,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/olefredrik/foundationpress.git"
+    "url": "https://github.com/igmoweb/domestic.git"
   },
   "bugs": {
-    "url": "https://github.com/olefredrik/foundationpress/issues"
+    "url": "https://github.com/igmoweb/domestic/issues"
   },
   "babel": {
     "presets": [
