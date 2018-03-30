@@ -41,9 +41,9 @@ PATHS:
     - "!**/gulpfile.babel.js"
     - "!**/package.json"
     - "!**/package-lock.json"
-    - "!**/webpack.config.js",
-    - "!README.md",
-    - "!CHANGELOG.md",
+    - "!**/webpack.config.js"
+    - "!README.md"
+    - "!CHANGELOG.md"
   # Paths for PHP CodeSniffer
   phpcs:
     - "**/*.php"
