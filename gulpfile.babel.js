@@ -171,7 +171,6 @@ function images() {
 function archive() {
   var pkg = JSON.parse(fs.readFileSync('./package.json'));
   var title = pkg.name + '-' + pkg.version + '.zip';
-console.log( PATHS.package );
   return gulp.src(PATHS.package)
     .pipe($.zip(title))
     .pipe(gulp.dest('packaged'));
