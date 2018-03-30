@@ -175,7 +175,6 @@ body.domestic-menu-schema-dark .top-bar {
 #post-nav, .post-navigation {
   margin-bottom: 2 * $global-margin;
   a {
-    @include button( false, $secondary-color );
   }
 
   .nav-previous a:before {
