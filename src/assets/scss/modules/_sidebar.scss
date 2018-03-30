@@ -67,37 +67,38 @@
 		}
 	}
 
-	$widgets_sizes: (
+}
+
+$widgets_sizes: (
 		small: (
-			1: 100%,
-			2: 100%,
-			3: 100%,
-			4: 100%,
-			5: 100%,
-			6: 100%,
-			7: 100%,
-			8: 100%,
+				1: 100%,
+				2: 100%,
+				3: 100%,
+				4: 100%,
+				5: 100%,
+				6: 100%,
+				7: 100%,
+				8: 100%,
 		),
 		medium: (
-			1: 100%,
-			2: 50%,
-			3: 33%,
-			4: 25%,
-			5: 25%,
-			6: 33%,
-			7: 25%,
-			8: 25%,
+				1: 100%,
+				2: 50%,
+				3: 33%,
+				4: 25%,
+				5: 25%,
+				6: 33%,
+				7: 25%,
+				8: 25%,
 		)
-	);
+);
 
-	@each $breakpoint, $sizes in $widgets_sizes {
-		@include breakpoint( $breakpoint ) {
-			@each $count, $width in $sizes {
-				.widgets-number-#{$count} {
-					width: $width;
-				}
+
+@each $breakpoint, $sizes in $widgets_sizes {
+	@include breakpoint( $breakpoint ) {
+		@each $count, $width in $sizes {
+			body.domestic-footer-widgets-cols-#{$count} .footer .sidebar section.widget {
+				width: $width;
 			}
 		}
 	}
-
 }

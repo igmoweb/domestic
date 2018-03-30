@@ -3,7 +3,6 @@
 	padding:$global-padding * 3 0;
 
 	.site-title {
-		font-size:rem-calc( map-deep-get( $header-styles, small, h1, font-size ) );
 		margin-top: $global-margin;
 	}
 	.site-description {

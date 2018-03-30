@@ -25,7 +25,7 @@ if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
 				'id'            => 'footer-widgets',
 				'name'          => __( 'Footer widgets', 'domestic' ),
 				'description'   => __( 'Drag widgets to this footer container', 'domestic' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s widgets-number-[[number]]">',
+				'before_widget' => '<section id="%1$s" class="widget %2$s widgets-number">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h4 class="widget-title h5">',
 				'after_title'   => '</h4>',
@@ -34,18 +34,4 @@ if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
 	}
 
 	add_action( 'widgets_init', 'domestic_sidebar_widgets' );
-endif;
-
-if ( ! function_exists( 'domestic_set_footer_widgets_columns' ) ):
-	function domestic_set_footer_widgets_columns( $params ) {
-		$sidebar_id = $params[0]['id'];
-		if ( 'footer-widgets' === $sidebar_id ) {
-			$widgets = wp_get_sidebars_widgets();
-			$cols = count( $widgets[ $sidebar_id ] );
-			$params[0]['before_widget'] = str_replace( '[[number]]', $cols, $params[0]['before_widget'] );
-		}
-		return $params;
-	}
-
-	add_filter( 'dynamic_sidebar_params', 'domestic_set_footer_widgets_columns' );
 endif;

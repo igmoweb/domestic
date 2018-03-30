@@ -48,6 +48,11 @@ if ( ! function_exists( 'domestic_mobile_nav_class' ) ):
 		if ( domestic_has_sidebar( 'top' ) ) {
 			$classes[] = 'has-top-sidebar';
 		}
+		if ( domestic_has_sidebar( 'footer' ) ) {
+			$widgets = wp_get_sidebars_widgets();
+			$cols = count( $widgets[ 'footer-widgets' ] );
+			$classes[] = 'domestic-footer-widgets-cols-' . $cols;
+		}
 		return $classes;
 	}
 
