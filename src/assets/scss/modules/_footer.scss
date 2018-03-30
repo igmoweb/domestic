@@ -12,4 +12,14 @@
 			@include colored-anchor( $dark-gray );
 		}
 	}
+
+	table {
+		color:$black;
+		caption {
+			color:$white;
+		}
+		a {
+			color:$primary-color;
+		}
+	}
 }

@@ -1,15 +1,40 @@
 import whatInput from 'what-input';
 
-
-import Foundation from 'foundation-sites';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
-//import './lib/foundation-explicit-pieces';
+import { Foundation } from 'foundation-sites/js/foundation.core';
+import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core';
+import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
+import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
+
+
+Foundation.addToJquery(jQuery);
+
+// Add Foundation Utils to Foundation global namespace for backwards
+// compatibility.
+
+Foundation.rtl = rtl;
+Foundation.GetYoDigits = GetYoDigits;
+Foundation.transitionend = transitionend;
+
+// Touch and Triggers previously were almost purely sede effect driven,
+// so no // need to add it to Foundation, just init them.
+
+
+
+
+Foundation.plugin(DropdownMenu, 'DropdownMenu');
+
+Foundation.plugin(OffCanvas, 'OffCanvas');
+
+
+module.exports = Foundation;
+
 
 jQuery(document).foundation();
 
-jQuery( document ).ready( function( $ ) {
-	var carousel = $('.owl-carousel');
+jQuery( document ).ready( function( jQuery ) {
+	var carousel = jQuery('.owl-carousel');
 	var postsNumber = domesticJS.stickyCarouselCount || 0;
 	if ( ! carousel.length ) {
 		return;
@@ -26,7 +51,7 @@ jQuery( document ).ready( function( $ ) {
 		margin:0,
 		touchDrag:false,
 		mouseDrag:true,
-		navText: ['<i class="material-icons">keyboard_arrow_left</i>','<i class="material-icons">keyboard_arrow_right</i>'],
+		navText: ['<','>'],
 		nav:true,
 		responsive:{
 			0:{

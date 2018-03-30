@@ -67,17 +67,26 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .page-title-header {
-	position:relative;
-	img {
-		min-width:100%;
-	}
-	.page-title-wrap {
-		width:100%;
-		position:absolute;
-		bottom:$global-margin;
+	@include breakpoint( small only ) {
 		.page-title {
-			text-shadow: 0 0 0.15em rgba(0,0,0,.5);
-			color:$white;
+			@include line-after();
+			margin-top: $global-margin;
+		}
+	}
+
+	@include breakpoint(medium) {
+		position: relative;
+		img {
+			min-width: 100%;
+		}
+		.page-title-wrap {
+			width: 100%;
+			position: absolute;
+			bottom: $global-margin;
+			.page-title {
+				text-shadow: 0 0 0.15em rgba(0, 0, 0, .5);
+				color: $white;
+			}
 		}
 	}
 }

@@ -57,6 +57,12 @@ body.domestic-menu-schema-light .top-bar {
   .menu a {
     color: $black;
   }
+  ul.menu {
+    background:$white;
+  }
+  ul.menu li.current-menu-ancestor > a {
+    color:$dark-gray;
+  }
 }
 
 body.domestic-menu-schema-dark .top-bar {
@@ -64,6 +70,12 @@ body.domestic-menu-schema-dark .top-bar {
   border-bottom:1px solid darken( $topbar-background, 10% );
   .menu a {
     color: $white;
+  }
+  ul.menu {
+    background:$black;
+  }
+  ul.menu li.current-menu-ancestor > a {
+    color:$dark-gray;
   }
 }
 
@@ -81,7 +93,10 @@ body.domestic-menu-schema-dark .top-bar {
 
   .menu {
     margin: 0 auto;
-    background:inherit;
+    z-index:500;
+    li {
+      position:relative;
+    }
   }
 
   .menu a {
@@ -90,7 +105,18 @@ body.domestic-menu-schema-dark .top-bar {
     padding-bottom: 0;
     font-weight: bold;
     font-size: rem-calc( 16px );
-    line-height: 1;
+    line-height: 1.5;
+
+  }
+
+  ul.menu li.current-menu-item > a {
+    color:$primary-color;
+  }
+
+  ul.menu li > a {
+    &:hover, &:active {
+      color:$primary-color;
+    }
   }
 
   .menu .active > a { background-color: $primary-color; }
@@ -101,6 +127,30 @@ body.domestic-menu-schema-dark .top-bar {
   .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
   .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
   .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+}
+
+.top-bar > ul.menu > li.menu-item-has-children:after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset 6px;
+  content: '';
+  border-bottom-width: 0;
+  border-top-style: solid;
+  border-color: $primary-color transparent transparent;
+  right: 0;
+  left: auto;
+  position: absolute;
+  top: 48%;
+}
+
+.top-bar > ul.menu > li.menu-item-has-children ul.dropdown {
+  box-shadow:2px 3px 2px $black;
+}
+
+.dropdown.menu.vertical > li.opens-right > a::after {
+  right:5px;
+  margin-top:-5px;
 }
 
 .site-navigation {
@@ -134,4 +184,9 @@ body.domestic-menu-schema-dark .top-bar {
   .nav-next a:after {
     content: ' →';
   }
+}
+
+.menu .is-active > a {
+  background: transparent;
+  color:$primary-color;
 }

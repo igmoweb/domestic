@@ -16,13 +16,7 @@
 			left: 10px;
 			right: 10px;
 			border-radius: 30px;
-
-			i {
-				font-size: rem-calc( 40 );
-				&:hover {
-					color:$white;
-				}
-			}
+			font-size:rem-calc( 31 );
 		}
 
 		.owl-prev {

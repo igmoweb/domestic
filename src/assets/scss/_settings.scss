@@ -226,7 +226,7 @@ $input-error-font-weight: $global-weight-bold;
 
 $accordion-background: $white;
 $accordion-plusminus: true;
-$accordion-title-font-size: rem-calc(12);
+$accordion-title-font-size: rem-calc(18);
 $accordion-item-color: $primary-color;
 $accordion-item-background-hover: $light-gray;
 $accordion-item-padding: 1.25rem 1rem;
@@ -258,9 +258,9 @@ $badge-background: $primary-color;
 $badge-color: $white;
 $badge-color-alt: $black;
 $badge-palette: $foundation-palette;
-$badge-padding: 0.3em;
-$badge-minwidth: 2.1em;
-$badge-font-size: 0.6rem;
+$badge-padding: 0.5em;
+$badge-minwidth: 3em;
+$badge-font-size: 0.8rem;
 
 // 10. Breadcrumbs
 // ---------------
@@ -799,7 +799,7 @@ $tab-background: $white;
 $tab-color: $primary-color;
 $tab-background-active: $light-gray;
 $tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
+$tab-item-font-size: rem-calc(16);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;

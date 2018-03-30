@@ -1,0 +1,8 @@
+#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
+	@include button();
+}
+#buddypress {
+	#item-nav, #item-body {
+		font-size:90%;
+	}
+}

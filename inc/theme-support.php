@@ -6,8 +6,8 @@
  * @since FoundationPress 1.0.0
  */
 
-if ( ! function_exists( 'foundationpress_theme_support' ) ) :
-	function foundationpress_theme_support() {
+if ( ! function_exists( 'domestic_theme_support' ) ) :
+	function domestic_theme_support() {
 		// Add language support
 		load_theme_textdomain( 'domestic', get_template_directory() . '/languages' );
 
@@ -60,5 +60,5 @@ if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 		add_editor_style( 'dist/assets/css/' . domestic_asset_path( 'app.css' ) );
 	}
 
-	add_action( 'after_setup_theme', 'foundationpress_theme_support' );
+	add_action( 'after_setup_theme', 'domestic_theme_support' );
 endif;

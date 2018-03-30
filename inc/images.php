@@ -16,7 +16,7 @@ add_image_size( 'featured-medium', 870, 500, true );
 add_image_size( 'featured-large', 1440, 650, true );
 add_image_size( 'featured-xlarge', 1920, 800, true );
 add_image_size( 'sticky-carousel', 700, 300, true );
-add_image_size( 'featured-page', 1920, 200, true );
+add_image_size( 'featured-page', 1920, 500, true );
 
 // Add additional image sizes
 add_image_size( 'fp-small', 640 );

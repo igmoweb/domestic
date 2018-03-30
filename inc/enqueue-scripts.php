@@ -53,12 +53,8 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 			$localize['stickyCarouselCount'] = count( $query->get_posts() );
 		}
 
-		wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
 		wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,700' );
-
-		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
-		//wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5016a31c8c.js', array(), '4.7.0', true );
-
+		
 		// Add the comment-reply library on pages where it is necessary
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );

@@ -1,5 +1,8 @@
 <?php
 
+/** Required for Foundation to work properly */
+require_once( 'inc/foundation.php' );
+
 /** Format comments */
 require_once( 'inc/class-domestic-walker-comments.php' );
 
@@ -7,7 +10,7 @@ require_once( 'inc/class-domestic-walker-comments.php' );
 require_once( 'inc/navigation.php' );
 
 /** Add menu walkers for top-bar and off-canvas */
-require_once( 'inc/class-domestic-walkerTopBar.php' );
+require_once( 'inc/class-domestic-walker-top-bar.php' );
 require_once( 'inc/class-domestic-walker-mobile-menu.php' );
 
 /** Create widget areas in sidebar and footer */

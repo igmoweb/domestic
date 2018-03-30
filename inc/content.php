@@ -98,3 +98,15 @@ if ( ! function_exists( 'domestic_post_categories' ) ) :
 
 	}
 endif;
+
+if ( ! function_exists( 'domestic_footer_tagline' ) ):
+	function domestic_footer_tagline() {
+		return get_theme_mod( 'domestic_footer_tagline', domestic_default_footer_tagline() );
+	}
+endif;
+
+if ( ! function_exists( 'domestic_default_footer_tagline' ) ):
+	function domestic_default_footer_tagline() {
+		return '<a href="https://wordpress.org/">Proudly powered by WordPress</a>';
+	}
+endif;

@@ -8,7 +8,7 @@
 
 ?>
 
-<nav class="mobile-off-canvas-menu off-canvas position-left" id="<?php foundationpress_mobile_menu_id(); ?>" data-off-canvas data-auto-focus="false" role="navigation">
+<nav class="mobile-off-canvas-menu off-canvas position-left" id="off-canvas-menu" data-off-canvas data-auto-focus="false" role="navigation">
 	<?php domestic_mobile_nav(); ?>
 </nav>
 

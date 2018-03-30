@@ -12,64 +12,92 @@
 
 	ul {
 		list-style: none;
-		li a {
+		margin-left: 0;
+		li {
 			line-height: 1.2 * $global-lineheight;
 		}
 	}
 }
 
 .widget_archive,
-.widget_categories {
+.widget_categories,
+.widget_nav_menu {
 	ul, ol {
+		text-align: right;
 		li {
 			width: 100%;
-			display: flex;
-			align-items: center;
-			align-content: space-between;
-			flex-wrap: wrap;
+			display:inline-block;
 			a {
-				flex-grow: 2;
+				float:left;
 			}
-			ul.children {
-				display: flex;
+			ul.children, ul.sub-menu {
+				margin-left: $global-margin;
 			}
 		}
+	}
+}
+
+.widget_recent_comments {
+	ul {
+		margin-left:$global-margin;
+		list-style: circle;
+	}
+	li.recentcomments {
+		margin-bottom:$global-margin;
 	}
 }
 
 
 .footer .sidebar {
 	display: flex;
-	justify-content: space-evenly;
+	flex-wrap: wrap;
 	@include breakpoint(small only) {
 		flex-wrap: wrap;
 	}
 	section.widget {
-		margin-right: $global-margin;
-		margin-left: $global-margin;
+		padding-right: $global-margin;
+		padding-left: $global-margin;
 	}
 
 	.widget-title {
-		font-size: 150%;
+		font-size: 180%;
 		text-align: left;
 		&:after {
 			height: 0;
 		}
 	}
 
-	ul, ol {
-		margin-left: 0;
-		li {
-			width: auto;
-			display: block;
-			a {
-				line-height: $global-lineheight;
-				width: auto;
+	$widgets_sizes: (
+		small: (
+			1: 100%,
+			2: 100%,
+			3: 100%,
+			4: 100%,
+			5: 100%,
+			6: 100%,
+			7: 100%,
+			8: 100%,
+		),
+		medium: (
+			1: 100%,
+			2: 50%,
+			3: 33%,
+			4: 25%,
+			5: 25%,
+			6: 33%,
+			7: 25%,
+			8: 25%,
+		)
+	);
+
+	@each $breakpoint, $sizes in $widgets_sizes {
+		@include breakpoint( $breakpoint ) {
+			@each $count, $width in $sizes {
+				.widgets-number-#{$count} {
+					width: $width;
+				}
 			}
 		}
-
-		& & {
-			margin-#{$global-left}: $list-nested-side-margin;
-		}
 	}
+
 }

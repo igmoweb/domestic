@@ -6,7 +6,7 @@
 	</div>
 	<div class="site-info row">
 		<div class="columns small-12">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyseventeen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentyseventeen' ), 'WordPress' ); ?></a>
+			<?php echo domestic_footer_tagline(); ?>
 		</div>
 	</div><!-- .site-info -->
 </footer>
