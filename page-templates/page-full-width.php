@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Full width
+*/
+get_header(); ?>
 
 	<main id="main" class="columns small-12">
 		<?php while ( have_posts() ) : the_post(); ?>

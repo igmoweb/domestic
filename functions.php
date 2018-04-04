@@ -35,3 +35,5 @@ require_once( 'inc/sticky-slider.php' );
 require_once( 'inc/images.php' );
 
 require_once( 'inc/content.php' );
+
+require_once( 'inc/gutenberg.php' );

@@ -1,0 +1,17 @@
+figure.wp-block-image.alignfull,
+figure.wp-block-image.alignwide {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	text-align: center;
+}
+
+figure.wp-block-image.alignfull img {
+	width:100%
+}
+figure.wp-block-image.alignwide img {
+	width:90%
+}

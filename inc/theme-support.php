@@ -58,6 +58,8 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 
 		// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
 		add_editor_style( 'dist/assets/css/' . domestic_asset_path( 'app.css' ) );
+
+		$GLOBALS['content_width'] = 1130;
 	}
 
 	add_action( 'after_setup_theme', 'domestic_theme_support' );
