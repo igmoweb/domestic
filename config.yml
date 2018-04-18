@@ -46,6 +46,7 @@ PATHS:
     - "!**/webpack.config.js"
     - "!README.md"
     - "!CHANGELOG.md"
+    - "!tools"
   # Paths for PHP CodeSniffer
   phpcs:
     - "**/*.php"
