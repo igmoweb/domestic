@@ -1,6 +1,6 @@
 <?php
 $sections        = domestic_get_front_page_sections();
-$GLOBALS['post'] =& get_post( $section['page'];
+$GLOBALS['post'] =& get_post( $section['page'] );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
