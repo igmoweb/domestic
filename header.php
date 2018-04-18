@@ -57,4 +57,4 @@
 	<div class="row align-right breadcrumbs"><div class="columns-small-12"><?php yoast_breadcrumb(); ?></div></div>
 <?php endif; ?>
 
-<div id="content" class="row">
+<div id="content" class="<?php echo ! is_front_page() ? esc_attr( 'row' ) : '' ?>">

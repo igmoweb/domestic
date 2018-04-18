@@ -37,3 +37,4 @@ require_once( 'inc/images.php' );
 require_once( 'inc/content.php' );
 
 require_once( 'inc/gutenberg.php' );
+require_once( 'inc/front-page.php' );

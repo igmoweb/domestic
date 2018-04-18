@@ -27,7 +27,8 @@
     a {
       color: $white;
       font-weight: 600;
-      font-size: rem-calc(15);
+      font-size: rem-calc(13);
+      line-height: 1.5;
     }
   }
 
@@ -84,6 +85,9 @@ body.domestic-menu-schema-dark .top-bar {
   border-bottom:1px solid darken( $topbar-background, 10% );
   padding: $global-padding / 2;
   background:$black;
+  @include breakpoint( small only ) {
+    display:none;
+  }
   .top-bar-title a {
     font-size: 1rem;
     color: #B9B9B9;
@@ -104,7 +108,7 @@ body.domestic-menu-schema-dark .top-bar {
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
-    font-size: rem-calc( 16px );
+    font-size: rem-calc( 15px );
     line-height: 1.5;
 
   }

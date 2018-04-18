@@ -8,3 +8,4 @@ dist
 *.swp
 packaged/
 wpcs/
+config.yml

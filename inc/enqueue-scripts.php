@@ -45,15 +45,15 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
 
 		if ( is_home() ) {
-			wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
-			wp_enqueue_style( 'owl-carousel-styles', get_template_directory_uri() . '/js/owl-carousel/assets/owl.carousel.css' );
-			wp_enqueue_style( 'owl-carousel-theme', get_template_directory_uri() . '/js/owl-carousel/assets/owl.theme.default.css' );
+			wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/dist/assets/owl-carousel/owl.carousel.min.js', array( 'jquery' ), false, true );
+			wp_enqueue_style( 'owl-carousel-styles', get_template_directory_uri() . '/dist/assets/owl-carousel/assets/owl.carousel.css' );
+			wp_enqueue_style( 'owl-carousel-theme', get_template_directory_uri() . '/dist/assets/owl-carousel/assets/owl.theme.default.css' );
 
 			$query = domestic_get_sticky_carousel_query();
 			$localize['stickyCarouselCount'] = count( $query->get_posts() );
 		}
 
-		wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,700' );
+		wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,400i,700' );
 		
 		// Add the comment-reply library on pages where it is necessary
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -72,7 +72,10 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ):
 	 * Load dynamic logic for the customizer controls area.
 	 */
 	function domestic_customize_scripts() {
-		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/js/customize.js', array( 'jquery','customize-preview' ), false, true );
+		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/dist/assets/js/customize.js', array( 'jquery','customize-preview' ), false, true );
+		wp_localize_script( 'domestic-customize', 'domesticCustomize', array(
+			'sections' => array_values( domestic_get_front_page_children() )
+		) );
 	}
 	add_action( 'customize_preview_init', 'domestic_customize_scripts' );
 

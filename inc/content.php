@@ -11,11 +11,15 @@ endif;
 
 if ( ! function_exists( 'domestic_get_content_class' ) ):
 	function domestic_get_content_class( $container ) {
+		if ( is_front_page() ) {
+			return '';
+		}
+
 		$has_sidebar = domestic_has_sidebar();
 
-		$cols['main'] = $has_sidebar ? 'large-9 small-12' : 'small-12';
+		$cols['main'] = $has_sidebar ? 'columns large-9 small-12' : 'columns small-12';
 		if ( $has_sidebar ) {
-			$cols['sidebar'] = 'large-3 small-12';
+			$cols['sidebar'] = 'columns large-3 small-12';
 		}
 
 		return isset( $cols[ $container ] ) ? $cols[ $container ] : 12;

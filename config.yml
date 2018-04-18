@@ -10,7 +10,7 @@ COMPATIBILITY:
   - "ios >= 7"
   
 # Set to true if you want static asset revisioning, helpful for cache busting
-REVISIONING: false  
+REVISIONING: true
 
 # Gulp will reference these paths when it copies files
 PATHS:
@@ -27,6 +27,8 @@ PATHS:
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
+    - "src/assets/js/customize.js"
+    - "src/assets/owl-carousel/owl.carousel.js"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"
