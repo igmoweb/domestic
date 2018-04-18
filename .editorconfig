@@ -1,18 +1,21 @@
+# This file is for unifying the coding style for different editors and IDEs
 # editorconfig.org
 
 root = true
 
 [*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+
+[*.yml]
 indent_style = space
 indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
 
-[{*.php,*.html}]
-indent_style = tab
+# The following rule is an attempt to match the Backpack system config.
+# While we would normally only use tabs, we want to honor Skyscaner's preferences.
+[*.css,*.js]
+indent_style = space
 indent_size = 2
-
-[{*.txt,wp-config-sample.php,wp-config.php}]
-end_of_line = crlf

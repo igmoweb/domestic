@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="Domestic Theme">
+	<!-- Use HM Coding Standards -->
+	<rule ref="vendor/humanmade/coding-standards" />
+
+	<!-- Add VIP-specific rules -->
+	<rule ref="WordPress-VIP" />
+
+	<!-- Directories and third party library exclusions -->
+	<exclude-pattern>/dist/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+</ruleset>
