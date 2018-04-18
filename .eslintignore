@@ -1,0 +1,15 @@
+# Exclude non-JS
+**/*.css
+**/*.md
+**/*.php
+**/*.xml
+**/*.json
+**/*.yml
+
+# Third-party vendor files
+node_modules/
+vendor/
+
+# Built folders
+dist/
+package/

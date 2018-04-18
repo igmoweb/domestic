@@ -6,7 +6,7 @@
 
 (function( $ ) {
 	// Update menu schema colors in real time
-	wp.customize( 'domestic_menu_schema', function( value ) {
+						wp.customize( 'domestic_menu_schema', function( value ) {
 		value.bind( function( newval ) {
 			const $body = $('body');
 			switch ( newval ) {

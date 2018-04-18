@@ -1,0 +1,3 @@
+{
+	"extends": "./vendor/humanmade/coding-standards/.eslintrc.yml"
+}

@@ -7,6 +7,7 @@ This project is  based on [FoundationPress](https://github.com/olefredrik/Founda
 ### Requirements
 
 [Node.js](http://nodejs.org). It's recommended to install [NVM](https://github.com/creationix/nvm) to switch between different Node versions:
+[Composer](https://getcomposer.org/)
 
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.9/install.sh | bash`
 `nvm install 8.9.4 && nvm use 8.9.4`

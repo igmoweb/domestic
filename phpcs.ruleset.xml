@@ -12,6 +12,8 @@
 		<exclude name="PSR1.Files.SideEffects.FoundWithSymbols" />
 	</rule>
 
+	<rule ref="HM.Debug.ESLint" />
+
 	<!-- Directories and third party library exclusions -->
 	<exclude-pattern>/dist/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>

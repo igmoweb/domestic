@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
+    "postinstall": "composer install",
     "start": "gulp",
     "dev": "gulp build --dev",
     "build": "gulp build --production",
@@ -14,8 +15,9 @@
     "phpcs": "gulp phpcs",
     "phpcbf": "gulp phpcbf",
     "wppot": "gulp wpPot",
-    "lint": "./vendor/bin/phpcs --extensions=php --standard=phpcs.ruleset.xml -s .",
-    "fix-lint": "./vendor/bin/phpcbf --standard=phpcs.ruleset.xml ."
+    "lint:php": "./vendor/bin/phpcs --extensions=php --standard=phpcs.ruleset.xml -s .",
+    "lint:js": "./vendor/bin/phpcs --extensions=js --standard=phpcs.ruleset.xml -s .",
+    "fix-lint:php": "./vendor/bin/phpcbf --standard=phpcs.ruleset.xml ."
   },
   "keywords": [
     "WordPress",
@@ -41,6 +43,7 @@
     "babel-register": "^6.7.2",
     "browser-sync": "^2.10.0",
     "dateformat": "^3.0.2",
+    "eslint": "^4.19.1",
     "fancy-log": "^1.3.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -84,7 +87,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint:php"
     }
   }
 }
