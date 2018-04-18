@@ -7,6 +7,7 @@ This project is  based on [FoundationPress](https://github.com/olefredrik/Founda
 ### Requirements
 
 [Node.js](http://nodejs.org). It's recommended to install [NVM](https://github.com/creationix/nvm) to switch between different Node versions:
+
 [Composer](https://getcomposer.org/)
 
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.9/install.sh | bash`
@@ -34,12 +35,6 @@ npm install
 
 - Change your development URL (that's your local WordPress install URL) in `config.yml` in the `url` property under the `BROWSERSYNC` object
 - Start watching changes with `npm start`
-
-#### 4. Install precommit hook
-
-This will allow WP Dev Lib to run linter and Sniffer before you push code
-
-`./tools/wp-dev-lib/install-pre-commit-hook.sh`
 
 ### Compile assets for production
 
