@@ -8,10 +8,10 @@
  */
 
 register_nav_menus(
-	array(
+	[
 		'top-bar-r'  => esc_html__( 'Right Top Bar', 'domestic' ),
 		'mobile-nav' => esc_html__( 'Mobile', 'domestic' ),
-	)
+	]
 );
 
 
@@ -23,7 +23,7 @@ register_nav_menus(
 if ( ! function_exists( 'domestic_top_bar_r' ) ) {
 	function domestic_top_bar_r() {
 		wp_nav_menu(
-			array(
+			[
 				'container'      => false,
 				'menu_class'     => 'dropdown menu',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
@@ -31,7 +31,7 @@ if ( ! function_exists( 'domestic_top_bar_r' ) ) {
 				'depth'          => 3,
 				'fallback_cb'    => false,
 				'walker'         => new Domestic_Walker_Top_Bar(),
-			)
+			]
 		);
 	}
 }
@@ -43,7 +43,7 @@ if ( ! function_exists( 'domestic_top_bar_r' ) ) {
 if ( ! function_exists( 'domestic_mobile_nav' ) ) {
 	function domestic_mobile_nav() {
 		wp_nav_menu(
-			array(
+			[
 				'container'      => false,                         // Remove nav container
 				'menu'           => __( 'mobile-nav', 'domestic' ),
 				'menu_class'     => 'vertical menu',
@@ -51,7 +51,7 @@ if ( ! function_exists( 'domestic_mobile_nav' ) ) {
 				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-accordion-menu data-submenu-toggle="true">%3$s</ul>',
 				'fallback_cb'    => false,
 				'walker'         => new Domestic_Walker_Mobile_Menu(),
-			)
+			]
 		);
 	}
 }
@@ -66,15 +66,15 @@ if ( ! function_exists( 'domestic_mobile_nav' ) ) {
 */
 if ( ! function_exists( 'domestic_add_menuclass' ) ) {
 	function domestic_add_menuclass( $ulclass ) {
-		$find    = array( '/<a rel="button"/', '/<a title=".*?" rel="button"/' );
-		$replace = array( '<a rel="button" class="button"', '<a rel="button" class="button"' );
+		$find    = [ '/<a rel="button"/', '/<a title=".*?" rel="button"/' ];
+		$replace = [ '<a rel="button" class="button"', '<a rel="button" class="button"' ];
 
 		return preg_replace( $find, $replace, $ulclass, 1 );
 	}
 	add_filter( 'wp_nav_menu', 'domestic_add_menuclass' );
 }
 
-if ( ! function_exists( 'domestic_posts_navigation' ) ):
+if ( ! function_exists( 'domestic_posts_navigation' ) ) :
 	function domestic_posts_navigation() {
 		?>
 		<nav id="post-nav" class="row">

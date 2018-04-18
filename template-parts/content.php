@@ -19,9 +19,9 @@
 
 		<?php domestic_entry_meta(); ?>
 
-		<?php if ( is_singular() ): ?>
+		<?php if ( is_singular() ) : ?>
 			<?php the_content(); ?>
-		<?php else: ?>
+		<?php else : ?>
 			<?php the_excerpt() ?>
 		<?php endif; ?>
 
@@ -30,13 +30,13 @@
 	<footer>
 		<?php
 			wp_link_pages(
-				array(
+				[
 					'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'domestic' ),
 					'after'  => '</p></nav>',
-				)
+				]
 			);
 		?>
-		<?php if ( get_the_tags() ): ?>
+		<?php if ( get_the_tags() ) : ?>
 			<ul class="post-tags"><?php the_tags( '<li>', '</li><li>', '</li>' ); ?></ul>
 		<?php endif; ?>
 

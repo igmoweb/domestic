@@ -1,6 +1,6 @@
 <div class="columns small-12">
 	<div class="front-page-section-thumb">
-		<?php if ( has_post_thumbnail() ): ?>
+		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( 'front-section-fullwidth' ); ?>
 		<?php endif; ?>
 	</div>

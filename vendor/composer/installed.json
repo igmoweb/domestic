@@ -173,5 +173,129 @@
             "GPL-2.0-or-later"
         ],
         "description": "Human Made coding standards"
+    },
+    {
+        "name": "wimg/php-compatibility",
+        "version": "8.1.0",
+        "version_normalized": "8.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wimg/PHPCompatibility.git",
+            "reference": "4ac01e4fe8faaa4f8d3b3cd06ea92e5418ce472e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/wimg/PHPCompatibility/zipball/4ac01e4fe8faaa4f8d3b3cd06ea92e5418ce472e",
+            "reference": "4ac01e4fe8faaa4f8d3b3cd06ea92e5418ce472e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3",
+            "squizlabs/php_codesniffer": "^2.2 || ^3.0.2"
+        },
+        "conflict": {
+            "squizlabs/php_codesniffer": "2.6.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
+        },
+        "suggest": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+        },
+        "time": "2017-12-27T21:58:38+00:00",
+        "type": "phpcodesniffer-standard",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PHPCompatibility\\": "PHPCompatibility/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Wim Godden",
+                "role": "lead"
+            }
+        ],
+        "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP version compatibility.",
+        "homepage": "http://techblog.wimgodden.be/tag/codesniffer/",
+        "keywords": [
+            "compatibility",
+            "phpcs",
+            "standards"
+        ]
+    },
+    {
+        "name": "dealerdirect/phpcodesniffer-composer-installer",
+        "version": "v0.4.4",
+        "version_normalized": "0.4.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
+            "reference": "2e41850d5f7797cbb1af7b030d245b3b24e63a08"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/2e41850d5f7797cbb1af7b030d245b3b24e63a08",
+            "reference": "2e41850d5f7797cbb1af7b030d245b3b24e63a08",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0",
+            "php": "^5.3|^7",
+            "squizlabs/php_codesniffer": "*"
+        },
+        "require-dev": {
+            "composer/composer": "*",
+            "wimg/php-compatibility": "^8.0"
+        },
+        "suggest": {
+            "dealerdirect/qa-tools": "All the PHP QA tools you'll need"
+        },
+        "time": "2017-12-06T16:27:17+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Franck Nijhof",
+                "email": "f.nijhof@dealerdirect.nl",
+                "homepage": "http://workingatdealerdirect.eu",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
+        "homepage": "http://workingatdealerdirect.eu",
+        "keywords": [
+            "PHPCodeSniffer",
+            "PHP_CodeSniffer",
+            "code quality",
+            "codesniffer",
+            "composer",
+            "installer",
+            "phpcs",
+            "plugin",
+            "qa",
+            "quality",
+            "standard",
+            "standards",
+            "style guide",
+            "stylecheck",
+            "tests"
+        ]
     }
 ]

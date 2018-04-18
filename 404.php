@@ -16,8 +16,8 @@
 					</li>
 					<li>
 						<?php
-						/* translators: %s: home page url */
 						printf(
+							/* translators: %s: home page url */
 							__( 'Return to the <a href="%s">home page</a>', 'domestic' ),
 							home_url()
 						);

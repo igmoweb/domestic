@@ -30,12 +30,12 @@ add_image_size( 'fp-xlarge', 1920 );
 // Register the new image sizes for use in the add media modal in wp-admin
 function domestic_custom_sizes( $sizes ) {
 	return array_merge(
-		$sizes, array(
+		$sizes, [
 			'fp-small'  => __( 'FP Small' ),
 			'fp-medium' => __( 'FP Medium' ),
 			'fp-large'  => __( 'FP Large' ),
 			'fp-xlarge' => __( 'FP XLarge' ),
-		)
+		]
 	);
 }
 add_filter( 'image_size_names_choose', 'domestic_custom_sizes' );

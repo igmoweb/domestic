@@ -9,7 +9,7 @@
 if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
 	function domestic_sidebar_widgets() {
 		register_sidebar(
-			array(
+			[
 				'id'            => 'sidebar-widgets',
 				'name'          => __( 'Sidebar widgets', 'domestic' ),
 				'description'   => __( 'Drag widgets to this sidebar container.', 'domestic' ),
@@ -17,11 +17,11 @@ if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
 				'after_widget'  => '</section>',
 				'before_title'  => '<h4 class="widget-title h5">',
 				'after_title'   => '</h4>',
-			)
+			]
 		);
 
 		register_sidebar(
-			array(
+			[
 				'id'            => 'footer-widgets',
 				'name'          => __( 'Footer widgets', 'domestic' ),
 				'description'   => __( 'Drag widgets to this footer container', 'domestic' ),
@@ -29,7 +29,7 @@ if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
 				'after_widget'  => '</section>',
 				'before_title'  => '<h4 class="widget-title h5">',
 				'after_title'   => '</h4>',
-			)
+			]
 		);
 	}
 

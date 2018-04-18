@@ -13,28 +13,32 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 
 		// Switch default core markup for search form, comment form, and comments to output valid HTML5
 		add_theme_support(
-			'html5', array(
+			'html5', [
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-			)
+			]
 		);
 
-		add_theme_support( 'custom-background', array(
-			'default-color'          => '#fefefe',
-			'wp-head-callback'       => '_custom_background_cb',
-		) );
+		add_theme_support(
+			'custom-background', [
+				'default-color'    => '#fefefe',
+				'wp-head-callback' => '_custom_background_cb',
+			]
+		);
 
 		// Custom logo
-		add_theme_support( 'custom-logo', array(
-			'height'      => 100,
-			'width'       => 400,
-			'flex-height' => true,
-			'flex-width'  => true,
-			'header-text' => array( 'site-title', 'site-description' ),
-		) );
+		add_theme_support(
+			'custom-logo', [
+				'height'      => 100,
+				'width'       => 400,
+				'flex-height' => true,
+				'flex-width'  => true,
+				'header-text' => [ 'site-title', 'site-description' ],
+			]
+		);
 
 		// Add menu support
 		add_theme_support( 'menus' );
@@ -49,7 +53,7 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		add_theme_support( 'automatic-feed-links' );
 
 		// Add post formats support: http://codex.wordpress.org/Post_Formats
-		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
+		add_theme_support( 'post-formats', [ 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ] );
 
 		// Additional theme support for woocommerce 3.0.+
 		add_theme_support( 'wc-product-gallery-zoom' );

@@ -5,7 +5,7 @@
  * @package FoundationPress
  */
 
-if ( ! class_exists( 'Domestic_Walker_Comments' ) ) :
+if ( ! class_exists( 'Domestic_Walker_Comments' ) ) {
 	class Domestic_Walker_Comments extends Walker_Comment {
 
 		// Init classwide variables.
@@ -23,23 +23,27 @@ if ( ! class_exists( 'Domestic_Walker_Comments' ) ) :
 			$GLOBALS['comment_depth'] = $depth + 1; ?>
 
 			<ul class="children">
-		<?php }
+			<?php
+		}
 
 		/** END_LVL
 		 * Ends the children list of after the elements are added. */
 		function end_lvl( &$output, $depth = 0, $args = [] ) {
-			$GLOBALS['comment_depth'] = $depth + 1; ?>
+			$GLOBALS['comment_depth'] = $depth + 1;
+			?>
 
 			</ul><!-- /.children -->
 
-		<?php }
+			<?php
+		}
 
 		/** START_EL */
 		function start_el( &$output, $comment, $depth = 0, $args = [], $id = 0 ) {
 			$depth ++;
 			$GLOBALS['comment_depth'] = $depth;
 			$GLOBALS['comment']       = $comment;
-			$parent_class             = ( empty( $args['has_children'] ) ? '' : 'parent' ); ?>
+			$parent_class             = ( empty( $args['has_children'] ) ? '' : 'parent' );
+			?>
 
 			<li <?php comment_class( $parent_class ); ?> id="comment-<?php comment_ID(); ?>">
 			<article id="comment-body-<?php comment_ID(); ?>" class="comment-body">
@@ -71,7 +75,8 @@ if ( ! class_exists( 'Domestic_Walker_Comments' ) ) :
 							'max_depth' => $args['max_depth'],
 						];
 
-						comment_reply_link( array_merge( $args, $reply_args ) ); ?>
+						comment_reply_link( array_merge( $args, $reply_args ) );
+						?>
 					</div><!-- /.reply -->
 
 				</header>
@@ -81,7 +86,10 @@ if ( ! class_exists( 'Domestic_Walker_Comments' ) ) :
 						<div class="notice">
 							<p class="bottom"><?php _e( 'Your comment is awaiting moderation.', 'domestic' ); ?></p>
 						</div>
-					<?php else : comment_text(); ?>
+					<?php
+					else :
+						comment_text();
+						?>
 					<?php endif; ?>
 				</section><!-- /.comment-content -->
 
@@ -91,12 +99,15 @@ if ( ! class_exists( 'Domestic_Walker_Comments' ) ) :
 
 			</article><!-- /.comment-body -->
 
-		<?php }
+			<?php
+		}
 
-		function end_el( & $output, $comment, $depth = 0, $args = [] ) { ?>
+		function end_el( & $output, $comment, $depth = 0, $args = [] ) {
+			?>
 
 			</li><!-- /#comment-' . get_comment_ID() . ' -->
 
-		<?php }
+			<?php
+		}
 	}
-endif;
+}

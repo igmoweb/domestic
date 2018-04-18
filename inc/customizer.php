@@ -12,7 +12,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 	 */
 	function domestic_register_theme_customizer( $wp_customize ) {
 
-		$wp_customize->add_section( 'domestic_colors', [
+		$wp_customize->add_section(
+			'domestic_colors', [
 				'panel'          => 'domestic_settings',
 				'theme_supports' => '',
 				'title'          => __( 'Colors', 'domestic' ),
@@ -23,45 +24,50 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			'domestic_menu_schema',
 			[
 				'default'   => 'dark',
-				'transport' => 'postMessage'
+				'transport' => 'postMessage',
 			]
 		);
 
-		$wp_customize->add_control( 'domestic_menu_schema', [
-			'label'       => __( 'Menu Color Schema', 'domestic' ),
-			'section'     => 'domestic_colors',
-			'settings'    => 'domestic_menu_schema',
-			'type'        => 'radio',
-			'description' => __( 'Changes the color schema for the header menu.', 'domestic' ),
-			'choices'     => [
-				'dark'  => __( 'Dark', 'domestic' ),
-				'light' => __( 'Light', 'domestic' )
+		$wp_customize->add_control(
+			'domestic_menu_schema', [
+				'label'       => __( 'Menu Color Schema', 'domestic' ),
+				'section'     => 'domestic_colors',
+				'settings'    => 'domestic_menu_schema',
+				'type'        => 'radio',
+				'description' => __( 'Changes the color schema for the header menu.', 'domestic' ),
+				'choices'     => [
+					'dark'  => __( 'Dark', 'domestic' ),
+					'light' => __( 'Light', 'domestic' ),
+				],
 			]
-		] );
-
+		);
 
 		$wp_customize->add_setting(
 			'domestic_color_schema',
 			[
-				'default' => domestic_get_default_schema_color()
+				'default' => domestic_get_default_schema_color(),
 			]
 		);
 
-		$wp_customize->add_control( 'domestic_color_schema', [
-			'label'       => __( 'Main Color Schema', 'domestic' ),
-			'section'     => 'domestic_colors',
-			'settings'    => 'domestic_color_schema',
-			'type'        => 'color',
-			'description' => __( 'Changes the color schema for the theme.', 'domestic' ),
-		] );
+		$wp_customize->add_control(
+			'domestic_color_schema', [
+				'label'       => __( 'Main Color Schema', 'domestic' ),
+				'section'     => 'domestic_colors',
+				'settings'    => 'domestic_color_schema',
+				'type'        => 'color',
+				'description' => __( 'Changes the color schema for the theme.', 'domestic' ),
+			]
+		);
 
+		$wp_customize->add_panel(
+			'domestic_settings', [
+				'priority' => 1000,
+				'title'    => __( 'Domestic Settings', 'domestic' ),
+			]
+		);
 
-		$wp_customize->add_panel( 'domestic_settings', [
-			'priority' => 1000,
-			'title'    => __( 'Domestic Settings', 'domestic' )
-		] );
-
-		$wp_customize->add_section( 'domestic_sticky_slider', [
+		$wp_customize->add_section(
+			'domestic_sticky_slider', [
 				'panel'          => 'domestic_settings',
 				'theme_supports' => '',
 				'title'          => __( 'Home Slider', 'domestic' ),
@@ -76,14 +82,17 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		$wp_customize->add_control( 'domestic_show_sticky_slider', [
-			'label'    => __( 'Display the home slider', 'domestic' ),
-			'section'  => 'domestic_sticky_slider',
-			'settings' => 'domestic_show_sticky_slider',
-			'type'     => 'checkbox',
-		] );
+		$wp_customize->add_control(
+			'domestic_show_sticky_slider', [
+				'label'    => __( 'Display the home slider', 'domestic' ),
+				'section'  => 'domestic_sticky_slider',
+				'settings' => 'domestic_show_sticky_slider',
+				'type'     => 'checkbox',
+			]
+		);
 
-		$wp_customize->add_section( 'domestic_footer_tagline', [
+		$wp_customize->add_section(
+			'domestic_footer_tagline', [
 				'panel'          => 'domestic_settings',
 				'theme_supports' => '',
 				'title'          => __( 'Footer Tagline', 'domestic' ),
@@ -95,21 +104,24 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			'domestic_footer_tagline',
 			[
 				'default'              => domestic_default_footer_tagline(),
-				'sanitize_js_callback' => 'esc_textarea'
+				'sanitize_js_callback' => 'esc_textarea',
 			]
 		);
 
-		$wp_customize->add_control( 'domestic_footer_tagline', [
-			'label'    => __( 'Footer tagline', 'domestic' ),
-			'section'  => 'domestic_footer_tagline',
-			'settings' => 'domestic_footer_tagline',
-			'type'     => 'textarea',
-		] );
+		$wp_customize->add_control(
+			'domestic_footer_tagline', [
+				'label'    => __( 'Footer tagline', 'domestic' ),
+				'section'  => 'domestic_footer_tagline',
+				'settings' => 'domestic_footer_tagline',
+				'type'     => 'textarea',
+			]
+		);
 
 		$front_page_id = domestic_has_front_page();
 
 		if ( $front_page_id ) {
-			$wp_customize->add_section( 'domestic_front_page', [
+			$wp_customize->add_section(
+				'domestic_front_page', [
 					'panel'          => 'domestic_settings',
 					'theme_supports' => '',
 					'title'          => __( 'Front Page', 'domestic' ),
@@ -117,67 +129,74 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 				]
 			);
 
-			$sections = domestic_get_front_page_children();
-			$page_choices = array(
-				'' => __( '-- Select a page --', 'domestic' )
-			);
-			$style_choices = array(
-				'default' => __( 'Default', 'domestic' ),
-				'style-a' => __( 'Style A', 'domestic' ),
+			$sections      = domestic_get_front_page_children();
+			$page_choices  = [
+				'' => __( '-- Select a page --', 'domestic' ),
+			];
+			$style_choices = [
+				'default'          => __( 'Default', 'domestic' ),
+				'style-a'          => __( 'Style A', 'domestic' ),
 				'style-a-parallax' => __( 'Style A - Parallax', 'domestic' ),
-				'style-b' => __( 'Style B', 'domestic' ),
-				'style-c' => __( 'Style C', 'domestic' )
-			);
+				'style-b'          => __( 'Style B', 'domestic' ),
+				'style-c'          => __( 'Style C', 'domestic' ),
+			];
 			foreach ( $sections as $section ) {
 				$page_choices[ $section->ID ] = esc_html( get_the_title( $section->ID ) );
 			}
 
-			for ( $i = 0; $i < count( $sections ); $i++ ) {
+			for ( $i = 0; $i < count( $sections ); $i ++ ) {
 				$wp_customize->add_setting(
 					'domestic_front_page_section_page_' . $i,
 					[
-						'default'              => '',
-						'sanitize_callback' => 'absint'
+						'default'           => '',
+						'sanitize_callback' => 'absint',
 					]
 				);
 
-				$wp_customize->add_control( 'domestic_front_page_section_page_' . $i, [
-					'label'    => sprintf( __( 'Section %d', 'domestic' ), $i + 1 ),
-					'section'  => 'domestic_front_page',
-					'settings' => 'domestic_front_page_section_page_' . $i,
-					'type'     => 'select',
-					'choices'     => $page_choices
-				] );
+				$wp_customize->add_control(
+					'domestic_front_page_section_page_' . $i, [
+						/* translators: %d: Front page Section number */
+						'label'    => sprintf( __( 'Section %d', 'domestic' ), $i + 1 ),
+						'section'  => 'domestic_front_page',
+						'settings' => 'domestic_front_page_section_page_' . $i,
+						'type'     => 'select',
+						'choices'  => $page_choices,
+					]
+				);
 
 				$wp_customize->add_setting(
 					'domestic_front_page_section_style_' . $i,
 					[
-						'default'              => 'default',
+						'default' => 'default',
 					]
 				);
 
-				$wp_customize->add_control( 'domestic_front_page_section_style_' . $i, [
-					'label'    => sprintf( __( 'Style', 'domestic' ), $i + 1 ),
-					'section'  => 'domestic_front_page',
-					'settings' => 'domestic_front_page_section_style_' . $i,
-					'type'     => 'radio',
-					'choices'     => $style_choices
-				] );
+				$wp_customize->add_control(
+					'domestic_front_page_section_style_' . $i, [
+						'label'    => sprintf( __( 'Style', 'domestic' ), $i + 1 ),
+						'section'  => 'domestic_front_page',
+						'settings' => 'domestic_front_page_section_style_' . $i,
+						'type'     => 'radio',
+						'choices'  => $style_choices,
+					]
+				);
 
 				$wp_customize->add_setting(
 					'domestic_front_page_section_background_' . $i,
 					[
-						'default'              => '#fefefe',
+						'default'   => '#fefefe',
 						'transport' => 'postMessage',
 					]
 				);
 
-				$wp_customize->add_control( 'domestic_front_page_section_background_' . $i, [
-					'label'    => sprintf( __( 'Background', 'domestic' ), $i + 1 ),
-					'section'  => 'domestic_front_page',
-					'settings' => 'domestic_front_page_section_background_' . $i,
-					'type'     => 'color',
-				] );
+				$wp_customize->add_control(
+					'domestic_front_page_section_background_' . $i, [
+						'label'    => sprintf( __( 'Background', 'domestic' ), $i + 1 ),
+						'section'  => 'domestic_front_page',
+						'settings' => 'domestic_front_page_section_background_' . $i,
+						'type'     => 'color',
+					]
+				);
 
 				$wp_customize->add_setting(
 					'domestic_front_page_section_color_' . $i,
@@ -187,19 +206,21 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 					]
 				);
 
-				$wp_customize->add_control( 'domestic_front_page_section_color_' . $i, [
-					'label'    => sprintf( __( 'Text color', 'domestic' ), $i + 1 ),
-					'section'  => 'domestic_front_page',
-					'settings' => 'domestic_front_page_section_color_' . $i,
-					'type'     => 'color',
-				] );
+				$wp_customize->add_control(
+					'domestic_front_page_section_color_' . $i, [
+						'label'    => sprintf( __( 'Text color', 'domestic' ), $i + 1 ),
+						'section'  => 'domestic_front_page',
+						'settings' => 'domestic_front_page_section_color_' . $i,
+						'type'     => 'color',
+					]
+				);
 
 				$wp_customize->selective_refresh->add_partial(
 					'domestic_front_page_section_page_' . $i,
-					array(
+					[
 						'selector'            => '.front-page-section-key-' . $i,
 						'container_inclusive' => false,
-					)
+					]
 				);
 			}
 		}
@@ -216,7 +237,7 @@ if ( ! function_exists( 'domestic_get_default_schema_color' ) ) {
 	}
 }
 
-if ( ! function_exists( 'domestic_set_schema_color' ) ):
+if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 	function domestic_set_schema_color() {
 		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
 		if ( domestic_get_default_schema_color() === $main_color ) {
@@ -261,50 +282,54 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ):
 			.woocommerce button.button.alt,
 			.woocommerce input.button.alt,
 			#comments .comment-body header.comment-author .reply a,
-			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button{
+			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
 				background-color: <?php echo esc_attr( $main_color ); ?>;
 			}
 		</style>
 		<?php
 	}
+
 	add_action( 'wp_head', 'domestic_set_schema_color', 999 );
 endif;
 
-if ( ! function_exists( 'domestic_set_front_page_styles' ) ):
+if ( ! function_exists( 'domestic_set_front_page_styles' ) ) :
 	function domestic_set_front_page_styles() {
 		if ( ! is_front_page() ) {
 			return;
 		}
 		?>
 		<style>
-			<?php foreach( domestic_get_front_page_sections() as $key => $sections ): ?>
+			<?php foreach ( domestic_get_front_page_sections() as $key => $sections ) : ?>
 			.front-page-section-key-<?php echo $key; ?> {
 				background-color: <?php echo get_theme_mod( 'domestic_front_page_section_background_' . $key, 'transparent' ) ?>;
 				color: <?php echo get_theme_mod( 'domestic_front_page_section_color_' . $key, '#333333' ); ?>;
 			}
+
 			<?php endforeach; ?>
 		</style>
 		<?php
 	}
+
 	add_action( 'wp_head', 'domestic_set_front_page_styles', 999 );
 endif;
 
 
-add_filter( 'domestic_front_page_section_attributes', function( $attributes, $style ) {
-	switch ( $style ) {
-		case 'style-a':
-		case 'style-a-parallax': {
-			$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-			$style = $thumb_url ? "background-image: url('" . esc_url( $thumb_url ) . "');" : '';
-			return 'class="' . join( ' ', get_post_class( '' ) ) . '" style="' . $style . '"';
+add_filter(
+	'domestic_front_page_section_attributes', function ( $attributes, $style ) {
+		switch ( $style ) {
+			case 'style-a':
+			case 'style-a-parallax':
+				$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+				$style     = $thumb_url ? "background-image: url('" . esc_url( $thumb_url ) . "');" : '';
+
+				return 'class="' . join( ' ', get_post_class( '' ) ) . '" style="' . $style . '"';
 			break;
+			case 'style-b':
+			case 'style-c':
+				return 'class="' . join( ' ', get_post_class( 'row align-center align-middle' ) ) . '"';
+			break;
+			default:
+				return 'class="' . join( ' ', get_post_class( 'row' ) ) . '"';
 		}
-		case 'style-b':
-		case 'style-c': {
-			return 'class="' . join( ' ', get_post_class( 'row align-center align-middle' ) ) . '"';
-		}
-		default: {
-			return 'class="' . join( ' ', get_post_class( 'row' ) ) . '"';
-		}
-	}
-}, 1, 2 );
+	}, 1, 2
+);

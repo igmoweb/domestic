@@ -19,8 +19,8 @@
 
 	<p>
 		<?php
-			/* translators: %1$s: new post url */
 			printf(
+				/* translators: %1$s: New post admin URL */
 				__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'domestic' ),
 				admin_url( 'post-new.php' )
 			);

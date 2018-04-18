@@ -13,11 +13,13 @@
 // Add Foundation 'is-active' class for the current menu item.
 if ( ! function_exists( 'domestic_active_nav_class' ) ) :
 	function domestic_active_nav_class( $classes, $item ) {
-		if ( $item->current == 1 || $item->current_item_ancestor == true ) {
+		if ( $item->current === 1 || $item->current_item_ancestor === true ) {
 			$classes[] = 'is-active';
 		}
+
 		return $classes;
 	}
+
 	add_filter( 'nav_menu_css_class', 'domestic_active_nav_class', 10, 2 );
 endif;
 
@@ -35,6 +37,7 @@ if ( ! function_exists( 'domestic_active_list_pages_class' ) ) :
 
 		return $output;
 	}
+
 	add_filter( 'wp_list_pages', 'domestic_active_list_pages_class', 10, 2 );
 endif;
 
@@ -49,7 +52,7 @@ if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
 		// Cannot determine if embed is a video or not from sites that
 		// support multiple embed types such as Facebook.
 		// Official list can be found here https://codex.wordpress.org/Embeds
-		$video_sites = array(
+		$video_sites = [
 			'youtube', // first for performance
 			'collegehumor',
 			'dailymotion',
@@ -57,7 +60,7 @@ if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
 			'ted',
 			'videopress',
 			'vimeo',
-		);
+		];
 
 		$is_video = false;
 
@@ -72,7 +75,7 @@ if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
 		}
 
 		// Process video embed
-		if ( true == $is_video ) {
+		if ( true === $is_video ) {
 
 			// Find the `<iframe>`
 			$doc = new DOMDocument();
@@ -101,5 +104,6 @@ if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
 		}
 
 	}
+
 	add_filter( 'embed_oembed_html', 'domestic_responsive_video_oembed_html', 10, 4 );
 endif;

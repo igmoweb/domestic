@@ -9,7 +9,7 @@
 if ( ! function_exists( 'domestic_sticky_posts' ) ) :
 	function domestic_sticky_posts( $classes ) {
 		if ( in_array( 'sticky', $classes, true ) ) {
-			$classes   = array_diff( $classes, array( 'sticky' ) );
+			$classes   = array_diff( $classes, [ 'sticky' ] );
 			$classes[] = 'wp-sticky';
 		}
 		return $classes;
@@ -18,7 +18,7 @@ if ( ! function_exists( 'domestic_sticky_posts' ) ) :
 
 endif;
 
-if ( ! function_exists( 'domestic_home_query' ) ):
+if ( ! function_exists( 'domestic_home_query' ) ) :
 	/**
 	 * Remove sticky posts from home page query
 	 *
@@ -38,25 +38,25 @@ if ( ! function_exists( 'domestic_home_query' ) ):
 endif;
 
 
-if ( ! function_exists( 'domestic_display_sticky_slider' ) ):
+if ( ! function_exists( 'domestic_display_sticky_slider' ) ) :
 	function domestic_display_sticky_slider() {
 		return ( get_theme_mod( 'domestic_show_sticky_slider', true ) && is_home() && ! is_admin() );
 	}
 endif;
 
-if ( ! function_exists( 'domestic_get_sticky_carousel_query' ) ):
+if ( ! function_exists( 'domestic_get_sticky_carousel_query' ) ) :
 	function domestic_get_sticky_carousel_query() {
-		$args = array(
-			'post_type' => 'post',
-			'post__in' => get_option( 'sticky_posts' ),
-			'posts_per_page' => count( get_option( 'sticky_posts' ) )
-		);
+		$args = [
+			'post_type'      => 'post',
+			'post__in'       => get_option( 'sticky_posts' ),
+			'posts_per_page' => count( get_option( 'sticky_posts' ) ),
+		];
 
 		return new WP_Query( $args );
 	}
 endif;
 
-if ( ! function_exists( 'domestic_get_sticky_slider_slides' ) ):
+if ( ! function_exists( 'domestic_get_sticky_slider_slides' ) ) :
 	function domestic_get_sticky_slider_slides() {
 		return absint( get_theme_mod( 'domestic_sticky_slider_slides', 5 ) );
 	}

@@ -24,8 +24,7 @@ if ( ! function_exists( 'domestic_front_page_meta_box' ) ) :
 			?>
 			<p><?php esc_html_e( 'Start creating child pages of this one to customize Front Page sections', 'domestic' ); ?></p>
 			<?php
-		}
-		else {
+		} else {
 			?>
 			<p><a href="<?php echo esc_url( wp_customize_url() ) ?>" target="_blank"><?php esc_html_e( 'Customize Front Page', 'domestic' ); ?></a></p>
 			<?php
@@ -43,34 +42,41 @@ if ( ! function_exists( 'domestic_has_front_page' ) ) {
 	}
 }
 
-if ( ! function_exists( 'domestic_get_front_page_children' ) ):
+if ( ! function_exists( 'domestic_get_front_page_children' ) ) :
 	function domestic_get_front_page_children() {
-		$children = array();
-		if ( $page_id = domestic_has_front_page() ) {
-			$children = get_children( array( 'post_parent' => $page_id, 'post_type' => 'page', 'post_status' => 'publish' ) );
+		$children = [];
+		$page_id  = domestic_has_front_page();
+		if ( $page_id ) {
+			$children = get_children(
+				[
+					'post_parent' => $page_id,
+					'post_type'   => 'page',
+					'post_status' => 'publish',
+				]
+			);
 		}
 		return $children;
 	}
 endif;
 
-if ( ! function_exists( 'domestic_get_front_page_sections' ) ):
+if ( ! function_exists( 'domestic_get_front_page_sections' ) ) :
 	function domestic_get_front_page_sections() {
 		$children = domestic_get_front_page_children();
-		$sections = array();
+		$sections = [];
 		for ( $i = 0; $i < count( $children ); $i++ ) {
 			$page = get_theme_mod( 'domestic_front_page_section_page_' . $i, 0 );
 			if ( $page && get_post_type( $page ) === 'page' && get_post_status( $page ) === 'publish' ) {
-				$sections[] = array(
-					'page' => absint( $page ),
-					'style' => get_theme_mod( 'domestic_front_page_section_style_' . $i, 'default' )
-				);
+				$sections[] = [
+					'page'  => absint( $page ),
+					'style' => get_theme_mod( 'domestic_front_page_section_style_' . $i, 'default' ),
+				];
 			}
 		}
 		return $sections;
 	}
 endif;
 
-if ( ! function_exists( 'domestic_page_attributes_misc_attributes' ) ):
+if ( ! function_exists( 'domestic_page_attributes_misc_attributes' ) ) :
 	function domestic_page_attributes_misc_attributes() {
 		global $action, $post;
 		$screen = get_current_screen();
@@ -88,7 +94,7 @@ if ( ! function_exists( 'domestic_page_attributes_misc_attributes' ) ):
 	add_action( 'page_attributes_misc_attributes', 'domestic_page_attributes_misc_attributes' );
 endif;
 
-if ( ! function_exists( 'domestic_maybe_load_front_page' ) ):
+if ( ! function_exists( 'domestic_maybe_load_front_page' ) ) :
 	function domestic_maybe_load_front_page( $template ) {
 		global $post;
 		if ( domestic_has_front_page() === absint( $post->ID ) ) {

@@ -1,7 +1,10 @@
-<?php $sections = domestic_get_front_page_sections(); ?>
+<?php
+$sections        = domestic_get_front_page_sections();
+$GLOBALS['post'] =& get_post( $section['page'];
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( get_the_title() ): ?>
+	<?php if ( get_the_title() ) : ?>
 		<header>
 			<h1 class="page-title"><?php the_title(); ?></h1>
 		</header>
@@ -11,8 +14,10 @@
 		<?php the_content(); ?>
 
 		<div class="front-page-sections">
-			<?php foreach ( $sections as $key => $section ): ?>
-				<?php setup_postdata( $GLOBALS['post'] =& get_post( $section['page'] ) ); ?>
+			<?php foreach ( $sections as $key => $section ) : ?>
+				<?php
+					setup_postdata( $GLOBALS['post'] );
+				?>
 				<div
 						class="front-page-section front-page-section-<?php echo esc_attr( $section['style'] ); ?> front-page-section-key-<?php echo esc_attr( $key ); ?>"
 						style="<?php echo esc_attr( apply_filters( 'domestic_front_page_section_styles', '', $key ) ); ?>"

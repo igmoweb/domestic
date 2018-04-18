@@ -20,7 +20,7 @@
 	</div>
 
 	<div class="site-branding">
-		<?php if ( has_custom_logo() ): ?>
+		<?php if ( has_custom_logo() ) : ?>
 			<?php the_custom_logo(); ?>
 		<?php endif; ?>
 
@@ -28,13 +28,15 @@
 
 		<?php
 		$domestic_description = get_bloginfo( 'description', 'display' );
-		if ( $domestic_description || is_customize_preview() ) : ?>
+		if ( $domestic_description || is_customize_preview() ) :
+		?>
 			<p class="site-description"><?php echo $domestic_description; /* WPCS: xss ok. */ ?></p>
-		<?php endif;
+		<?php
+		endif;
 		?>
 	</div>
 
-	<?php if( has_nav_menu( 'top-bar-r' ) ): ?>
+	<?php if ( has_nav_menu( 'top-bar-r' ) ) : ?>
 		<nav class="site-navigation top-bar" role="navigation">
 			<?php domestic_top_bar_r(); ?>
 		</nav>
@@ -45,15 +47,15 @@
 
 </header>
 
-<?php if ( domestic_display_sticky_slider() ): ?>
+<?php if ( domestic_display_sticky_slider() ) : ?>
 	<?php get_template_part( 'template-parts/sticky-carousel' ); ?>
 <?php endif; ?>
 
-<?php if ( is_page() ): ?>
+<?php if ( is_page() ) : ?>
 	<?php get_template_part( 'template-parts/featured-image', 'page' ); ?>
 <?php endif; ?>
 
-<?php if ( function_exists( 'yoast_breadcrumb' ) ): ?>
+<?php if ( function_exists( 'yoast_breadcrumb' ) ) : ?>
 	<div class="row align-right breadcrumbs"><div class="columns-small-12"><?php yoast_breadcrumb(); ?></div></div>
 <?php endif; ?>
 

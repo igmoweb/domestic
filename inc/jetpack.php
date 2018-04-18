@@ -1,17 +1,19 @@
 <?php
 
-if ( ! function_exists( 'domestic_jetpack_init' ) ):
+if ( ! function_exists( 'domestic_jetpack_init' ) ) :
 	function domestic_jetpack_init() {
-		add_theme_support( 'infinite-scroll', array(
-			'type'           => 'click',
-			'container' => 'main',
-		) );
+		add_theme_support(
+			'infinite-scroll', [
+				'type'      => 'click',
+				'container' => 'main',
+			]
+		);
 	}
 
 	add_action( 'after_setup_theme', 'domestic_jetpack_init' );
 endif;
 
-if ( ! function_exists( 'domestic_jetpack_infinite_scroll_render' ) ):
+if ( ! function_exists( 'domestic_jetpack_infinite_scroll_render' ) ) :
 	function domestic_jetpack_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();

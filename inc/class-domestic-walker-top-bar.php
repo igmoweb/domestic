@@ -12,7 +12,7 @@
 
 if ( ! class_exists( 'Domestic_Walker_Top_Bar' ) ) :
 	class Domestic_Walker_Top_Bar extends Walker_Nav_Menu {
-		function start_lvl( &$output, $depth = 0, $args = array() ) {
+		function start_lvl( &$output, $depth = 0, $args = [] ) {
 			$indent  = str_repeat( "\t", $depth );
 			$output .= "\n$indent<ul class=\"dropdown menu vertical\" data-toggle>\n";
 		}
