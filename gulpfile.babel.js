@@ -13,6 +13,7 @@ import webpack2 from 'webpack';
 import named from 'vinyl-named';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
+import wpPot from 'gulp-wp-pot';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -204,6 +205,16 @@ gulp.task( 'phpcbf', function() {
 		} ) )
 		.on( 'error', $.util.log )
 		.pipe( gulp.dest( '.' ) );
+} );
+
+// Generate the pot file
+gulp.task( 'wpPot', function() {
+	return gulp.src( './**/*.php' )
+		.pipe( wpPot( {
+			domain: 'domestic',
+			package: 'Domestic Theme'
+		} ) )
+		.pipe( gulp.dest( './languages/domestic.pot' ) );
 } );
 
 // Start BrowserSync to preview the site in
