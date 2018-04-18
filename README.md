@@ -34,6 +34,11 @@ npm install
 - Change your development URL (that's your local WordPress install URL) in `config.yml` in the `url` property under the `BROWSERSYNC` object
 - Start watching changes with `npm start`
 
+#### 4. Install precommit hook
+
+This will allow WP Dev Lib to run linter and Sniffer before you push code
+
+`./tools/wp-dev-lib/install-pre-commit-hook.sh`
 
 ### Compile assets for production
 
