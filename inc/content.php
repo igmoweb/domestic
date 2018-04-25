@@ -2,7 +2,7 @@
 
 if ( ! function_exists( 'domestic_excerpt_more' ) ) :
 	function domestic_excerpt_more() {
-		return '<p class="read-more"><a class="button" href="' . get_permalink() . '">' . __( 'Read more', 'domestic' ) . '</a></p>';
+		return '[...] <p class="read-more"><a class="button" href="' . get_permalink() . '">' . __( 'Read more', 'domestic' ) . '</a></p>';
 	}
 
 	add_filter( 'excerpt_more', 'domestic_excerpt_more' );
