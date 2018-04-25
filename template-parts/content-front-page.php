@@ -1,6 +1,5 @@
 <?php
-$sections        = domestic_get_front_page_sections();
-$GLOBALS['post'] =& get_post( $section['page'] );
+$sections = domestic_get_front_page_sections();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -16,6 +15,7 @@ $GLOBALS['post'] =& get_post( $section['page'] );
 		<div class="front-page-sections">
 			<?php foreach ( $sections as $key => $section ) : ?>
 				<?php
+					$GLOBALS['post'] =& get_post( $section['page'] );
 					setup_postdata( $GLOBALS['post'] );
 				?>
 				<div
