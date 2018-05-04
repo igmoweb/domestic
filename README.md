@@ -7,19 +7,17 @@ This project is  based on [FoundationPress](https://github.com/olefredrik/Founda
 ### Requirements
 
 [Node.js](http://nodejs.org). It's recommended to install [NVM](https://github.com/creationix/nvm) to switch between different Node versions:
-
-[Composer](https://getcomposer.org/)
+[Docker](https://docs.docker.com/install/)
 
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.9/install.sh | bash`
 `nvm install 8.9.4 && nvm use 8.9.4`
 
 ### Quickstart
 
-#### 1. Clone the repository into your themes folder
+#### 1. Clone the repository
 
 ```bash
-cd my-wordpress-folder/wp-content/themes
-git clone https://github.com/igmoweb/domestic.git
+git clone https://github.com/igmoweb/domestic.git domestic
 ```
 
 #### 2. Run npm install
@@ -35,6 +33,14 @@ npm install
 
 - Change your development URL (that's your local WordPress install URL) in `config.yml` in the `url` property under the `BROWSERSYNC` object
 - Start watching changes with `npm start`
+
+`localhost:3000` will be open automatically
+
+### WordPress Customizer
+
+`localhost:3000` will not load WP Customizer properly. You'll need to use `localhost:9000` instead but BrowserSync won't work.
+
+If you change Sass files while Customizer is open, try a broser hard refresh (Cmd+shift+R)
 
 ### Compile assets for production
 

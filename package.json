@@ -7,8 +7,8 @@
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
-    "postinstall": "composer install",
-    "start": "gulp",
+    "postinstall": "docker run --rm -v $(pwd):/app composer/composer install",
+    "start": "docker-compose up & gulp",
     "dev": "gulp build --dev",
     "build": "gulp build --production",
     "package": "gulp package --production",
