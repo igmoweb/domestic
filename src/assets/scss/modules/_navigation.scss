@@ -197,3 +197,9 @@ body.domestic-menu-schema-dark .top-bar {
   background: transparent;
   color:$primary-color;
 }
+
+body.rtl {
+  .title-bar-right {
+    text-align: left;
+  }
+}
