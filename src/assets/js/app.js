@@ -43,15 +43,12 @@ jQuery( document ).ready( function( jQuery ) {
 		responsiveClass:true,
 		dots: false,
 		center:false,
-		// autoplay:true,
 		loop:false,
 		autoHeight: true,
-		// autoplaySpeed:1200,
-		// autoplayTimeout:11000,
 		margin:0,
 		touchDrag:false,
 		mouseDrag:true,
-		navText: ['<','>'],
+		navText: ['<span class="dashicons dashicons-arrow-left-alt2"></span>','<span class="dashicons dashicons-arrow-right-alt2"></span>'],
 		nav:true,
 		responsive:{
 			0:{
