@@ -10,3 +10,4 @@ packaged/
 wpcs/
 config.yml
 vendor/
+languages/domestic.pot
