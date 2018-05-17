@@ -98,7 +98,7 @@ function buildSass( sources ) {
 }
 
 function sass() {
-	return buildSass( [ 'src/assets/scss/app.scss', 'src/assets/scss/gutenberg.scss' ] );
+	return buildSass( [ 'src/assets/scss/app.scss', 'src/assets/scss/gutenberg.scss', 'src/assets/scss/app-rtl.scss' ] );
 }
 
 function sassOwlCarousel() {

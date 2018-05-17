@@ -40,6 +40,7 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 
 		// Enqueue the main Stylesheet.
 		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . domestic_asset_path( 'app.css' ), [], '2.10.4', 'all' );
+		wp_style_add_data( 'main-stylesheet', 'rtl', 'replace' );
 
 		// Enqueue Foundation scripts
 		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'app.js' ), [ 'jquery' ], '2.10.4', true );

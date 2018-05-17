@@ -1,5 +1,10 @@
 @charset 'utf-8';
 
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
 
 @import 'settings';
 @import 'foundation';
