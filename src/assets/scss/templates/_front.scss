@@ -1,4 +1,10 @@
 body.home {
+
+	.home-main-content {
+		margin-top: 5 * $global-margin;
+		margin-bottom: 5 * $global-margin;
+	}
+
 	.front-page-section-default {
 		.front-page-section-thumb {
 			width: 100vw;

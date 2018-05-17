@@ -10,7 +10,12 @@ $sections = domestic_get_front_page_sections();
 	<?php endif; ?>
 
 	<div class="entry-content">
-		<?php the_content(); ?>
+		<div class="home-main-content row">
+			<div class="columns large-12">
+				<?php the_content(); ?>
+			</div>
+		</div>
+
 
 		<div class="front-page-sections">
 			<?php foreach ( $sections as $key => $section ) : ?>
