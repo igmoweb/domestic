@@ -48,6 +48,7 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 			wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/dist/assets/owl-carousel/owl.carousel.min.js', [ 'jquery' ], false, true );
 			wp_enqueue_style( 'owl-carousel-styles', get_template_directory_uri() . '/dist/assets/owl-carousel/assets/owl.carousel.css' );
 			wp_enqueue_style( 'owl-carousel-theme', get_template_directory_uri() . '/dist/assets/owl-carousel/assets/owl.theme.default.css' );
+			wp_enqueue_style( 'dashicons' );
 
 			$query                           = domestic_get_sticky_carousel_query();
 			$localize['stickyCarouselCount'] = count( $query->get_posts() );
