@@ -66,6 +66,9 @@
 			height: 0;
 		}
 	}
+	ul li {
+		line-height: $global-lineheight;
+	}
 
 }
 
