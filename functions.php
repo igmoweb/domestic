@@ -38,3 +38,6 @@ require_once( 'inc/content.php' );
 
 require_once( 'inc/gutenberg.php' );
 require_once( 'inc/front-page.php' );
+
+/** Docs admin page */
+require_once( 'inc/about.php' );
