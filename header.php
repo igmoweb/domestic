@@ -12,10 +12,12 @@
 <header class="site-header" role="banner">
 	<div class="site-title-bar title-bar">
 		<div class="title-bar-left">
-			<button aria-label="<?php _e( 'Main Menu', 'domestic' ); ?>" class="menu-icon" type="button" data-toggle="off-canvas-menu"></button>
 			<span class="site-mobile-title title-bar-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-				</span>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			</span>
+		</div>
+		<div class="title-bar-right">
+			<button aria-label="<?php _e( 'Main Menu', 'domestic' ); ?>" class="menu-icon" type="button" data-toggle="off-canvas-menu"></button>
 		</div>
 	</div>
 

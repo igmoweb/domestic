@@ -9,6 +9,10 @@
   @include show-for(medium);
 }
 
+.site-title-bar .title-bar-left {
+  flex-grow:2;
+}
+
 // Site title
 .site-desktop-title a {
   font-weight: bold;
