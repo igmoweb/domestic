@@ -111,7 +111,7 @@ body.domestic-menu-schema-dark .top-bar {
     color: $white;
     padding-top: 0;
     padding-bottom: 0;
-    font-weight: bold;
+    font-weight: 500;
     font-size: rem-calc( 15px );
     line-height: 1.5;
 
@@ -138,18 +138,7 @@ body.domestic-menu-schema-dark .top-bar {
 }
 
 .top-bar > ul.menu > li.menu-item-has-children:after {
-  display: block;
-  width: 0;
-  height: 0;
-  border: inset 6px;
-  content: '';
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-color: $primary-color transparent transparent;
-  right: 0;
-  left: auto;
-  position: absolute;
-  top: 48%;
+  @include arrow-down( $primary-color );
 }
 
 .top-bar > ul.menu > li.menu-item-has-children ul.dropdown {

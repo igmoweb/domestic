@@ -65,3 +65,27 @@
 		}
 	}
 }
+
+@mixin arrow( $color: $primary-color ) {
+	content: '';
+	position:absolute;
+	right:0;
+	border: solid $primary-color;
+	border-width: 0 2px 2px 0;
+	display: inline-block;
+	padding: 3px;
+}
+
+@mixin arrow-down( $color: $primary-color ) {
+	@include arrow( $color );
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	top:42%;
+}
+
+@mixin arrow-right( $color: $primary-color ) {
+	@include arrow( $color );
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	top:45%;
+}
