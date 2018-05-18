@@ -37,6 +37,14 @@ msgstr ""
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr ""
 
+#: archive-jetpack-portfolio.php:3
+msgid "Projects"
+msgstr ""
+
+#: archive-jetpack-portfolio.php:11, archive-jetpack-portfolio.php:14
+msgid "All"
+msgstr ""
+
 #. translators: %s: post title
 #: comments.php:20
 msgctxt "comments title"
@@ -94,11 +102,11 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: inc/content.php:74
+#: inc/content.php:78
 msgid "Posted on %1$s at."
 msgstr ""
 
-#: inc/content.php:85
+#: inc/content.php:89
 msgid "by %s"
 msgstr ""
 
@@ -246,10 +254,6 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: page-templates/kitchen-sink.php:3
-msgid "Kitchen Sink"
-msgstr ""
-
 #: page-templates/page-full-width.php:3
 msgid "Full width"
 msgstr ""
@@ -258,7 +262,7 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: template-parts/content-front-page.php:36, template-parts/content-page.php:14, template-parts/content.php:43
+#: template-parts/content-front-page.php:41, template-parts/content-page.php:14, template-parts/content-portfolio.php:17, template-parts/content.php:43
 msgid "(Edit)"
 msgstr ""
 
