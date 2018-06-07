@@ -55,8 +55,6 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 			$localize['stickyCarouselCount'] = count( $query->get_posts() );
 		}
 
-		wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,400i,700' );
-
 		// Add the comment-reply library on pages where it is necessary
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
