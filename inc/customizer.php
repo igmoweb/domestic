@@ -119,15 +119,16 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 
 		$front_page_id = domestic_has_front_page();
 
+		$wp_customize->add_section(
+			'domestic_front_page', [
+				'panel'          => 'domestic_settings',
+				'theme_supports' => '',
+				'title'          => __( 'Front Page', 'domestic' ),
+				'description'    => __( 'Front Page', 'domestic' ),
+			]
+		);
+
 		if ( $front_page_id ) {
-			$wp_customize->add_section(
-				'domestic_front_page', [
-					'panel'          => 'domestic_settings',
-					'theme_supports' => '',
-					'title'          => __( 'Front Page', 'domestic' ),
-					'description'    => __( 'Front Page', 'domestic' ),
-				]
-			);
 
 			$sections      = domestic_get_front_page_children();
 			$page_choices  = [
@@ -223,6 +224,23 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 					]
 				);
 			}
+
+			if ( count( $sections ) === 0 ) {
+				$url     = admin_url( 'edit.php?post_type=page' );
+				$message = '<a href="' . esc_url( $url ) . '">' . __( 'Create new pages children of your Homepage. Once you are done, new sections will appear here.', 'domestic' ) . '</a>';
+				domestic_register_empty_homepage_customizer_field( $wp_customize, $message );
+			}
+		} else {
+			$url     = admin_url( 'edit.php?post_type=page' );
+			$message = '<a href="' . esc_url( $url ) . '">' . __( 'Create a new page to start creating Front Page sections.', 'domestic' ) . '</a>';
+
+			$message .= '<br/><br/>';
+
+			$url = admin_url( 'options-reading.php' );
+
+			$message .= '<a href="' . esc_url( $url ) . '">' . __( 'Then assign the page as front page.', 'domestic' ) . '</a>';
+
+			domestic_register_empty_homepage_customizer_field( $wp_customize, $message );
 		}
 
 	}
@@ -230,6 +248,26 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 	add_action( 'customize_register', 'domestic_register_theme_customizer' );
 
 endif;
+
+if ( ! function_exists( 'domestic_register_empty_homepage_customizer_field' ) ) {
+	/**
+	 * @param WP_Customize_Manager $wp_customize
+	 */
+	function domestic_register_empty_homepage_customizer_field( $wp_customize, $message ) {
+		include_once( 'class-domestic-empty-homepage-nag-control.php' );
+
+		$wp_customize->add_setting( 'domestic_empty_homepage_nag', [
+			'default' => $message,
+		]);
+		$wp_customize->add_control(
+			new Domestic_Empty_Homepage_Nag_Control( $wp_customize, 'domestic_empty_homepage_nag', [
+				'label'    => 'whatever',
+				'section'  => 'domestic_front_page',
+				'settings' => 'domestic_empty_homepage_nag',
+			] )
+		);
+	}
+}
 
 if ( ! function_exists( 'domestic_get_default_schema_color' ) ) {
 	function domestic_get_default_schema_color() {
