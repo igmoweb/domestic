@@ -10,7 +10,7 @@
     "postinstall": "composer install",
     "start": "gulp",
     "dev": "gulp build --dev",
-    "build": "gulp build --production",
+    "build": "gulp build --production && git add --force dist/ languages/ && git commit -m 'New build'",
     "package": "gulp package --production",
     "phpcs": "gulp phpcs",
     "phpcbf": "gulp phpcbf",
