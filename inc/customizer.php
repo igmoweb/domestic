@@ -75,22 +75,6 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		$wp_customize->add_setting(
-			'domestic_show_sticky_slider',
-			[
-				'default' => true,
-			]
-		);
-
-		$wp_customize->add_control(
-			'domestic_show_sticky_slider', [
-				'label'    => __( 'Display the home slider', 'domestic' ),
-				'section'  => 'domestic_sticky_slider',
-				'settings' => 'domestic_show_sticky_slider',
-				'type'     => 'checkbox',
-			]
-		);
-
 		$wp_customize->add_section(
 			'domestic_footer_tagline', [
 				'panel'          => 'domestic_settings',

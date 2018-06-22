@@ -11,7 +11,7 @@ endif;
 
 if ( ! function_exists( 'domestic_get_content_class' ) ) :
 	function domestic_get_content_class( $container ) {
-		if ( is_front_page() ) {
+		if ( is_front_page() && ! is_home() ) {
 			return '';
 		}
 

@@ -158,48 +158,60 @@ msgstr ""
 msgid "Footer tagline"
 msgstr ""
 
-#: inc/customizer.php:127, inc/customizer.php:128
+#: inc/customizer.php:126, inc/customizer.php:127
 msgid "Front Page"
 msgstr ""
 
-#: inc/customizer.php:134
+#: inc/customizer.php:135
 msgid "-- Select a page --"
 msgstr ""
 
-#: inc/customizer.php:137
+#: inc/customizer.php:138
 msgid "Default"
 msgstr ""
 
-#: inc/customizer.php:138
+#: inc/customizer.php:139
 msgid "Style A"
 msgstr ""
 
-#: inc/customizer.php:139
+#: inc/customizer.php:140
 msgid "Style A - Parallax"
 msgstr ""
 
-#: inc/customizer.php:140
+#: inc/customizer.php:141
 msgid "Style B"
 msgstr ""
 
-#: inc/customizer.php:141
+#: inc/customizer.php:142
 msgid "Style C"
 msgstr ""
 
-#: inc/customizer.php:159
+#: inc/customizer.php:160
 msgid "Section %d"
 msgstr ""
 
-#: inc/customizer.php:176
+#: inc/customizer.php:177
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:194
+#: inc/customizer.php:195
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:211
+#: inc/customizer.php:212
 msgid "Text color"
+msgstr ""
+
+#: inc/customizer.php:230
+msgid "Create new pages children of your Homepage. Once you are done, new sections will appear here."
+msgstr ""
+
+#: inc/customizer.php:235
+msgid "Create a new page to start creating Front Page sections."
+msgstr ""
+
+#: inc/customizer.php:241
+msgid "Then assign the page as front page."
 msgstr ""
 
 #: inc/front-page.php:13, inc/front-page.php:29
@@ -246,10 +258,6 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: page-templates/kitchen-sink.php:3
-msgid "Kitchen Sink"
-msgstr ""
-
 #: page-templates/page-full-width.php:3
 msgid "Full width"
 msgstr ""
@@ -258,7 +266,7 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: template-parts/content-front-page.php:36, template-parts/content-page.php:14, template-parts/content.php:43
+#: template-parts/content-front-page.php:41, template-parts/content-page.php:14, template-parts/content.php:43
 msgid "(Edit)"
 msgstr ""
 

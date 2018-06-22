@@ -9,7 +9,7 @@ $colors     = [ '#EC9787', '#944743', '#6F9FD8', '#E94B3C', '#ECDB54', '#6B5B95'
 		<?php
 		while ( $query->have_posts() ) :
 			$query->the_post();
-?>
+			?>
 			<?php
 				$thumbnail                  = get_the_post_thumbnail_url( get_the_ID(), 'sticky-carousel' );
 				$thumbnails[ get_the_ID() ] = $thumbnail ? $thumbnail : '';
