@@ -22,10 +22,5 @@ get_header(); ?>
 			<?php comments_template(); ?>
 		<?php endwhile; ?>
 	</main>
-
-	<?php if ( ! is_front_page() ) : ?>
-		<?php get_sidebar(); ?>
-	<?php endif; ?>
-
 <?php
 get_footer();

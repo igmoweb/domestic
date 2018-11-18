@@ -17,6 +17,10 @@ if ( ! function_exists( 'domestic_get_content_class' ) ) :
 
 		$has_sidebar = domestic_has_sidebar();
 
+		if ( is_page() ) {
+			$has_sidebar = false;
+		}
+
 		$cols['main'] = $has_sidebar ? 'columns large-9 small-12' : 'columns small-12';
 		if ( $has_sidebar ) {
 			$cols['sidebar'] = 'columns large-3 small-12';
@@ -28,6 +32,9 @@ endif;
 
 if ( ! function_exists( 'domestic_has_sidebar' ) ) :
 	function domestic_has_sidebar( $sidebar = 'sidebar' ) {
+		if ( is_page() && is_page_template( 'page-templates/page-sidebar.php' ) ) {
+			return false;
+		}
 		return is_active_sidebar( $sidebar . '-widgets' );
 	}
 endif;

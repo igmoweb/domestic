@@ -1,5 +1,6 @@
 #content {
 	.page-title {
+		overflow-wrap: break-word;
 		margin-bottom: 3 * $global-margin;
 		@include line-after( $black, 80px );
 	}
@@ -34,7 +35,7 @@
 				margin-top: 2 * $global-margin;
 			}
 		}
-		
+
 		footer {
 			clear: both;
 		}
