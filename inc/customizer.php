@@ -307,6 +307,13 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
 				background-color: <?php echo esc_attr( $main_color ); ?>;
 			}
+
+			.has-domestic-color-color {
+				color: <?php echo esc_attr( $main_color ); ?>;
+			}
+			.has-domestic-color-background-color {
+				background-color: <?php echo esc_attr( $main_color ); ?>;
+			}
 		</style>
 		<?php
 	}
