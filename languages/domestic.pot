@@ -94,11 +94,11 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: inc/content.php:74
+#: inc/content.php:81
 msgid "Posted on %1$s at."
 msgstr ""
 
-#: inc/content.php:85
+#: inc/content.php:92
 msgid "by %s"
 msgstr ""
 
@@ -254,12 +254,8 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: page-templates/page-full-width.php:3
-msgid "Full width"
-msgstr ""
-
-#: page-templates/page-sidebar-left.php:3
-msgid "Left Sidebar"
+#: page-templates/page-sidebar.php:3
+msgid "Page with sidebar"
 msgstr ""
 
 #: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content.php:43

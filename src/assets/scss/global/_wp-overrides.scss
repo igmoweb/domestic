@@ -13,14 +13,12 @@ p.wp-caption-text{
 
 .alignleft {
   float: left;
-  padding-right: 1rem;
-  margin: 0;
+  margin-right: $global-margin;
 }
 
 .alignright {
   float: right;
-  padding-left: 1rem;
-  margin: 0;
+  margin-left: $global-margin;
 }
 
 .aligncenter {

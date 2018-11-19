@@ -19,6 +19,11 @@ if ( ! function_exists( 'domestic_gutenber_support' ) ) {
 		add_theme_support( 'align-wide' );
 
 		add_theme_support( 'disable-custom-colors' );
+
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'dist/assets/css/editor-styles.css' );
+
+		add_theme_support( 'responsive-embeds' );
 	}
 }
 

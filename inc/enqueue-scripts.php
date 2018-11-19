@@ -82,14 +82,3 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 	add_action( 'customize_preview_init', 'domestic_customize_scripts' );
 
 endif;
-
-if ( ! function_exists( 'domestic_gutenber_scripts' ) ) :
-	/**
-	 * Load dynamic logic for the customizer controls area.
-	 */
-	function domestic_gutenber_scripts() {
-		wp_enqueue_style( 'domestic-gutenberg', get_template_directory_uri() . '/dist/assets/css/gutenberg.css' );
-	}
-	add_action( 'enqueue_block_editor_assets', 'domestic_gutenber_scripts' );
-
-endif;
