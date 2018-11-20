@@ -94,11 +94,11 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: inc/content.php:81
+#: inc/content.php:78
 msgid "Posted on %1$s at."
 msgstr ""
 
-#: inc/content.php:92
+#: inc/content.php:89
 msgid "by %s"
 msgstr ""
 
@@ -216,6 +216,26 @@ msgstr ""
 
 #: inc/front-page.php:25
 msgid "Start creating child pages of this one to customize Front Page sections"
+msgstr ""
+
+#: inc/gutenberg.php:13
+msgid "Domestic Main Color"
+msgstr ""
+
+#: inc/gutenberg.php:18
+msgid "Black"
+msgstr ""
+
+#: inc/gutenberg.php:23
+msgid "Light Gray"
+msgstr ""
+
+#: inc/gutenberg.php:28
+msgid "White"
+msgstr ""
+
+#: inc/gutenberg.php:33
+msgid "Dark Gray"
 msgstr ""
 
 #: inc/navigation.php:12
