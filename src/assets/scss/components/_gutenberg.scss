@@ -35,6 +35,10 @@
 	.wp-block-button .wp-block-button__link {
 		@include button-base();
 	}
+
+	.wp-block-cover.alignfull {
+		width:100vw;
+	}
 }
 
 body.has-sidebar #content .entry-content {

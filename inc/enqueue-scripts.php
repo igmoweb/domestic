@@ -14,10 +14,10 @@
 //https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
 
 if ( ! function_exists( 'domestic_asset_path' ) ) :
-	function domestic_asset_path( $filename ) {
+	function domestic_asset_path( $filename, $manifest = 'rev-manifest.json' ) {
 		$filename_split = explode( '.', $filename );
 		$dir            = end( $filename_split );
-		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/rev-manifest.json';
+		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/' . $manifest;
 
 		if ( file_exists( $manifest_path ) ) {
 			$manifest = json_decode( file_get_contents( $manifest_path ), true );
@@ -81,4 +81,21 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 	}
 	add_action( 'customize_preview_init', 'domestic_customize_scripts' );
 
+endif;
+
+
+if ( ! function_exists( 'domestic_admin_scripts' ) ) :
+	/**
+	 * Enqueue editor JS assets
+	 */
+	function domestic_admin_scripts() {
+		// Gutenberg scripts
+		wp_enqueue_script(
+			'domestic-gutenberg',
+			get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'gutenberg.js', 'gutenberg-manifest.json' ),
+			[ 'wp-blocks', 'wp-i18n' ]
+		);
+	}
+
+	add_action( 'enqueue_block_editor_assets', 'domestic_admin_scripts' );
 endif;
