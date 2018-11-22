@@ -154,62 +154,6 @@ msgstr ""
 msgid "Footer tagline"
 msgstr ""
 
-#: inc/customizer.php:110, inc/customizer.php:111
-msgid "Front Page"
-msgstr ""
-
-#: inc/customizer.php:119
-msgid "-- Select a page --"
-msgstr ""
-
-#: inc/customizer.php:122
-msgid "Default"
-msgstr ""
-
-#: inc/customizer.php:123
-msgid "Style A"
-msgstr ""
-
-#: inc/customizer.php:124
-msgid "Style A - Parallax"
-msgstr ""
-
-#: inc/customizer.php:125
-msgid "Style B"
-msgstr ""
-
-#: inc/customizer.php:126
-msgid "Style C"
-msgstr ""
-
-#: inc/customizer.php:144
-msgid "Section %d"
-msgstr ""
-
-#: inc/customizer.php:161
-msgid "Style"
-msgstr ""
-
-#: inc/customizer.php:179
-msgid "Background"
-msgstr ""
-
-#: inc/customizer.php:196
-msgid "Text color"
-msgstr ""
-
-#: inc/customizer.php:214
-msgid "Create new pages children of your Homepage. Once you are done, new sections will appear here."
-msgstr ""
-
-#: inc/customizer.php:219
-msgid "Create a new page to start creating Front Page sections."
-msgstr ""
-
-#: inc/customizer.php:225
-msgid "Then assign the page as front page."
-msgstr ""
-
 #: inc/front-page.php:13, inc/front-page.php:29
 msgid "Customize Front Page"
 msgstr ""
