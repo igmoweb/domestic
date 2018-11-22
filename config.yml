@@ -51,6 +51,7 @@ PATHS:
     - "!CHANGELOG.md"
     - "!tools"
     - "!phpcs.ruleset.xml"
+    - "!**/vendor/**"
   # Paths for PHP CodeSniffer
   phpcs:
     - "**/*.php"
