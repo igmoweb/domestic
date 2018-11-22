@@ -13,235 +13,235 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:6, packaged/domestic-0.1.0/404.php:6
+#: 404.php:6
 msgid "Whoooops. 404: Page Not Found"
 msgstr ""
 
-#: 404.php:10, packaged/domestic-0.1.0/404.php:10
+#: 404.php:10
 msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
 msgstr ""
 
-#: 404.php:12, packaged/domestic-0.1.0/404.php:12
+#: 404.php:12
 msgid "Please try the following:"
 msgstr ""
 
-#: 404.php:15, packaged/domestic-0.1.0/404.php:15
+#: 404.php:15
 msgid "Check your spelling"
 msgstr ""
 
-#: 404.php:21, packaged/domestic-0.1.0/404.php:21
+#: 404.php:21
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr ""
 
-#: 404.php:27, packaged/domestic-0.1.0/404.php:27
+#: 404.php:27
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr ""
 
 #. translators: %s: post title
-#: comments.php:20, packaged/domestic-0.1.0/comments.php:20
+#: comments.php:20
 msgctxt "comments title"
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr ""
 
-#: comments.php:24, packaged/domestic-0.1.0/comments.php:24
+#: comments.php:24
 msgctxt "comments title"
 msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:48, packaged/domestic-0.1.0/comments.php:48
+#: comments.php:48
 msgid "Reply"
 msgstr ""
 
-#: comments.php:57, inc/class-domestic-walker-comments.php:87, packaged/domestic-0.1.0/comments.php:57, packaged/domestic-0.1.0/inc/class-domestic-walker-comments.php:87
+#: comments.php:57, inc/class-domestic-walker-comments.php:87
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: comments.php:75, packaged/domestic-0.1.0/comments.php:75
+#: comments.php:75
 msgid "Please do not load this page directly. Thanks!"
 msgstr ""
 
-#: comments.php:81, packaged/domestic-0.1.0/comments.php:81
+#: comments.php:81
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: comments.php:97, packaged/domestic-0.1.0/comments.php:97
+#: comments.php:97
 msgid "Leave a Reply"
 msgstr ""
 
-#: comments.php:99, packaged/domestic-0.1.0/comments.php:99
+#: comments.php:99
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: comments.php:110, packaged/domestic-0.1.0/comments.php:110
+#: comments.php:110
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: header.php:20, packaged/domestic-0.1.0/header.php:20
+#: header.php:20
 msgid "Main Menu"
 msgstr ""
 
-#: search.php:4, packaged/domestic-0.1.0/search.php:4
+#: search.php:4
 msgid "Search Results for"
 msgstr ""
 
-#: searchform.php:13, searchform.php:15, packaged/domestic-0.1.0/searchform.php:13, packaged/domestic-0.1.0/searchform.php:15
+#: searchform.php:13, searchform.php:15
 msgid "Search"
 msgstr ""
 
-#: inc/content.php:5, packaged/domestic-0.1.0/inc/content.php:5
+#: inc/content.php:5
 msgid "Read more"
 msgstr ""
 
-#: inc/content.php:78, packaged/domestic-0.1.0/inc/content.php:78
+#: inc/content.php:78
 msgid "Posted on %1$s at."
 msgstr ""
 
-#: inc/content.php:89, packaged/domestic-0.1.0/inc/content.php:89
+#: inc/content.php:89
 msgid "by %s"
 msgstr ""
 
-#: inc/customizer.php:19, packaged/domestic-0.1.0/inc/customizer.php:19
+#: inc/customizer.php:19
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer.php:33, packaged/domestic-0.1.0/inc/customizer.php:33
+#: inc/customizer.php:33
 msgid "Menu Color Schema"
 msgstr ""
 
-#: inc/customizer.php:37, packaged/domestic-0.1.0/inc/customizer.php:37
+#: inc/customizer.php:37
 msgid "Changes the color schema for the header menu."
 msgstr ""
 
-#: inc/customizer.php:39, packaged/domestic-0.1.0/inc/customizer.php:39
+#: inc/customizer.php:39
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:40, packaged/domestic-0.1.0/inc/customizer.php:40
+#: inc/customizer.php:40
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:54, packaged/domestic-0.1.0/inc/customizer.php:54
+#: inc/customizer.php:54
 msgid "Main Color Schema"
 msgstr ""
 
-#: inc/customizer.php:58, packaged/domestic-0.1.0/inc/customizer.php:58
+#: inc/customizer.php:58
 msgid "Changes the color schema for the theme."
 msgstr ""
 
-#: inc/customizer.php:65, packaged/domestic-0.1.0/inc/customizer.php:65
+#: inc/customizer.php:65
 msgid "Domestic Settings"
 msgstr ""
 
-#: inc/customizer.php:73, packaged/domestic-0.1.0/inc/customizer.php:73
+#: inc/customizer.php:73
 msgid "Home Slider"
 msgstr ""
 
-#: inc/customizer.php:74, packaged/domestic-0.1.0/inc/customizer.php:74
+#: inc/customizer.php:74
 msgid "Home Slider."
 msgstr ""
 
-#: inc/customizer.php:82, packaged/domestic-0.1.0/inc/customizer.php:82
+#: inc/customizer.php:82
 msgid "Footer Tagline"
 msgstr ""
 
-#: inc/customizer.php:83, packaged/domestic-0.1.0/inc/customizer.php:83
+#: inc/customizer.php:83
 msgid "Footer Tagline."
 msgstr ""
 
-#: inc/customizer.php:97, packaged/domestic-0.1.0/inc/customizer.php:97
+#: inc/customizer.php:97
 msgid "Footer tagline"
 msgstr ""
 
-#: inc/front-page.php:13, inc/front-page.php:29, packaged/domestic-0.1.0/inc/front-page.php:13, packaged/domestic-0.1.0/inc/front-page.php:29
+#: inc/front-page.php:13, inc/front-page.php:29
 msgid "Customize Front Page"
 msgstr ""
 
-#: inc/front-page.php:25, packaged/domestic-0.1.0/inc/front-page.php:25
+#: inc/front-page.php:25
 msgid "Start creating child pages of this one to customize Front Page sections"
 msgstr ""
 
-#: inc/gutenberg.php:35, packaged/domestic-0.1.0/inc/gutenberg.php:35
+#: inc/gutenberg.php:35
 msgid "Domestic Main Color"
 msgstr ""
 
-#: inc/gutenberg.php:40, packaged/domestic-0.1.0/inc/gutenberg.php:40
+#: inc/gutenberg.php:40
 msgid "Black"
 msgstr ""
 
-#: inc/gutenberg.php:45, packaged/domestic-0.1.0/inc/gutenberg.php:45
+#: inc/gutenberg.php:45
 msgid "Light Gray"
 msgstr ""
 
-#: inc/gutenberg.php:50, packaged/domestic-0.1.0/inc/gutenberg.php:50
+#: inc/gutenberg.php:50
 msgid "White"
 msgstr ""
 
-#: inc/gutenberg.php:55, packaged/domestic-0.1.0/inc/gutenberg.php:55
+#: inc/gutenberg.php:55
 msgid "Dark Gray"
 msgstr ""
 
-#: inc/navigation.php:12, packaged/domestic-0.1.0/inc/navigation.php:12
+#: inc/navigation.php:12
 msgid "Right Top Bar"
 msgstr ""
 
-#: inc/navigation.php:13, packaged/domestic-0.1.0/inc/navigation.php:13
+#: inc/navigation.php:13
 msgid "Mobile"
 msgstr ""
 
-#: inc/navigation.php:48, packaged/domestic-0.1.0/inc/navigation.php:48
+#: inc/navigation.php:48
 msgid "mobile-nav"
 msgstr ""
 
-#: inc/navigation.php:81, packaged/domestic-0.1.0/inc/navigation.php:81
+#: inc/navigation.php:81
 msgid "&larr; Older posts"
 msgstr ""
 
-#: inc/navigation.php:82, packaged/domestic-0.1.0/inc/navigation.php:82
+#: inc/navigation.php:82
 msgid "Newer posts &rarr;"
 msgstr ""
 
-#: inc/widget-areas.php:14, packaged/domestic-0.1.0/inc/widget-areas.php:14
+#: inc/widget-areas.php:14
 msgid "Sidebar widgets"
 msgstr ""
 
-#: inc/widget-areas.php:15, packaged/domestic-0.1.0/inc/widget-areas.php:15
+#: inc/widget-areas.php:15
 msgid "Drag widgets to this sidebar container."
 msgstr ""
 
-#: inc/widget-areas.php:26, packaged/domestic-0.1.0/inc/widget-areas.php:26
+#: inc/widget-areas.php:26
 msgid "Footer widgets"
 msgstr ""
 
-#: inc/widget-areas.php:27, packaged/domestic-0.1.0/inc/widget-areas.php:27
+#: inc/widget-areas.php:27
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: page-templates/page-sidebar.php:3, packaged/domestic-0.1.0/page-templates/page-sidebar.php:3
+#: page-templates/page-sidebar.php:3
 msgid "Page with sidebar"
 msgstr ""
 
-#: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content.php:43, packaged/domestic-0.1.0/template-parts/content-front-page.php:42, packaged/domestic-0.1.0/template-parts/content-page.php:14, packaged/domestic-0.1.0/template-parts/content.php:43
+#: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content.php:43
 msgid "(Edit)"
 msgstr ""
 
-#: template-parts/content-none.php:14, packaged/domestic-0.1.0/template-parts/content-none.php:14
+#: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:24, packaged/domestic-0.1.0/template-parts/content-none.php:24
+#: template-parts/content-none.php:24
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:32, packaged/domestic-0.1.0/template-parts/content-none.php:32
+#: template-parts/content-none.php:32
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:37, packaged/domestic-0.1.0/template-parts/content-none.php:37
+#: template-parts/content-none.php:37
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content.php:34, packaged/domestic-0.1.0/template-parts/content.php:34
+#: template-parts/content.php:34
 msgid "Pages:"
 msgstr ""
