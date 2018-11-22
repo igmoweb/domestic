@@ -1,21 +1,33 @@
-const { createHigherOrderComponent } = wp.compose;
-const { Fragment } = wp.element;
-const { InspectorControls } = wp.editor;
-const { PanelBody } = wp.components;
+const { __ } = wp.i18n;
 
-const withInspectorControls =  createHigherOrderComponent( ( BlockEdit ) => {
-	return ( props ) => {
-		return (
-			<Fragment>
-				<BlockEdit { ...props } />
-				<InspectorControls>
-					<PanelBody>
-						My custom control
-					</PanelBody>
-				</InspectorControls>
-			</Fragment>
-		);
-	};
-}, "withInspectorControl" );
+wp.blocks.registerBlockStyle(
+		'core/image',
+	{
+		name: 'domestic-with-margin',
+		label: 'With Margin'
+	}
+);
 
-wp.hooks.addFilter( 'editor.BlockEdit', 'my-plugin/with-inspector-controls', withInspectorControls );
+wp.blocks.registerBlockStyle(
+	'core/image',
+	{
+		name: 'domestic-no-margin',
+		label: 'No Margin'
+	}
+);
+
+wp.blocks.registerBlockStyle(
+	'core/cover',
+	{
+		name: 'domestic-with-margin',
+		label: 'With Margin'
+	}
+);
+
+wp.blocks.registerBlockStyle(
+	'core/cover',
+	{
+		name: 'domestic-no-margin',
+		label: 'No Margin'
+	}
+);

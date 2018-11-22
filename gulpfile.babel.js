@@ -328,3 +328,5 @@ gulp.task( 'default',
 // Package task
 gulp.task( 'package',
 	gulp.series( 'wpPot', 'build', archive ) );
+
+gulp.task( 'sass', sass );

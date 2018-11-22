@@ -1,5 +1,6 @@
 @import 'settings';
 @import 'foundation';
+@import 'mixins';
 
 $content-width: 1129px;
 
@@ -23,9 +24,6 @@ $content-width: 1129px;
 }
 
 
-html {
-	font-size: $global-font-size;
-}
 
 body {
 	margin: 0;
@@ -101,19 +99,21 @@ body {
 	}
 }
 
+// Paragraph
 .wp-block-paragraph {
 	line-height: $global-lineheight;
 }
 
-.wp-block-button .wp-block-button__link {
-	@include button-base();
-}
-
+// Pullquote
 .wp-block-pullquote {
 	border-top:none;
 	border-bottom: none;
 }
 
+// Buttons
+@include gutenberg-block-button( true );
+
+// Separator
 hr.wp-block-separator {
 	clear: both;
 
@@ -127,6 +127,7 @@ hr.wp-block-separator {
 	border-left: 0;
 }
 
+// Blockquote
 blockquote.wp-block-quote {
 	margin: 0 0 $paragraph-margin-bottom;
 	padding: $blockquote-padding;
@@ -148,3 +149,15 @@ blockquote.wp-block-quote {
 	}
 }
 
+// No margin styles
+@include gutenberg-no-margin-styles( -32px );
+
+// Color palette styles
+@include gutenberg-editor-color-palette-styles( 'domestic-color', $primary-color );
+@include gutenberg-editor-color-palette-styles( 'domestic-black', $black );
+@include gutenberg-editor-color-palette-styles( 'domestic-light-gray', $light-gray );
+@include gutenberg-editor-color-palette-styles( 'domestic-white', $white );
+@include gutenberg-editor-color-palette-styles( 'domestic-dark-gray', $dark-gray );
+
+// Table Block
+@include gutenberg-block-table();

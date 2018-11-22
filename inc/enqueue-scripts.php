@@ -84,18 +84,23 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 endif;
 
 
-if ( ! function_exists( 'domestic_admin_scripts' ) ) :
+if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 	/**
 	 * Enqueue editor JS assets
 	 */
-	function domestic_admin_scripts() {
+	function domestic_block_editor_assets() {
 		// Gutenberg scripts
 		wp_enqueue_script(
 			'domestic-gutenberg',
 			get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'gutenberg.js', 'gutenberg-manifest.json' ),
-			[ 'wp-blocks', 'wp-i18n' ]
+			[ 'wp-blocks', 'wp-i18n' ],
+			'',
+			true
 		);
+
+		// The color palette can be set from customizer, we need to add extra css to the editor
+		domestic_editor_styles();
 	}
 
-	add_action( 'enqueue_block_editor_assets', 'domestic_admin_scripts' );
+	add_action( 'enqueue_block_editor_assets', 'domestic_block_editor_assets' );
 endif;

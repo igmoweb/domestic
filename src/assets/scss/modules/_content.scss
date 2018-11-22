@@ -96,9 +96,4 @@ h1,h2,h3,h4,h5,h6 {
 	}
 }
 
-.taxonomy-description {
-	color: $dark-gray;
-	font-size: $small-font-size;
-	width: 80%;
-	margin: 0 auto;
-}
+@include gutenberg-block-table();

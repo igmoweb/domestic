@@ -60,9 +60,6 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
 
-		// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
-		add_editor_style( 'dist/assets/css/' . domestic_asset_path( 'app.css' ) );
-
 		$GLOBALS['content_width'] = 1130;
 	}
 

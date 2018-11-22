@@ -100,133 +100,6 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 				'type'     => 'textarea',
 			]
 		);
-
-		$front_page_id = domestic_has_front_page();
-
-		$wp_customize->add_section(
-			'domestic_front_page', [
-				'panel'          => 'domestic_settings',
-				'theme_supports' => '',
-				'title'          => __( 'Front Page', 'domestic' ),
-				'description'    => __( 'Front Page', 'domestic' ),
-			]
-		);
-
-		if ( $front_page_id ) {
-
-			$sections      = domestic_get_front_page_children();
-			$page_choices  = [
-				'' => __( '-- Select a page --', 'domestic' ),
-			];
-			$style_choices = [
-				'default'          => __( 'Default', 'domestic' ),
-				'style-a'          => __( 'Style A', 'domestic' ),
-				'style-a-parallax' => __( 'Style A - Parallax', 'domestic' ),
-				'style-b'          => __( 'Style B', 'domestic' ),
-				'style-c'          => __( 'Style C', 'domestic' ),
-			];
-			foreach ( $sections as $section ) {
-				$page_choices[ $section->ID ] = esc_html( get_the_title( $section->ID ) );
-			}
-
-			for ( $i = 0; $i < count( $sections ); $i ++ ) {
-				$wp_customize->add_setting(
-					'domestic_front_page_section_page_' . $i,
-					[
-						'default'           => '',
-						'sanitize_callback' => 'absint',
-					]
-				);
-
-				$wp_customize->add_control(
-					'domestic_front_page_section_page_' . $i, [
-						/* translators: %d: Front page Section number */
-						'label'    => sprintf( __( 'Section %d', 'domestic' ), $i + 1 ),
-						'section'  => 'domestic_front_page',
-						'settings' => 'domestic_front_page_section_page_' . $i,
-						'type'     => 'select',
-						'choices'  => $page_choices,
-					]
-				);
-
-				$wp_customize->add_setting(
-					'domestic_front_page_section_style_' . $i,
-					[
-						'default' => 'default',
-					]
-				);
-
-				$wp_customize->add_control(
-					'domestic_front_page_section_style_' . $i, [
-						'label'    => sprintf( __( 'Style', 'domestic' ), $i + 1 ),
-						'section'  => 'domestic_front_page',
-						'settings' => 'domestic_front_page_section_style_' . $i,
-						'type'     => 'radio',
-						'choices'  => $style_choices,
-					]
-				);
-
-				$wp_customize->add_setting(
-					'domestic_front_page_section_background_' . $i,
-					[
-						'default'   => '#fefefe',
-						'transport' => 'postMessage',
-					]
-				);
-
-				$wp_customize->add_control(
-					'domestic_front_page_section_background_' . $i, [
-						'label'    => sprintf( __( 'Background', 'domestic' ), $i + 1 ),
-						'section'  => 'domestic_front_page',
-						'settings' => 'domestic_front_page_section_background_' . $i,
-						'type'     => 'color',
-					]
-				);
-
-				$wp_customize->add_setting(
-					'domestic_front_page_section_color_' . $i,
-					[
-						'default'   => '#333333',
-						'transport' => 'postMessage',
-					]
-				);
-
-				$wp_customize->add_control(
-					'domestic_front_page_section_color_' . $i, [
-						'label'    => sprintf( __( 'Text color', 'domestic' ), $i + 1 ),
-						'section'  => 'domestic_front_page',
-						'settings' => 'domestic_front_page_section_color_' . $i,
-						'type'     => 'color',
-					]
-				);
-
-				$wp_customize->selective_refresh->add_partial(
-					'domestic_front_page_section_page_' . $i,
-					[
-						'selector'            => '.front-page-section-key-' . $i,
-						'container_inclusive' => false,
-					]
-				);
-			}
-
-			if ( count( $sections ) === 0 ) {
-				$url     = admin_url( 'edit.php?post_type=page' );
-				$message = '<a href="' . esc_url( $url ) . '">' . __( 'Create new pages children of your Homepage. Once you are done, new sections will appear here.', 'domestic' ) . '</a>';
-				domestic_register_empty_homepage_customizer_field( $wp_customize, $message );
-			}
-		} else {
-			$url     = admin_url( 'edit.php?post_type=page' );
-			$message = '<a href="' . esc_url( $url ) . '">' . __( 'Create a new page to start creating Front Page sections.', 'domestic' ) . '</a>';
-
-			$message .= '<br/><br/>';
-
-			$url = admin_url( 'options-reading.php' );
-
-			$message .= '<a href="' . esc_url( $url ) . '">' . __( 'Then assign the page as front page.', 'domestic' ) . '</a>';
-
-			domestic_register_empty_homepage_customizer_field( $wp_customize, $message );
-		}
-
 	}
 
 	add_action( 'customize_register', 'domestic_register_theme_customizer' );
@@ -242,7 +115,7 @@ if ( ! function_exists( 'domestic_register_empty_homepage_customizer_field' ) ) 
 
 		$wp_customize->add_setting( 'domestic_empty_homepage_nag', [
 			'default' => $message,
-		]);
+		] );
 		$wp_customize->add_control(
 			new Domestic_Empty_Homepage_Nag_Control( $wp_customize, 'domestic_empty_homepage_nag', [
 				'label'    => 'whatever',
@@ -259,12 +132,45 @@ if ( ! function_exists( 'domestic_get_default_schema_color' ) ) {
 	}
 }
 
+if ( ! function_exists( 'domestic_darken_color' ) ) :
+	/**
+	 * Darken a given color
+	 *
+	 * @props to Aleš Farčnik - https://coderwall.com/p/dvecdg/darken-hex-color-in-php
+	 *
+	 * @param $rgb
+	 * @param int $darker
+	 *
+	 * @return string
+	 */
+	function domestic_darken_color( $rgb, $darker = 2 ) {
+
+		$hash = ( strpos( $rgb, '#' ) !== false ) ? '#' : '';
+		$rgb  = ( strlen( $rgb ) === 7 ) ? str_replace( '#', '', $rgb ) : ( ( strlen( $rgb ) === 6 ) ? $rgb : false );
+		if ( strlen( $rgb ) !== 6 ) {
+			return $hash . '000000';
+		}
+		$darker = ( $darker > 1 ) ? $darker : 1;
+
+		list( $r_16, $g_16, $b_16 ) = str_split( $rgb, 2 );
+
+		$red   = sprintf( '%02X', floor( hexdec( $r_16 ) / $darker ) );
+		$green = sprintf( '%02X', floor( hexdec( $g_16 ) / $darker ) );
+		$blue  = sprintf( '%02X', floor( hexdec( $b_16 ) / $darker ) );
+
+		return $hash . $red . $green . $blue;
+	}
+endif;
+
 if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 	function domestic_set_schema_color() {
 		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
 		if ( domestic_get_default_schema_color() === $main_color ) {
 			return;
 		}
+
+		$palette = domestic_color_palette();
+
 		?>
 		<style>
 			a,
@@ -311,14 +217,111 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			.has-domestic-color-color {
 				color: <?php echo esc_attr( $main_color ); ?>;
 			}
+
 			.has-domestic-color-background-color {
 				background-color: <?php echo esc_attr( $main_color ); ?>;
 			}
+
+			.wp-block-button .wp-block-button__link {
+				background-color: <?php echo esc_attr( $main_color ); ?>;
+			}
+
+			.wp-block-button .wp-block-button__link:hover {
+				background-color: <?php echo esc_attr( domestic_darken_color( $main_color ) ); ?>;
+			}
+
+			.wp-block-button.is-style-outline .wp-block-button__link {
+				color: <?php echo esc_attr( $main_color ); ?>;
+				border-color: <?php echo esc_attr( $main_color ); ?>;
+				background-color: transparent;
+			}
+
+			.wp-block-button.is-style-outline .wp-block-button__link:hover {
+				color: <?php echo domestic_darken_color( $main_color ); ?>;
+				border-color: <?php echo esc_attr( domestic_darken_color( $main_color ) ); ?>;
+				background: transparent;
+			}
+
+			<?php foreach ( $palette as $item ) : ?>
+			body #content .entry-content .wp-block-button .wp-block-button__link.has-<?php echo $item['slug']; ?>-color {
+				color: <?php echo esc_attr( $item['color'] ); ?>
+			}
+
+			body #content .entry-content .wp-block-button .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color {
+				background: <?php echo esc_attr( $item['color'] ); ?>
+			}
+
+			body #content .entry-content .wp-block-button .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color:hover {
+				background: <?php echo esc_attr( domestic_darken_color( $item['color'], 2 ) ); ?>
+			}
+
+			body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-<?php echo $item['slug']; ?>-color {
+				color: <?php echo esc_attr( $item['color'] ); ?>
+			}
+
+			body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color {
+				border-color: <?php echo esc_attr( $item['color'] ); ?>;
+				background: transparent;
+			}
+
+			body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color:hover {
+				border-color: <?php echo esc_attr( domestic_darken_color( $item['color'], 2 ) ); ?>;
+			}
+
+			<?php endforeach; ?>
+
+
 		</style>
 		<?php
 	}
 
 	add_action( 'wp_head', 'domestic_set_schema_color', 999 );
+endif;
+
+
+if ( ! function_exists( 'domestic_editor_styles' ) ) :
+	/**
+	 * Styles for WP Editor
+	 */
+	function domestic_editor_styles() {
+		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
+		if ( domestic_get_default_schema_color() === $main_color ) {
+			return;
+		}
+		?>
+		<style>
+			body .editor-styles-wrapper a {
+				color: <?php echo esc_attr( $main_color ); ?> !important;
+			}
+
+			body .editor-styles-wrapper .wp-block-button .wp-block-button__link {
+				background-color: <?php echo esc_attr( $main_color ); ?>;
+			}
+
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
+				border: 1px solid<?php echo esc_attr( $main_color ); ?>;
+				color: <?php echo esc_attr( $main_color ); ?>;
+			}
+
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:hover.disabled,
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:hover[disabled],
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:focus.disabled,
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:focus[disabled] {
+				border: 1px solid<?php echo esc_attr( $main_color ); ?>;
+				color: <?php echo esc_attr( $main_color ); ?>;
+			}
+
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link.has-domestic-color-color {
+				color: <?php echo esc_attr( $main_color ); ?>;
+			}
+
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link.has-domestic-color-background-color {
+				border-color: <?php echo esc_attr( $main_color ); ?>;
+				background-color: transparent;
+			}
+		</style>
+		<?php
+	}
 endif;
 
 if ( ! function_exists( 'domestic_set_front_page_styles' ) ) :
@@ -343,22 +346,20 @@ if ( ! function_exists( 'domestic_set_front_page_styles' ) ) :
 endif;
 
 
-add_filter(
-	'domestic_front_page_section_attributes', function ( $attributes, $style ) {
-		switch ( $style ) {
-			case 'style-a':
-			case 'style-a-parallax':
-				$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-				$style     = $thumb_url ? "background-image: url('" . esc_url( $thumb_url ) . "');" : '';
+add_filter( 'domestic_front_page_section_attributes', function ( $attributes, $style ) {
+	switch ( $style ) {
+		case 'style-a':
+		case 'style-a-parallax':
+			$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+			$style     = $thumb_url ? "background-image: url('" . esc_url( $thumb_url ) . "');" : '';
 
-				return 'class="' . join( ' ', get_post_class( '' ) ) . '" style="' . $style . '"';
+			return 'class="' . join( ' ', get_post_class( '' ) ) . '" style="' . $style . '"';
 			break;
-			case 'style-b':
-			case 'style-c':
-				return 'class="' . join( ' ', get_post_class( 'row align-center align-middle' ) ) . '"';
+		case 'style-b':
+		case 'style-c':
+			return 'class="' . join( ' ', get_post_class( 'row align-center align-middle' ) ) . '"';
 			break;
-			default:
-				return 'class="' . join( ' ', get_post_class( 'row' ) ) . '"';
-		}
-	}, 1, 2
-);
+		default:
+			return 'class="' . join( ' ', get_post_class( 'row' ) ) . '"';
+	}
+}, 1, 2 );
