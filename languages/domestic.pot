@@ -162,23 +162,23 @@ msgstr ""
 msgid "Start creating child pages of this one to customize Front Page sections"
 msgstr ""
 
-#: inc/gutenberg.php:35
+#: inc/gutenberg.php:36
 msgid "Domestic Main Color"
 msgstr ""
 
-#: inc/gutenberg.php:40
+#: inc/gutenberg.php:41
 msgid "Black"
 msgstr ""
 
-#: inc/gutenberg.php:45
+#: inc/gutenberg.php:46
 msgid "Light Gray"
 msgstr ""
 
-#: inc/gutenberg.php:50
+#: inc/gutenberg.php:51
 msgid "White"
 msgstr ""
 
-#: inc/gutenberg.php:55
+#: inc/gutenberg.php:56
 msgid "Dark Gray"
 msgstr ""
 

@@ -1,14 +1,14 @@
 // Alignment
 #content .entry-content {
-	> *.alignfull,
-	> *.alignwide {
+	*.alignfull,
+	*.alignwide {
 		margin-left  : calc( -100vw / 2 + 100% / 2 );
 		margin-right : calc( -100vw / 2 + 100% / 2 );
 		max-width    : 100vw;
 	}
 
 	@include breakpoint( medium ){
-		> *.alignwide {
+		*.alignwide {
 			margin-left:rem-calc(-100);
 			margin-right:rem-calc(-100);
 			max-width: $global-width + rem-calc( 200 );
@@ -18,13 +18,13 @@
 
 body.has-sidebar #content .entry-content {
 	@include breakpoint( large ){
-		> *.alignfull {
+		*.alignfull {
 			width:auto;
 			margin-left: calc( 50% / .75 - 50vw );
 			margin-right:0;
 		}
 
-		> *.alignwide {
+		*.alignwide {
 			margin-left:rem-calc(-50);
 			max-width: $global-width + rem-calc( 50 );
 			margin-right:0;
