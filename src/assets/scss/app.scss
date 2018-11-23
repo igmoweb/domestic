@@ -14,10 +14,10 @@
 @include foundation-menu-icon;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
-@include foundation-responsive-embed;
+//@include foundation-responsive-embed;
 @include foundation-label;
 @include foundation-off-canvas;
-@include foundation-table;
+//@include foundation-table;
 @include foundation-title-bar;
 @include foundation-top-bar;
 @include foundation-visibility-classes;
@@ -52,7 +52,6 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
-@import "components/woocommerce";
 @import "components/jetpack";
 @import "components/reveal";
 @import "components/shortcodes_ultimate";

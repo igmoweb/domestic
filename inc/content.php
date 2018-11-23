@@ -28,6 +28,9 @@ endif;
 
 if ( ! function_exists( 'domestic_has_sidebar' ) ) :
 	function domestic_has_sidebar( $sidebar = 'sidebar' ) {
+		if ( is_page() ) {
+			return is_page_template( 'page-templates/page-sidebar.php' );
+		}
 		return is_active_sidebar( $sidebar . '-widgets' );
 	}
 endif;
@@ -48,23 +51,24 @@ if ( ! function_exists( 'domestic_get_thumbnail_size' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'domestic_mobile_nav_class' ) ) :
+if ( ! function_exists( 'domestic_body_classes' ) ) :
 	// Add class to body to help w/ CSS
-	function domestic_mobile_nav_class( $classes ) {
+	function domestic_body_classes( $classes ) {
 		$classes[] = 'offcanvas';
 		$classes[] = 'domestic-menu-schema-' . get_theme_mod( 'domestic_menu_schema', 'dark' );
-		if ( domestic_has_sidebar( 'top' ) ) {
-			$classes[] = 'has-top-sidebar';
-		}
 		if ( domestic_has_sidebar( 'footer' ) ) {
 			$widgets   = wp_get_sidebars_widgets();
 			$cols      = count( $widgets['footer-widgets'] );
 			$classes[] = 'domestic-footer-widgets-cols-' . $cols;
 		}
+		if ( domestic_has_sidebar() && ! is_front_page() ) {
+			$classes[] = 'has-sidebar';
+		}
+
 		return $classes;
 	}
 
-	add_filter( 'body_class', 'domestic_mobile_nav_class' );
+	add_filter( 'body_class', 'domestic_body_classes' );
 endif;
 
 if ( ! function_exists( 'domestic_entry_meta' ) ) :

@@ -55,14 +55,6 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		// Add post formats support: http://codex.wordpress.org/Post_Formats
 		add_theme_support( 'post-formats', [ 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ] );
 
-		// Additional theme support for woocommerce 3.0.+
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
-
-		// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
-		add_editor_style( 'dist/assets/css/' . domestic_asset_path( 'app.css' ) );
-
 		$GLOBALS['content_width'] = 1130;
 	}
 

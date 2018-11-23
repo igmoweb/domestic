@@ -40,7 +40,8 @@ endif;
 
 if ( ! function_exists( 'domestic_display_sticky_slider' ) ) :
 	function domestic_display_sticky_slider() {
-		return ( get_theme_mod( 'domestic_show_sticky_slider', true ) && is_home() && ! is_admin() );
+		$stickies = get_option( 'sticky_posts' );
+		return ! empty( $stickies ) && is_home() && ! is_admin();
 	}
 endif;
 

@@ -1,4 +1,8 @@
-body.home {
+body.home.page {
+
+	.page-title {
+		margin-top:2 * $global-margin;
+	}
 
 	.home-main-content {
 		margin-top: 5 * $global-margin;

@@ -1,5 +1,6 @@
 #content {
 	.page-title {
+		overflow-wrap: break-word;
 		margin-bottom: 3 * $global-margin;
 		@include line-after( $black, 80px );
 	}
@@ -34,7 +35,7 @@
 				margin-top: 2 * $global-margin;
 			}
 		}
-		
+
 		footer {
 			clear: both;
 		}
@@ -95,9 +96,4 @@ h1,h2,h3,h4,h5,h6 {
 	}
 }
 
-.taxonomy-description {
-	color: $dark-gray;
-	font-size: $small-font-size;
-	width: 80%;
-	margin: 0 auto;
-}
+@include gutenberg-block-table();

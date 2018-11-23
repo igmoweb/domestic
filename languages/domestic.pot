@@ -102,11 +102,11 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: inc/content.php:78
+#: inc/content.php:82
 msgid "Posted on %1$s at."
 msgstr ""
 
-#: inc/content.php:89
+#: inc/content.php:93
 msgid "by %s"
 msgstr ""
 
@@ -150,64 +150,16 @@ msgstr ""
 msgid "Home Slider."
 msgstr ""
 
-#: inc/customizer.php:87
-msgid "Display the home slider"
-msgstr ""
-
-#: inc/customizer.php:98
+#: inc/customizer.php:82
 msgid "Footer Tagline"
 msgstr ""
 
-#: inc/customizer.php:99
+#: inc/customizer.php:83
 msgid "Footer Tagline."
 msgstr ""
 
-#: inc/customizer.php:113
+#: inc/customizer.php:97
 msgid "Footer tagline"
-msgstr ""
-
-#: inc/customizer.php:127, inc/customizer.php:128
-msgid "Front Page"
-msgstr ""
-
-#: inc/customizer.php:134
-msgid "-- Select a page --"
-msgstr ""
-
-#: inc/customizer.php:137
-msgid "Default"
-msgstr ""
-
-#: inc/customizer.php:138
-msgid "Style A"
-msgstr ""
-
-#: inc/customizer.php:139
-msgid "Style A - Parallax"
-msgstr ""
-
-#: inc/customizer.php:140
-msgid "Style B"
-msgstr ""
-
-#: inc/customizer.php:141
-msgid "Style C"
-msgstr ""
-
-#: inc/customizer.php:159
-msgid "Section %d"
-msgstr ""
-
-#: inc/customizer.php:176
-msgid "Style"
-msgstr ""
-
-#: inc/customizer.php:194
-msgid "Background"
-msgstr ""
-
-#: inc/customizer.php:211
-msgid "Text color"
 msgstr ""
 
 #: inc/front-page.php:13, inc/front-page.php:29
@@ -216,6 +168,42 @@ msgstr ""
 
 #: inc/front-page.php:25
 msgid "Start creating child pages of this one to customize Front Page sections"
+msgstr ""
+
+#: inc/gutenberg.php:36
+msgid "Domestic Main Color"
+msgstr ""
+
+#: inc/gutenberg.php:41
+msgid "Black"
+msgstr ""
+
+#: inc/gutenberg.php:46
+msgid "Light Gray"
+msgstr ""
+
+#: inc/gutenberg.php:51
+msgid "White"
+msgstr ""
+
+#: inc/gutenberg.php:56
+msgid "Dark Gray"
+msgstr ""
+
+#: inc/images.php:34
+msgid "FP Small"
+msgstr ""
+
+#: inc/images.php:35
+msgid "FP Medium"
+msgstr ""
+
+#: inc/images.php:36
+msgid "FP Large"
+msgstr ""
+
+#: inc/images.php:37
+msgid "FP XLarge"
 msgstr ""
 
 #: inc/navigation.php:12
@@ -254,15 +242,11 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: page-templates/page-full-width.php:3
-msgid "Full width"
+#: page-templates/page-sidebar.php:3
+msgid "Page with sidebar"
 msgstr ""
 
-#: page-templates/page-sidebar-left.php:3
-msgid "Left Sidebar"
-msgstr ""
-
-#: template-parts/content-front-page.php:41, template-parts/content-page.php:14, template-parts/content-portfolio.php:17, template-parts/content.php:43
+#: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content-portfolio.php:17, template-parts/content.php:43
 msgid "(Edit)"
 msgstr ""
 

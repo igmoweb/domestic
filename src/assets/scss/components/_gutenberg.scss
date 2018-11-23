@@ -1,17 +1,73 @@
-figure.wp-block-image.alignfull,
-figure.wp-block-image.alignwide {
-	width: 100vw;
-	position: relative;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	text-align: center;
+// Alignment
+#content .entry-content {
+	*.alignfull,
+	*.alignwide {
+		margin-left  : calc( -100vw / 2 + 100% / 2 );
+		margin-right : calc( -100vw / 2 + 100% / 2 );
+		max-width    : 100vw;
+	}
+
+	@include breakpoint( medium ){
+		*.alignwide {
+			margin-left:rem-calc(-100);
+			margin-right:rem-calc(-100);
+			max-width: $global-width + rem-calc( 200 );
+		}
+	}
 }
 
-figure.wp-block-image.alignfull img {
-	width:100%
+body.has-sidebar #content .entry-content {
+	@include breakpoint( large ){
+		*.alignfull {
+			width:auto;
+			margin-left: calc( 50% / .75 - 50vw );
+			margin-right:0;
+		}
+
+		*.alignwide {
+			margin-left:rem-calc(-50);
+			max-width: $global-width + rem-calc( 50 );
+			margin-right:0;
+		}
+	}
 }
-figure.wp-block-image.alignwide img {
-	width:90%
+
+// Image Block
+.wp-block-image {
+	figure {
+		margin-bottom:$paragraph-margin-bottom;
+	}
+
+	figure.alignleft {
+		margin-right:$global-margin;
+	}
+	figure.alignright {
+		margin-right:$global-margin;
+	}
+
+	@include breakpoint( medium ) {
+		&.alignfull img {
+			width:100%;
+		}
+	}
 }
+
+// Cover block
+.wp-block-cover.alignfull {
+	width:100vw;
+}
+
+// Button block
+@include gutenberg-block-button();
+
+
+// Gutenberg color palette styles
+@include gutenberg-color-palette-styles( 'domestic-color', $primary-color );
+@include gutenberg-color-palette-styles( 'domestic-black', $black );
+@include gutenberg-color-palette-styles( 'domestic-light-gray', $light-gray );
+@include gutenberg-color-palette-styles( 'domestic-white', $white );
+@include gutenberg-color-palette-styles( 'domestic-dark-gray', $dark-gray );
+
+// No margin styles
+@include gutenberg-no-margin-styles();
+

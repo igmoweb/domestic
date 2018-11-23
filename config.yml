@@ -1,14 +1,14 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "http://local.wordpress.test/"
+  url: "http://domestic.wordpress-multisite.test/"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
   - "last 2 versions"
   - "ie >= 9"
   - "ios >= 7"
-  
+
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: true
 
@@ -29,6 +29,9 @@ PATHS:
     - "src/assets/js/app.js"
     - "src/assets/js/customize.js"
     - "src/assets/owl-carousel/owl.carousel.js"
+  # Paths to JavaScript entry points for webpack to bundle Gutenberg JS
+  gutenberg:
+    - "src/assets/js/gutenberg.js"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"
@@ -47,8 +50,10 @@ PATHS:
     - "!README.md"
     - "!CHANGELOG.md"
     - "!tools"
+    - "!phpcs.ruleset.xml"
+    - "!**/vendor/**"
   # Paths for PHP CodeSniffer
   phpcs:
     - "**/*.php"
     - "!wpcs"
-    - "!wpcs/**"  
+    - "!wpcs/**"

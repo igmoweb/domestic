@@ -98,7 +98,7 @@ function buildSass( sources ) {
 }
 
 function sass() {
-	return buildSass( [ 'src/assets/scss/app.scss', 'src/assets/scss/gutenberg.scss', 'src/assets/scss/app-rtl.scss' ] );
+	return buildSass( [ 'src/assets/scss/app.scss', 'src/assets/scss/editor-styles.scss', 'src/assets/scss/app-rtl.scss' ] );
 }
 
 function sassOwlCarousel() {
@@ -160,10 +160,51 @@ const webpack = {
 			)
 			.pipe( gulp.dest( PATHS.dist + '/assets/js' ) );
 	},
+
+	watchGutenberg() {
+		const watchConfig = Object.assign( webpack.config, {
+			watch: true,
+			devtool: 'inline-source-map',
+		} );
+
+		return gulp.src( PATHS.gutenberg )
+			.pipe( named() )
+			.pipe( webpackStream( watchConfig, webpack2, ( err, stats ) => {
+				log( '[webpack]', stats.toString( {
+					colors: true,
+				} ) );
+
+				browser.reload();
+			} )
+				.on( 'error', ( err ) => {
+					log( '[webpack:error]', err.toString( {
+						colors: true,
+					} ) );
+				} ),
+			)
+			.pipe( gulp.dest( PATHS.dist + '/assets/js' ) );
+	},
+
+	buildGutenberg() {
+		return gulp.src( PATHS.gutenberg )
+			.pipe( named() )
+			.pipe( webpackStream( webpack.config, webpack2 ) )
+			.pipe( $.if( PRODUCTION, $.uglify()
+				.on( 'error', e => {
+					console.log( e );
+				} ),
+			) )
+			.pipe( $.if( REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev() ) )
+			.pipe( gulp.dest( PATHS.dist + '/assets/js' ) )
+			.pipe( $.if( REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest('gutenberg-manifest.json') ) )
+			.pipe( gulp.dest( PATHS.dist + '/assets/js' ) );
+	},
 };
 
 gulp.task( 'webpack:build', webpack.build );
 gulp.task( 'webpack:watch', webpack.watch );
+gulp.task( 'webpack:watch:gutenberg', webpack.watchGutenberg );
+gulp.task( 'webpack:build:gutenberg', webpack.buildGutenberg );
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
@@ -257,7 +298,18 @@ function watch() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task( 'build',
-	gulp.series( clean, 'wpPot', gulp.parallel( sass, 'webpack:build', images, copy ) ) );
+	gulp.series(
+		clean,
+		'wpPot',
+		gulp.parallel(
+			sass,
+			'webpack:build',
+			'webpack:build:gutenberg',
+			images,
+			copy
+		)
+	)
+);
 
 // Build the site, run the server, and watch for file changes
 gulp.task( 'default',
@@ -267,6 +319,7 @@ gulp.task( 'default',
 		server,
 		gulp.parallel(
 			'webpack:watch',
+			'webpack:watch:gutenberg',
 			watch
 		)
 	)
@@ -275,3 +328,5 @@ gulp.task( 'default',
 // Package task
 gulp.task( 'package',
 	gulp.series( 'wpPot', 'build', archive ) );
+
+gulp.task( 'sass', sass );

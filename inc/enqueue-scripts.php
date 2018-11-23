@@ -14,10 +14,10 @@
 //https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
 
 if ( ! function_exists( 'domestic_asset_path' ) ) :
-	function domestic_asset_path( $filename ) {
+	function domestic_asset_path( $filename, $manifest = 'rev-manifest.json' ) {
 		$filename_split = explode( '.', $filename );
 		$dir            = end( $filename_split );
-		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/rev-manifest.json';
+		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/' . $manifest;
 
 		if ( file_exists( $manifest_path ) ) {
 			$manifest = json_decode( file_get_contents( $manifest_path ), true );
@@ -55,8 +55,6 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 			$localize['stickyCarouselCount'] = count( $query->get_posts() );
 		}
 
-		wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,400i,700' );
-
 		// Add the comment-reply library on pages where it is necessary
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -85,13 +83,24 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 
 endif;
 
-if ( ! function_exists( 'domestic_gutenber_scripts' ) ) :
-	/**
-	 * Load dynamic logic for the customizer controls area.
-	 */
-	function domestic_gutenber_scripts() {
-		wp_enqueue_style( 'domestic-gutenberg', get_template_directory_uri() . '/dist/assets/css/gutenberg.css' );
-	}
-	add_action( 'enqueue_block_editor_assets', 'domestic_gutenber_scripts' );
 
+if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
+	/**
+	 * Enqueue editor JS assets
+	 */
+	function domestic_block_editor_assets() {
+		// Gutenberg scripts
+		wp_enqueue_script(
+			'domestic-gutenberg',
+			get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'gutenberg.js', 'gutenberg-manifest.json' ),
+			[ 'wp-blocks', 'wp-i18n' ],
+			'',
+			true
+		);
+
+		// The color palette can be set from customizer, we need to add extra css to the editor
+		domestic_editor_styles();
+	}
+
+	add_action( 'enqueue_block_editor_assets', 'domestic_block_editor_assets' );
 endif;

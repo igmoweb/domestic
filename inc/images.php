@@ -31,10 +31,10 @@ add_image_size( 'fp-xlarge', 1920 );
 function domestic_custom_sizes( $sizes ) {
 	return array_merge(
 		$sizes, [
-			'fp-small'  => __( 'FP Small' ),
-			'fp-medium' => __( 'FP Medium' ),
-			'fp-large'  => __( 'FP Large' ),
-			'fp-xlarge' => __( 'FP XLarge' ),
+			'fp-small'  => __( 'FP Small', 'domestic' ),
+			'fp-medium' => __( 'FP Medium', 'domestic' ),
+			'fp-large'  => __( 'FP Large', 'domestic' ),
+			'fp-xlarge' => __( 'FP XLarge', 'domestic' ),
 		]
 	);
 }

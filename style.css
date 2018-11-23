@@ -3,12 +3,14 @@ Theme Name:         Domestic
 Theme URI:          https://es.wordpress.org/themes/domestic
 Github Theme URI:   https://github.com/igmoweb/domestic
 Description:        Domestic Theme is a simple and modern theme suitable for personal sites
-Version:            1.0
+Version:            0.1
 Author:             igmoweb,mrfoxtalbot
 Author URI:         http://igmoweb.com/
 
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
+
+Text Domain:        domestic
 */
 
 /* ----------------------------------------------------------------------------
@@ -34,3 +36,4 @@ License URI:        http://www.gnu.org/licenses/gpl-2.0.html
   you could just enqueue this file (style.css) to the header and add your styles in this file
 
 ---------------------------------------------------------------------------- */
+

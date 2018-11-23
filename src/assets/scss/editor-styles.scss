@@ -1,0 +1,163 @@
+@import 'settings';
+@import 'foundation';
+@import 'mixins';
+
+$content-width: 1129px;
+
+.wp-block {
+	max-width: $content-width;
+
+	&[data-align="full"] {
+		max-width: none;
+	}
+
+	&[data-align="wide"] {
+		max-width: $global-width + rem-calc( 200 );
+	}
+
+	&[data-align="left"] .editor-block-list__block-edit {
+		margin-right: $global-margin;
+	}
+	&[data-align="right"] .editor-block-list__block-edit {
+		margin-left: $global-margin;
+	}
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+
+	background: $body-background;
+
+	font-family: $body-font-family;
+	font-weight: $global-weight-normal;
+	line-height: $global-lineheight;
+	color: $body-font-color;
+
+	@if ($body-antialiased) {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+// Headings
+.wp-block-heading {
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		font-family: $header-font-family;
+		font-style: $header-font-style;
+		font-weight: $header-font-weight;
+		color: $header-color;
+		text-rendering: $header-text-rendering;
+
+		small {
+			line-height: 0;
+			color: $header-small-font-color;
+		}
+	}
+
+	// Heading styles
+	@each $size, $headers in $header-styles {
+		@include breakpoint($size) {
+			@each $header, $header-defs in $headers {
+				$font-size-temp: 1rem;
+				#{$header}, .#{$header} {
+
+					$font-size-temp: map-get($header-defs, font-size);
+					font-size: $font-size-temp + px;
+					@if map-has-key($header-defs, line-height) {
+						line-height: unitless-calc(map-get($header-defs, line-height), $font-size-temp);
+					} @else if map-has-key($header-defs, lh) {
+						line-height: unitless-calc(map-get($header-defs, lh), $font-size-temp);
+					} @else if $size == $-zf-zero-breakpoint {
+						line-height: unitless-calc($header-lineheight, $font-size-temp);
+					}
+
+					@if map-has-key($header-defs, margin-top) {
+						margin-top: map-get($header-defs, margin-top);
+					} @else if map-has-key($header-defs, mt) {
+						margin-top: map-get($header-defs, mt);
+					} @else if $size == $-zf-zero-breakpoint {
+						margin-top: 0;
+					}
+					@if map-has-key($header-defs, margin-bottom) {
+						margin-bottom: map-get($header-defs, margin-bottom);
+					} @else if map-has-key($header-defs, mb) {
+						margin-bottom: map-get($header-defs, mb);
+					} @else if $size == $-zf-zero-breakpoint {
+						margin-bottom: ($header-margin-bottom);
+					}
+				}
+			}
+		}
+	}
+}
+
+// Paragraph
+.wp-block-paragraph {
+	line-height: $global-lineheight;
+}
+
+// Pullquote
+.wp-block-pullquote {
+	border-top:none;
+	border-bottom: none;
+}
+
+// Buttons
+@include gutenberg-block-button( true );
+
+// Separator
+hr.wp-block-separator {
+	clear: both;
+
+	max-width: $content-width !important;
+	height: 0;
+	margin: $hr-margin;
+
+	border-top: 0;
+	border-right: 0;
+	border-bottom: $hr-border;
+	border-left: 0;
+}
+
+// Blockquote
+blockquote.wp-block-quote {
+	margin: 0 0 $paragraph-margin-bottom;
+	padding: $blockquote-padding;
+	border-#{$global-left}: $blockquote-border !important;
+
+	&, p {
+		line-height: $paragraph-lineheight;
+		color: $blockquote-color;
+	}
+
+	.wp-block-quote__citation {
+		display: block;
+		font-size: $cite-font-size;
+		color: $cite-color;
+
+		&:before {
+			content: $cite-pseudo-content;
+		}
+	}
+}
+
+// No margin styles
+@include gutenberg-no-margin-styles( -32px );
+
+// Color palette styles
+@include gutenberg-editor-color-palette-styles( 'domestic-color', $primary-color );
+@include gutenberg-editor-color-palette-styles( 'domestic-black', $black );
+@include gutenberg-editor-color-palette-styles( 'domestic-light-gray', $light-gray );
+@include gutenberg-editor-color-palette-styles( 'domestic-white', $white );
+@include gutenberg-editor-color-palette-styles( 'domestic-dark-gray', $dark-gray );
+
+// Table Block
+@include gutenberg-block-table();
