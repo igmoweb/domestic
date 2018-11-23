@@ -200,15 +200,6 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			.owl-carousel.owl-theme .owl-nav button.owl-next:hover,
 			.owl-carousel.owl-theme .owl-nav button.owl-next:focus,
 			.button,
-			.woocommerce ul.products li.product .button,
-			.woocommerce #respond input#submit,
-			.woocommerce a.button,
-			.woocommerce button.button,
-			.woocommerce input.button,
-			.woocommerce #respond input#submit.alt,
-			.woocommerce a.button.alt,
-			.woocommerce button.button.alt,
-			.woocommerce input.button.alt,
 			#comments .comment-body header.comment-author .reply a,
 			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
 				background-color: <?php echo esc_attr( $main_color ); ?>;
