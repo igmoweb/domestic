@@ -182,6 +182,22 @@ msgstr ""
 msgid "Dark Gray"
 msgstr ""
 
+#: inc/images.php:34
+msgid "FP Small"
+msgstr ""
+
+#: inc/images.php:35
+msgid "FP Medium"
+msgstr ""
+
+#: inc/images.php:36
+msgid "FP Large"
+msgstr ""
+
+#: inc/images.php:37
+msgid "FP XLarge"
+msgstr ""
+
 #: inc/navigation.php:12
 msgid "Right Top Bar"
 msgstr ""

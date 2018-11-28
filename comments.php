@@ -90,16 +90,7 @@ if ( post_password_required() ) {
 if ( comments_open() ) :
 	if ( ( is_page() || is_single() ) && ( ! is_home() && ! is_front_page() ) ) :
 ?>
-<section id="respond">
-	<h4>
-		<?php
-			comment_form_title(
-				__( 'Leave a Reply', 'domestic' ),
-				/* translators: %s: author of comment being replied to */
-				__( 'Leave a Reply to %s', 'domestic' )
-			);
-		?>
-	</h4>
+<section id="respond-wrap">
 	<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
 	<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
 	<p>

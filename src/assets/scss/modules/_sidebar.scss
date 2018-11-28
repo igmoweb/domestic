@@ -57,6 +57,10 @@
 	section.widget {
 		padding-right: $global-margin;
 		padding-left: $global-margin;
+
+		ul li a {
+			line-height:$global-lineheight * 0.75;
+		}
 	}
 
 	.widget-title {
