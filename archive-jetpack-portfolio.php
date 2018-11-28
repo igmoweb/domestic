@@ -29,19 +29,13 @@
 
 		<?php if ( have_posts() ) : ?>
 			<div id="portfolio-content" class="row">
-
-				<?php
-				while ( have_posts() ) :
-					the_post();
-					?>
+				<?php while ( have_posts() ) :the_post(); ?>
 					<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
 				<?php endwhile; ?>
 			</div>
 		<?php else : ?>
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 		<?php endif; // End have_posts() check. ?>
-
-		<h2 style="color:red">LOAD MORE PROJECTS BUTTON MISSING</h2>
 	</main>
 
 <?php get_sidebar(); ?>

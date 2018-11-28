@@ -66,6 +66,8 @@ body.post-type-archive-jetpack-portfolio {
 					transform: translateY(-50%);
 					text-align: center;
 					font-size: $global-font-size;
+					padding-left:1rem;
+					padding-right:1rem;
 				}
 			}
 			&:hover,
@@ -93,13 +95,22 @@ body.post-type-archive-jetpack-portfolio {
 
 		.porfolio-filter {
 			margin-bottom: 2 * $global-margin;
+			li {
+				margin-right: $global-margin;
+				a {
+					font-size: $small-font-size;
+				}
+			}
+			li > a {
+				@include button();
+			}
 			li > span {
-				line-height: 1;
-				text-decoration: none;
-				display: block;
-				padding: $menu-items-padding;
+				@include button();
+				@include button-disabled( $dark-gray, $white );
 			}
 		}
+
+		.edit-link {display:none}
 
 	}
 }
