@@ -2,8 +2,8 @@
 
 
 @import 'settings';
-@import 'foundation';
-@import 'motion-ui';
+@import '~foundation-sites/scss/foundation';
+@import '~motion-ui/motion-ui';
 
 @include foundation-global-styles;
 @include foundation-flex-grid;

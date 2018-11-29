@@ -2,7 +2,7 @@ module.exports = {
 	BROWSERSYNC: {
 
 		// URL of local development server goes here (ex. http://localsite.dev)
-		url: ''
+		url: 'http://domestic.wordpress-multisite.test/'
 	},
 
 	// Autoprefixer config
@@ -26,9 +26,21 @@ module.exports = {
 		// The object key is path and name in dist folder
 		// The object value is path and name in source folder
 		entries: {
-			'js/theme': './src/js/theme.js',
-			'css/style': './src/scss/style.scss',
-			'css/editor-styles': './src/scss/editor-styles.scss'
+			'assets/js/app': './src/assets/js/app.js',
+			'assets/js/customize': './src/assets/js/customize.js',
+			'assets/js/gutenberg': './src/assets/js/gutenberg.js',
+			'assets/js/owl.carousel': './src/assets/owl-carousel/owl.carousel.js',
+			'assets/css/style': './src/assets/scss/app.scss',
+			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
+			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss',
+		},
+
+		// Where to place images inside dist folder
+		images: {
+			// path relative to dist folder
+			outputPath: 'assets/css/',
+			// path relative to outputPath
+			relativePath: 'images'
 		},
 
 		// Exclude/Include these files from package when running npm run package
@@ -48,6 +60,7 @@ module.exports = {
 			'!webpack-config/**',
 			'!gulpfile.js',
 			'!config.js',
+			'!.editorconfig',
 			'!.gitignore',
 			'!README.md',
 			'!CHANGELOG.md',
