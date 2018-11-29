@@ -6,8 +6,8 @@ dist
 *.log
 .idea/
 *.swp
-packaged/
+package/
 wpcs/
-config.yml
+config.js
 vendor/
 languages/domestic.pot
