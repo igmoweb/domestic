@@ -113,15 +113,19 @@ if ( ! function_exists( 'domestic_register_empty_homepage_customizer_field' ) ) 
 	function domestic_register_empty_homepage_customizer_field( $wp_customize, $message ) {
 		include_once( 'class-domestic-empty-homepage-nag-control.php' );
 
-		$wp_customize->add_setting( 'domestic_empty_homepage_nag', [
-			'default' => $message,
-		] );
+		$wp_customize->add_setting(
+			'domestic_empty_homepage_nag', [
+				'default' => $message,
+			]
+		);
 		$wp_customize->add_control(
-			new Domestic_Empty_Homepage_Nag_Control( $wp_customize, 'domestic_empty_homepage_nag', [
-				'label'    => 'whatever',
-				'section'  => 'domestic_front_page',
-				'settings' => 'domestic_empty_homepage_nag',
-			] )
+			new Domestic_Empty_Homepage_Nag_Control(
+				$wp_customize, 'domestic_empty_homepage_nag', [
+					'label'    => 'whatever',
+					'section'  => 'domestic_front_page',
+					'settings' => 'domestic_empty_homepage_nag',
+				]
+			)
 		);
 	}
 }

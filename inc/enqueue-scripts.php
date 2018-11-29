@@ -15,9 +15,9 @@
 
 if ( ! function_exists( 'domestic_asset_path' ) ) :
 	function domestic_asset_path( $filename, $manifest = 'manifest.json' ) {
-		$dist_path = get_stylesheet_directory() . '/dist/';
-		$dist_url = get_stylesheet_directory_uri() . '/dist/';
-		$manifest_path  = $dist_path . $manifest;
+		$dist_path     = get_stylesheet_directory() . '/dist/';
+		$dist_url      = get_stylesheet_directory_uri() . '/dist/';
+		$manifest_path = $dist_path . $manifest;
 
 		if ( file_exists( $manifest_path ) ) {
 			$manifest = json_decode( file_get_contents( $manifest_path ), true );
