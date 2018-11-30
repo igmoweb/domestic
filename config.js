@@ -32,13 +32,15 @@ module.exports = {
 			'assets/js/owl.carousel': './src/assets/owl-carousel/owl.carousel.js',
 			'assets/css/style': './src/assets/scss/app.scss',
 			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
-			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss',
+			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss'
 		},
 
 		// Where to place images inside dist folder
 		images: {
+
 			// path relative to dist folder
 			outputPath: 'assets/css/',
+
 			// path relative to outputPath
 			relativePath: 'images'
 		},

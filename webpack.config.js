@@ -22,7 +22,7 @@ const commonConfig = merge([
 	},
 	parts.loadJavaScript(),
 	parts.manifest(),
-	parts.rtl(),
+	parts.rtl()
 ]);
 
 const productionConfig = merge([
@@ -42,14 +42,14 @@ const productionConfig = merge([
 				options: {
 					includePaths: config.PATHS.sassIncludes
 				}
-			},
+			}
 		]
 	}),
 	parts.generateSourceMaps({ type: 'source-map' }),
 	parts.minifyCSS(),
 	{
 		plugins: [ cleanPlugin ]
-	},
+	}
 ]);
 
 const developmentConfig = merge([
@@ -78,7 +78,7 @@ const developmentConfig = merge([
 				options: {
 					includePaths: config.PATHS.sassIncludes
 				}
-			},
+			}
 		],
 		filename: '[name].css'
 	}),

@@ -4,7 +4,8 @@
  * Instantly live-update customizer settings in the preview for improved user experience.
  */
 
-(function( $ ) {
+( function( $ ) {
+
 	// Update menu schema colors in real time
 	wp.customize( 'domestic_menu_schema', function( value ) {
 		value.bind( function( newval ) {
@@ -21,6 +22,6 @@
 					break;
 				}
 			}
-		} );
-	} );
-})( jQuery );
+		});
+	});
+}( jQuery ) );

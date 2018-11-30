@@ -1,3 +1,6 @@
 {
-	"extends": "./vendor/humanmade/coding-standards/.eslintrc.yml"
+	"extends": "wordpress",
+	"env": {
+		"es6": true
+	}
 }

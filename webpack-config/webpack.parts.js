@@ -31,10 +31,10 @@ module.exports = {
 						ignorePermissionErrors: true,
 						persistent: true,
 						usePolling: true
-					} )
+					})
 					.on( 'all', () => {
 						server.sockWrite( server.sockets, 'content-changed' );
-					} );
+					});
 			}
 		}
 	}),
@@ -42,7 +42,7 @@ module.exports = {
 	/**
 	 * Sass loader config
 	 */
-	loadSass: ( { use = [], filename = '[name].[hash].css' } = {} ) => {
+	loadSass: ({ use = [], filename = '[name].[hash].css' } = {}) => {
 
 
 		// Output extracted CSS to a file
@@ -60,14 +60,14 @@ module.exports = {
 							options: {
 								name: `${config.PATHS.images.relativePath}/[name].[ext]`,
 								publicPath: './',
-								outputPath: `${config.PATHS.images.outputPath}`,
+								outputPath: `${config.PATHS.images.outputPath}`
 							}
-						},
+						}
 					}
 				]
 			},
 			plugins: [
-				new MiniCssExtractPlugin( { filename } ),
+				new MiniCssExtractPlugin({ filename })
 			]
 		};
 	},
@@ -108,7 +108,7 @@ module.exports = {
 	/**
 	 * Webpack sourcemaps config
 	 */
-	generateSourceMaps: ( { type } ) => ({
+	generateSourceMaps: ({ type }) => ({
 		devtool: type
 	}),
 
@@ -116,15 +116,16 @@ module.exports = {
 	 * Generate a manifest JSON file in dist folder
 	 */
 	manifest: () => ({
-		plugins: [ new ManifestPlugin( {
+		plugins: [ new ManifestPlugin({
 			map: ( file ) => {
+
 				// Some hack for the manifest plugin
 				if ( /\.rtl\.css$/.test( file.path ) ) {
 					file.name = file.name.replace( '.css', '.rtl.css' );
 				}
 				return file;
 			}
-		} ) ]
+		}) ]
 	}),
 
 	/**
@@ -132,19 +133,20 @@ module.exports = {
 	 */
 	minifyCSS: () => ({
 		plugins: [
-			new OptimizeCSSAssetsPlugin( {
+			new OptimizeCSSAssetsPlugin({
 				cssProcessor: cssnano,
 				cssProcessorOptions: {
 					discardComments: {
-						removeAll: true,
+						removeAll: true
 					},
+
 					// Run cssnano in safe mode to avoid
 					// potentially unsafe transformations.
-					safe: true,
+					safe: true
 				},
-				canPrint: false,
-			} ),
-		],
+				canPrint: false
+			})
+		]
 	}),
 
 	/**
