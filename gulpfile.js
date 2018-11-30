@@ -33,10 +33,4 @@ gulp.task( 'package', function() {
 		.pipe( gulp.dest( 'package' ) );
 });
 
-// Clean the package folder
-gulp.task( 'clean', function() {
-	return gulp.src( 'package', { read: false })
-		.pipe( clean() );
-});
-
-gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'clean', 'package' ) );
+gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'package' ) );

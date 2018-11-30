@@ -7,6 +7,7 @@ dist
 .idea/
 *.swp
 package/
+!package/.gitkeep
 wpcs/
 vendor/
 languages/domestic.pot
