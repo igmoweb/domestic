@@ -27,6 +27,7 @@ module.exports = {
 			'assets/js/owl.carousel': './src/assets/owl-carousel/owl.carousel.js',
 			'assets/css/style': './src/assets/scss/style.scss',
 			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
+			'assets/css/editor-styles-backcomp': './src/assets/scss/editor-styles-backcomp.scss',
 			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss',
 		},
 
