@@ -25,7 +25,7 @@ module.exports = {
 			'assets/js/customize': './src/assets/js/customize.js',
 			'assets/js/gutenberg': './src/assets/js/gutenberg.js',
 			'assets/js/owl.carousel': './src/assets/owl-carousel/owl.carousel.js',
-			'assets/css/style': './src/assets/scss/app.scss',
+			'assets/css/style': './src/assets/scss/style.scss',
 			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
 			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss'
 		},

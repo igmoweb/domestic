@@ -8,6 +8,5 @@ dist
 *.swp
 package/
 wpcs/
-config.js
 vendor/
 languages/domestic.pot
