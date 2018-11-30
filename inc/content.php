@@ -43,6 +43,10 @@ if ( ! function_exists( 'domestic_get_thumbnail_size' ) ) :
 			return 'featured-medium';
 		}
 
+		if ( domestic_is_jetpack_portfolio_listing() ) {
+			return 'featured-large';
+		}
+
 		return 'featured-xlarge';
 	}
 endif;

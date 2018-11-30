@@ -3,7 +3,7 @@ body.infinite-scroll #post-nav {
 }
 
 #infinite-handle > span {
-	@include button( true, $secondary-color );
+	@include button( true, $primary-color );
 }
 
 span.infinite-loader {
@@ -17,3 +17,103 @@ span.infinite-loader {
 	font-size:90%;
 	@include headers-size( 0, small );
 }
+
+body.tax-jetpack-portfolio-type,
+body.tax-jetpack-portfolio-tag,
+body.post-type-archive-jetpack-portfolio {
+	#content  {
+		.page-title:after {
+			display:none;
+		}
+
+		article.hentry {
+			position: relative;
+			padding:0;
+			height: 300px;
+			background-size: cover;
+			background-color:$dark-gray;
+			background-position: center center;
+			background-repeat: no-repeat;
+			margin-bottom:0;
+			border:none;
+			header {
+				position: absolute;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				padding:$global-padding;
+				background:rgba( 51, 51, 51, 0.7 );
+				margin-bottom:0;
+				transition: visibility 0s, opacity 0.3s linear;
+				visibility: hidden;
+				opacity: 0;
+				@include breakpoint( small only ) {
+					display:block;
+				}
+				> a {
+					position:absolute;
+					display:block;
+					top:0;
+					left:0;
+					right:0;
+					bottom:0;
+				}
+				.page-title {
+					color:$white;
+					position:relative;
+					top: 50%;
+					transform: translateY(-50%);
+					text-align: center;
+					font-size: $global-font-size;
+					padding-left:1rem;
+					padding-right:1rem;
+				}
+			}
+			&:hover,
+			&:focus {
+				header {
+					visibility:visible;
+					opacity:1;
+				}
+			}
+			footer {
+				position: absolute;
+				bottom:$global-padding;
+				left:$global-padding;
+				right:$global-padding;
+			}
+		}
+
+		#infinite-handle {
+			display:none;
+		}
+
+		#portfolio-content {
+			padding-bottom:2 * $global-padding;
+		}
+
+		.porfolio-filter {
+			margin-bottom: 2 * $global-margin;
+			li {
+				margin-right: $global-margin;
+				a {
+					font-size: $small-font-size;
+				}
+			}
+			li > a {
+				@include button();
+			}
+			li > span {
+				@include button();
+				@include button-disabled( $dark-gray, $white );
+			}
+		}
+
+		.edit-link {display:none}
+
+	}
+}
+
+
+

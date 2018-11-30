@@ -263,6 +263,14 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 				border-color: <?php echo esc_attr( domestic_darken_color( $item['color'], 2 ) ); ?>;
 			}
 
+			body.post-type-archive-jetpack-portfolio #content .porfolio-filter  li > a {
+				background: <?php echo esc_attr( $main_color ); ?>
+			}
+
+			body.post-type-archive-jetpack-portfolio #content .porfolio-filter  li:hover > a {
+				background: <?php echo esc_attr( domestic_darken_color( $main_color, 2 ) ); ?>
+			}
+
 			<?php endforeach; ?>
 
 
