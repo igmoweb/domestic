@@ -2,8 +2,8 @@
 
 
 @import 'settings';
-@import 'foundation';
-@import 'motion-ui';
+@import '~foundation-sites/scss/foundation';
+@import '~motion-ui/motion-ui';
 
 @include foundation-global-styles;
 @include foundation-flex-grid;
@@ -39,7 +39,6 @@
 @import "modules/post";
 @import "modules/footer";
 @import "modules/editor-style";
-@import "modules/sticky-carousel";
 @import "modules/header";
 @import "modules/sidebar";
 @import "modules/404";
@@ -52,7 +51,6 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
-@import "components/jetpack";
 @import "components/reveal";
 @import "components/shortcodes_ultimate";
 @import "components/buddypress";

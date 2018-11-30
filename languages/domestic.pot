@@ -1,8 +1,8 @@
-# Copyright (C) 2018 Domestic Theme
-# This file is distributed under the same license as the Domestic Theme package.
+# Copyright (C) 2018 domestic
+# This file is distributed under the same license as the domestic package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Domestic Theme\n"
+"Project-Id-Version: domestic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,6 +29,7 @@ msgstr ""
 msgid "Check your spelling"
 msgstr ""
 
+#. translators: %s: home page url
 #: 404.php:21
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr ""
@@ -37,20 +38,13 @@ msgstr ""
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr ""
 
-#: archive-jetpack-portfolio.php:3
-msgid "Projects"
-msgstr ""
-
-#: archive-jetpack-portfolio.php:11, archive-jetpack-portfolio.php:14
-msgid "All"
-msgstr ""
-
 #. translators: %s: post title
 #: comments.php:20
 msgctxt "comments title"
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr ""
 
+#. translators: 1: number of comments, 2: post title
 #: comments.php:24
 msgctxt "comments title"
 msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
@@ -74,15 +68,8 @@ msgstr ""
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: comments.php:97
-msgid "Leave a Reply"
-msgstr ""
-
-#: comments.php:99
-msgid "Leave a Reply to %s"
-msgstr ""
-
-#: comments.php:110
+#. translators: %s: login url
+#: comments.php:101
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
@@ -102,11 +89,13 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: inc/content.php:82
+#. translators: %1$s: the post date
+#: inc/content.php:78
 msgid "Posted on %1$s at."
 msgstr ""
 
-#: inc/content.php:93
+#. translators: %s: Post Author
+#: inc/content.php:89
 msgid "by %s"
 msgstr ""
 
@@ -170,26 +159,6 @@ msgstr ""
 msgid "Start creating child pages of this one to customize Front Page sections"
 msgstr ""
 
-#: inc/gutenberg.php:36
-msgid "Domestic Main Color"
-msgstr ""
-
-#: inc/gutenberg.php:41
-msgid "Black"
-msgstr ""
-
-#: inc/gutenberg.php:46
-msgid "Light Gray"
-msgstr ""
-
-#: inc/gutenberg.php:51
-msgid "White"
-msgstr ""
-
-#: inc/gutenberg.php:56
-msgid "Dark Gray"
-msgstr ""
-
 #: inc/images.php:34
 msgid "FP Small"
 msgstr ""
@@ -242,11 +211,31 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
+#: inc/wp-editor.php:49
+msgid "Domestic Main Color"
+msgstr ""
+
+#: inc/wp-editor.php:54
+msgid "Black"
+msgstr ""
+
+#: inc/wp-editor.php:59
+msgid "Light Gray"
+msgstr ""
+
+#: inc/wp-editor.php:64
+msgid "White"
+msgstr ""
+
+#: inc/wp-editor.php:69
+msgid "Dark Gray"
+msgstr ""
+
 #: page-templates/page-sidebar.php:3
 msgid "Page with sidebar"
 msgstr ""
 
-#: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content-portfolio.php:17, template-parts/content.php:43
+#: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content.php:43
 msgid "(Edit)"
 msgstr ""
 
@@ -254,6 +243,7 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
+#. translators: %1$s: New post admin URL
 #: template-parts/content-none.php:24
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""

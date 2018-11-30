@@ -1,65 +1,45 @@
-// import whatInput from 'what-input';
-//
-// // If you want to pick and choose which modules to include, comment out the above and uncomment
-// // the line below
-// import { Foundation } from 'foundation-sites/js/foundation.core';
-// import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core';
-// import { DropdownMenu } from 'foundation-sites/js/foundation.dropdownMenu';
-// import { OffCanvas } from 'foundation-sites/js/foundation.offcanvas';
-//
-//
-// Foundation.addToJquery(jQuery);
-//
-// // Add Foundation Utils to Foundation global namespace for backwards
-// // compatibility.
-//
-// Foundation.rtl = rtl;
-// Foundation.GetYoDigits = GetYoDigits;
-// Foundation.transitionend = transitionend;
-//
-// // Touch and Triggers previously were almost purely sede effect driven,
-// // so no // need to add it to Foundation, just init them.
-
-
-
-
-
-// module.exports = Foundation;
-
+require( 'foundation-sites/dist/js/plugins/foundation.core' );
+require( 'foundation-sites/dist/js/plugins/foundation.util.keyboard.min.js' );
+require( 'foundation-sites/dist/js/plugins/foundation.util.box.min.js' );
+require( 'foundation-sites/dist/js/plugins/foundation.util.nest.js' );
+require( 'foundation-sites/dist/js/plugins/foundation.util.mediaQuery.js' );
+require( 'foundation-sites/dist/js/plugins/foundation.util.triggers.js' );
+require( 'foundation-sites/dist/js/plugins/foundation.dropdownMenu.min.js' );
+require( 'foundation-sites/dist/js/plugins/foundation.offcanvas.min.js' );
 
 jQuery( document ).ready( function( jQuery ) {
-	// Foundation.plugin(Foundation.DropdownMenu(), 'DropdownMenu');
-	// Foundation.plugin(Foundation.OffCanvas(), 'OffCanvas');
+	jQuery( document ).foundation();
 
-	var carousel = jQuery('.owl-carousel');
-	var postsNumber = domesticJS.stickyCarouselCount || 0;
+	const carousel = jQuery( '.owl-carousel' );
 	if ( ! carousel.length ) {
 		return;
 	}
+
+	const postsNumber = domesticJS.stickyCarouselCount || 0;
 	carousel.owlCarousel({
-		responsiveClass:true,
+		responsiveClass: true,
 		dots: false,
-		center:false,
-		loop:false,
+		center: false,
+		loop: false,
 		autoHeight: true,
-		margin:0,
-		touchDrag:false,
-		mouseDrag:true,
-		navText: ['<span class="dashicons dashicons-arrow-left-alt2"></span>','<span class="dashicons dashicons-arrow-right-alt2"></span>'],
-		nav:true,
-		responsive:{
-			0:{
-				items:Math.min( 1, postsNumber ),
-				nav:true
+		margin: 0,
+		touchDrag: false,
+		mouseDrag: true,
+		navText: [ '<span class="dashicons dashicons-arrow-left-alt2"></span>', '<span class="dashicons dashicons-arrow-right-alt2"></span>' ],
+		nav: true,
+		responsive: {
+			0: {
+				items: Math.min( 1, postsNumber ),
+				nav: true,
 			},
-			600:{
-				items:Math.min( 3, postsNumber ),
-				nav:false
+			600: {
+				items: Math.min( 3, postsNumber ),
+				nav: false,
 			},
-			1000:{
-				items:Math.min( 3, postsNumber ),
-				nav:true,
-			}
-		}
+			1000: {
+				items: Math.min( 3, postsNumber ),
+				nav: true,
+			},
+		},
 	});
 });

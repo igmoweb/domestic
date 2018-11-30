@@ -113,15 +113,19 @@ if ( ! function_exists( 'domestic_register_empty_homepage_customizer_field' ) ) 
 	function domestic_register_empty_homepage_customizer_field( $wp_customize, $message ) {
 		include_once( 'class-domestic-empty-homepage-nag-control.php' );
 
-		$wp_customize->add_setting( 'domestic_empty_homepage_nag', [
-			'default' => $message,
-		] );
+		$wp_customize->add_setting(
+			'domestic_empty_homepage_nag', [
+				'default' => $message,
+			]
+		);
 		$wp_customize->add_control(
-			new Domestic_Empty_Homepage_Nag_Control( $wp_customize, 'domestic_empty_homepage_nag', [
-				'label'    => 'whatever',
-				'section'  => 'domestic_front_page',
-				'settings' => 'domestic_empty_homepage_nag',
-			] )
+			new Domestic_Empty_Homepage_Nag_Control(
+				$wp_customize, 'domestic_empty_homepage_nag', [
+					'label'    => 'whatever',
+					'section'  => 'domestic_front_page',
+					'settings' => 'domestic_empty_homepage_nag',
+				]
+			)
 		);
 	}
 }
@@ -322,43 +326,3 @@ if ( ! function_exists( 'domestic_editor_styles' ) ) :
 		<?php
 	}
 endif;
-
-if ( ! function_exists( 'domestic_set_front_page_styles' ) ) :
-	function domestic_set_front_page_styles() {
-		if ( ! is_front_page() ) {
-			return;
-		}
-		?>
-		<style>
-			<?php foreach ( domestic_get_front_page_sections() as $key => $sections ) : ?>
-			.front-page-section-key-<?php echo $key; ?> {
-				background-color: <?php echo get_theme_mod( 'domestic_front_page_section_background_' . $key, 'transparent' ) ?>;
-				color: <?php echo get_theme_mod( 'domestic_front_page_section_color_' . $key, '#333333' ); ?>;
-			}
-
-			<?php endforeach; ?>
-		</style>
-		<?php
-	}
-
-	add_action( 'wp_head', 'domestic_set_front_page_styles', 999 );
-endif;
-
-
-add_filter( 'domestic_front_page_section_attributes', function ( $attributes, $style ) {
-	switch ( $style ) {
-		case 'style-a':
-		case 'style-a-parallax':
-			$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-			$style     = $thumb_url ? "background-image: url('" . esc_url( $thumb_url ) . "');" : '';
-
-			return 'class="' . join( ' ', get_post_class( '' ) ) . '" style="' . $style . '"';
-			break;
-		case 'style-b':
-		case 'style-c':
-			return 'class="' . join( ' ', get_post_class( 'row align-center align-middle' ) ) . '"';
-			break;
-		default:
-			return 'class="' . join( ' ', get_post_class( 'row' ) ) . '"';
-	}
-}, 1, 2 );

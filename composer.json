@@ -1,9 +1,10 @@
 {
-    "require": {
-        "humanmade/coding-standards": "^0.4.0"
-    },
     "require-dev": {
         "wimg/php-compatibility": "*",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+    },
+    "scripts": {
+        "lint:php": "phpcs --standard=phpcs.ruleset.xml -s .",
+        "fix:php": "phpcbf --standard=phpcs.ruleset.xml -s ."
     }
 }

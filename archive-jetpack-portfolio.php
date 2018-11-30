@@ -29,7 +29,10 @@
 
 		<?php if ( have_posts() ) : ?>
 			<div id="portfolio-content" class="row">
-				<?php while ( have_posts() ) :the_post(); ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+?>
 					<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
 				<?php endwhile; ?>
 			</div>

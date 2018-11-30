@@ -8,6 +8,8 @@
 
 if ( ! function_exists( 'domestic_gutenber_support' ) ) {
 	function domestic_gutenber_support() {
+		global $wp_version;
+
 		add_theme_support( 'editor-color-palette', domestic_color_palette() );
 
 		add_theme_support( 'align-wide' );
@@ -16,7 +18,18 @@ if ( ! function_exists( 'domestic_gutenber_support' ) ) {
 
 		add_theme_support( 'editor-styles' );
 
-		add_editor_style( 'dist/assets/css/' . domestic_asset_path( 'editor-styles.css' ) );
+		$suffix = '';
+		if ( is_rtl() ) {
+			$suffix = '.rtl';
+		}
+
+		if ( version_compare( $wp_version, '5.0', '>=' ) || function_exists( 'the_gutenberg_project' ) ) {
+			$asset = "editor-styles${suffix}.css";
+		} else {
+			$asset = "editor-styles-backcomp${suffix}.css";
+		}
+
+		add_editor_style( 'dist/assets/css/' . domestic_asset_path( $asset ) );
 
 		add_theme_support( 'responsive-embeds' );
 	}

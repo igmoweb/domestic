@@ -14,10 +14,10 @@
 //https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
 
 if ( ! function_exists( 'domestic_asset_path' ) ) :
-	function domestic_asset_path( $filename, $manifest = 'rev-manifest.json' ) {
-		$filename_split = explode( '.', $filename );
-		$dir            = end( $filename_split );
-		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/' . $manifest;
+	function domestic_asset_path( $filename, $manifest = 'manifest.json' ) {
+		$dist_path     = get_stylesheet_directory() . '/dist/';
+		$dist_url      = get_stylesheet_directory_uri() . '/dist/';
+		$manifest_path = $dist_path . $manifest;
 
 		if ( file_exists( $manifest_path ) ) {
 			$manifest = json_decode( file_get_contents( $manifest_path ), true );
@@ -26,7 +26,7 @@ if ( ! function_exists( 'domestic_asset_path' ) ) :
 		}
 
 		if ( array_key_exists( $filename, $manifest ) ) {
-			return $manifest[ $filename ];
+			return $dist_url . $manifest[ $filename ];
 		}
 		return $filename;
 	}
@@ -35,24 +35,21 @@ endif;
 
 if ( ! function_exists( 'domestic_scripts' ) ) :
 	function domestic_scripts() {
+		$suffix = '';
+		if ( is_rtl() ) {
+			$suffix = '.rtl';
+		}
 
 		$localize = [];
-
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . domestic_asset_path( 'app.css' ), [], '2.10.4', 'all' );
-		wp_style_add_data( 'main-stylesheet', 'rtl', 'replace' );
+		wp_enqueue_style( 'main-stylesheet', domestic_asset_path( "assets/css/style${suffix}.css" ) );
 
 		// Enqueue Foundation scripts
-
-		wp_enqueue_script( 'foundation-core', get_template_directory_uri() . '/src/assets/js/foundation.min.js', [ 'jquery' ], null, true );
-		wp_enqueue_script( 'foundation-dropdown', get_template_directory_uri() . '/src/assets/js/foundation.dropdownMenu.min.js', [ 'jquery', 'foundation-core' ], null, true );
-		wp_enqueue_script( 'foundation-offcanvas', get_template_directory_uri() . '/src/assets/js/foundation.offcanvas.min.js', [ 'jquery', 'foundation-core' ], null, true );
-		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . domestic_asset_path( 'app.js' ), [ 'jquery', 'foundation-core' ], null, true );
+		wp_enqueue_script( 'domestic-js', domestic_asset_path( 'assets/js/app.js' ), [ 'jquery' ], null, true );
 
 		if ( is_home() ) {
-			wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/dist/assets/owl-carousel/owl.carousel.min.js', [ 'jquery' ], false, true );
-			wp_enqueue_style( 'owl-carousel-styles', get_template_directory_uri() . '/dist/assets/owl-carousel/assets/owl.carousel.css' );
-			wp_enqueue_style( 'owl-carousel-theme', get_template_directory_uri() . '/dist/assets/owl-carousel/assets/owl.theme.default.css' );
+			wp_enqueue_script( 'owl-carousel', domestic_asset_path( 'assets/js/owl.carousel.js' ), [ 'jquery', 'domestic-js' ], false, true );
+			wp_enqueue_style( 'owl-carousel-styles', domestic_asset_path( "assets/css/owl.carousel${suffix}.css" ) );
 			wp_enqueue_style( 'dashicons' );
 
 			$query                           = domestic_get_sticky_carousel_query();
@@ -64,7 +61,7 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		wp_localize_script( 'foundation', 'domesticJS', $localize );
+		wp_localize_script( 'domestic-js', 'domesticJS', $localize );
 	}
 
 	add_action( 'wp_enqueue_scripts', 'domestic_scripts' );

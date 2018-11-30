@@ -36,5 +36,7 @@ require_once( 'inc/images.php' );
 
 require_once( 'inc/content.php' );
 
-require_once( 'inc/gutenberg.php' );
+/** WP Editor setup */
+require_once( 'inc/wp-editor.php' );
+
 require_once( 'inc/front-page.php' );
