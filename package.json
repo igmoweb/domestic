@@ -56,7 +56,7 @@
     "motion-ui": "~1.2.2",
     "node-sass": "^4.10.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "owl.carousel": "^2.3.2",
+    "owl.carousel": "^2.3.4",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

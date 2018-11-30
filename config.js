@@ -24,7 +24,7 @@ module.exports = {
 			'assets/js/app': './src/assets/js/app.js',
 			'assets/js/customize': './src/assets/js/customize.js',
 			'assets/js/gutenberg': './src/assets/js/gutenberg.js',
-			'assets/js/owl.carousel': './src/assets/owl-carousel/owl.carousel.js',
+			'assets/js/owl.carousel': './node_modules/owl.carousel/dist/owl.carousel.js',
 			'assets/css/style': './src/assets/scss/style.scss',
 			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
 			'assets/css/editor-styles-backcomp': './src/assets/scss/editor-styles-backcomp.scss',
