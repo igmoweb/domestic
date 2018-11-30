@@ -3,7 +3,6 @@ const gulp = require( 'gulp' );
 const wpPot = require( 'gulp-wp-pot' );
 const plugins = require( 'gulp-load-plugins' );
 const run = require( 'gulp-run-command' ).default;
-const clean = require( 'gulp-clean' );
 
 
 // Load all Gulp plugins into one variable
