@@ -31,9 +31,9 @@
 		<?php
 		$domestic_description = get_bloginfo( 'description', 'display' );
 		if ( $domestic_description || is_customize_preview() ) :
-		?>
+			?>
 			<p class="site-description"><?php echo $domestic_description; /* WPCS: xss ok. */ ?></p>
-		<?php
+			<?php
 		endif;
 		?>
 	</div>

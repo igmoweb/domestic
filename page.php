@@ -12,7 +12,7 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) :
 			the_post();
-?>
+			?>
 			<?php if ( is_front_page() ) : ?>
 				<?php get_template_part( 'template-parts/content', 'front-page' ); ?>
 			<?php else : ?>

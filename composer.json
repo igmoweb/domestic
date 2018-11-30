@@ -1,7 +1,8 @@
 {
     "require-dev": {
         "wimg/php-compatibility": "*",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+        "humanmade/coding-standards": "^0.5.0"
     },
     "scripts": {
         "lint:php": "phpcs --standard=phpcs.ruleset.xml -s .",

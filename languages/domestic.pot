@@ -60,16 +60,28 @@ msgstr ""
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: comments.php:75
+#: comments.php:67, comments.php:70, comments.php:71
+msgid "Comments"
+msgstr ""
+
+#: comments.php:70
+msgid "Previous"
+msgstr ""
+
+#: comments.php:71
+msgid "Next"
+msgstr ""
+
+#: comments.php:88
 msgid "Please do not load this page directly. Thanks!"
 msgstr ""
 
-#: comments.php:81
+#: comments.php:94
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
 #. translators: %s: login url
-#: comments.php:101
+#: comments.php:114
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
@@ -103,51 +115,51 @@ msgstr ""
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer.php:33
+#: inc/customizer.php:34
 msgid "Menu Color Schema"
 msgstr ""
 
-#: inc/customizer.php:37
+#: inc/customizer.php:38
 msgid "Changes the color schema for the header menu."
 msgstr ""
 
-#: inc/customizer.php:39
+#: inc/customizer.php:40
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:40
+#: inc/customizer.php:41
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:54
+#: inc/customizer.php:56
 msgid "Main Color Schema"
 msgstr ""
 
-#: inc/customizer.php:58
+#: inc/customizer.php:60
 msgid "Changes the color schema for the theme."
 msgstr ""
 
-#: inc/customizer.php:65
+#: inc/customizer.php:67
 msgid "Domestic Settings"
 msgstr ""
 
-#: inc/customizer.php:73
+#: inc/customizer.php:75
 msgid "Home Slider"
 msgstr ""
 
-#: inc/customizer.php:74
+#: inc/customizer.php:76
 msgid "Home Slider."
 msgstr ""
 
-#: inc/customizer.php:82
+#: inc/customizer.php:84
 msgid "Footer Tagline"
 msgstr ""
 
-#: inc/customizer.php:83
+#: inc/customizer.php:85
 msgid "Footer Tagline."
 msgstr ""
 
-#: inc/customizer.php:97
+#: inc/customizer.php:100
 msgid "Footer tagline"
 msgstr ""
 
@@ -211,23 +223,23 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: inc/wp-editor.php:53
+#: inc/wp-editor.php:76
 msgid "Domestic Main Color"
 msgstr ""
 
-#: inc/wp-editor.php:58
+#: inc/wp-editor.php:81
 msgid "Black"
 msgstr ""
 
-#: inc/wp-editor.php:63
+#: inc/wp-editor.php:86
 msgid "Light Gray"
 msgstr ""
 
-#: inc/wp-editor.php:68
+#: inc/wp-editor.php:91
 msgid "White"
 msgstr ""
 
-#: inc/wp-editor.php:73
+#: inc/wp-editor.php:96
 msgid "Dark Gray"
 msgstr ""
 

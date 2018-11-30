@@ -10,7 +10,7 @@
  */
 
 if ( have_comments() ) :
-?>
+	?>
 	<section id="comments">
 		<h3 class="comments-head-title">
 			<?php
@@ -60,8 +60,21 @@ if ( have_comments() ) :
 
 			?>
 		</ol>
+
+		<?php
+		// Show comment navigation
+		if ( have_comments() ) :
+			$comments_text = __( 'Comments', 'domestic' );
+			the_comments_navigation(
+				[
+					'prev_text' => sprintf( '%s <span class="nav-prev-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span>', '', __( 'Previous', 'domestic' ), __( 'Comments', 'domestic' ) ),
+					'next_text' => sprintf( '<span class="nav-next-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span> %s', __( 'Next', 'domestic' ), __( 'Comments', 'domestic' ), '' ),
+				]
+			);
+		endif;
+		?>
 	</section>
-<?php
+	<?php
 endif;
 ?>
 
@@ -89,24 +102,24 @@ if ( post_password_required() ) {
 <?php
 if ( comments_open() ) :
 	if ( ( is_page() || is_single() ) && ( ! is_home() && ! is_front_page() ) ) :
-?>
+		?>
 <section id="respond-wrap">
 	<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
-	<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
+		<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
 	<p>
-		<?php
+			<?php
 
 			printf(
 				/* translators: %s: login url */
 				__( 'You must be <a href="%s">logged in</a> to post a comment.', 'domestic' ),
 				wp_login_url( get_permalink() )
 			);
-		?>
+			?>
 	</p>
 	<?php else : ?>
 		<?php comment_form(); ?>
 	<?php endif; // If registration required and not logged in. ?>
 </section>
-<?php
+		<?php
 	endif; // If you delete this the sky will fall on your head.
 	endif; // If you delete this the sky will fall on your head.

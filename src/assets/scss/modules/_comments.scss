@@ -77,3 +77,26 @@
 textarea#comment {
 	height:200px;
 }
+
+.bypostauthor {
+
+}
+
+nav.comment-navigation {
+	@include flex-grid-row();
+	.nav-links {
+		flex: 1 1 0px;
+		padding-right: .52632rem;
+		padding-left: .52632rem;
+		min-width: 0;
+		max-width: 100%;
+	}
+
+	.nav-prev-text:before {
+		content: "\2190 ";
+	}
+
+	.nav-next-text:after {
+		content: " \2192";
+	}
+}

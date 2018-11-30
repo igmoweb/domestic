@@ -86,7 +86,7 @@ if ( ! class_exists( 'Domestic_Walker_Comments' ) ) {
 						<div class="notice">
 							<p class="bottom"><?php _e( 'Your comment is awaiting moderation.', 'domestic' ); ?></p>
 						</div>
-					<?php
+						<?php
 					else :
 						comment_text();
 						?>

@@ -23,8 +23,9 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		$wp_customize->add_setting(
 			'domestic_menu_schema',
 			[
-				'default'   => 'dark',
-				'transport' => 'postMessage',
+				'default'           => 'dark',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sanitize_text_field',
 			]
 		);
 
@@ -45,7 +46,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		$wp_customize->add_setting(
 			'domestic_color_schema',
 			[
-				'default' => domestic_get_default_schema_color(),
+				'default'           => domestic_get_default_schema_color(),
+				'sanitize_callback' => 'sanitize_hex_color',
 			]
 		);
 
@@ -89,6 +91,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			[
 				'default'              => domestic_default_footer_tagline(),
 				'sanitize_js_callback' => 'esc_textarea',
+				'sanitize_callback'    => 'esc_textarea',
 			]
 		);
 
@@ -106,29 +109,6 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 
 endif;
 
-if ( ! function_exists( 'domestic_register_empty_homepage_customizer_field' ) ) {
-	/**
-	 * @param WP_Customize_Manager $wp_customize
-	 */
-	function domestic_register_empty_homepage_customizer_field( $wp_customize, $message ) {
-		include_once( 'class-domestic-empty-homepage-nag-control.php' );
-
-		$wp_customize->add_setting(
-			'domestic_empty_homepage_nag', [
-				'default' => $message,
-			]
-		);
-		$wp_customize->add_control(
-			new Domestic_Empty_Homepage_Nag_Control(
-				$wp_customize, 'domestic_empty_homepage_nag', [
-					'label'    => 'whatever',
-					'section'  => 'domestic_front_page',
-					'settings' => 'domestic_empty_homepage_nag',
-				]
-			)
-		);
-	}
-}
 
 if ( ! function_exists( 'domestic_get_default_schema_color' ) ) {
 	function domestic_get_default_schema_color() {

@@ -35,7 +35,7 @@
 					'after'  => '</p></nav>',
 				]
 			);
-		?>
+			?>
 		<?php if ( get_the_tags() ) : ?>
 			<ul class="post-tags"><?php the_tags( '<li>', '</li><li>', '</li>' ); ?></ul>
 		<?php endif; ?>
