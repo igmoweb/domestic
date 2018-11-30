@@ -1,9 +1,4 @@
 module.exports = {
-	BROWSERSYNC: {
-
-		// URL of local development server goes here (ex. http://localsite.dev)
-		url: 'http://domestic.wordpress-multisite.test/'
-	},
 
 	// Autoprefixer config
 	COMPATIBILITY: [
