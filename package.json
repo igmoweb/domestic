@@ -16,9 +16,9 @@
     "commit-build": "git add --force dist/ languages/ && git commit -m 'New build'",
     "wppot": "gulp wpPot",
     "lint": "npm run lint:js && npm run lint:php",
-    "lint:php": "./vendor/bin/phpcs --standard=phpcs.ruleset.xml -s .",
+    "lint:php": " npm run composer -- run-script lint:php",
     "lint:js": "eslint .",
-    "fix:php": "./vendor/bin/phpcbf --standard=phpcs.ruleset.xml .",
+    "fix:php": " npm run composer -- run-script fix:php",
     "fix:js": "eslint . --fix"
   },
   "keywords": [
