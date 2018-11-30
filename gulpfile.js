@@ -3,10 +3,7 @@ const gulp = require( 'gulp' );
 const wpPot = require( 'gulp-wp-pot' );
 const plugins = require( 'gulp-load-plugins' );
 const run = require( 'gulp-run-command' ).default;
-
-
-// Load all Gulp plugins into one variable
-const $ = plugins();
+const zip = require( 'gulp-zip' ).default;
 
 const config = require( './config' );
 const pkg = JSON.parse( fs.readFileSync( './package.json' ) );
@@ -28,7 +25,7 @@ gulp.task( 'wpPot', function() {
 gulp.task( 'package', function() {
 	const title = pkg.name + '-' + pkg.version + '.zip';
 	return gulp.src( config.PATHS.package )
-		.pipe( $.zip( title ) )
+		.pipe( zip( title ) )
 		.pipe( gulp.dest( 'package' ) );
 });
 
