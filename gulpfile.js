@@ -1,7 +1,6 @@
 const fs = require( 'fs' );
 const gulp = require( 'gulp' );
 const wpPot = require( 'gulp-wp-pot' );
-const plugins = require( 'gulp-load-plugins' );
 const run = require( 'gulp-run-command' ).default;
 const zip = require( 'gulp-zip' );
 
