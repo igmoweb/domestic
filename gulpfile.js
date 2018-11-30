@@ -3,6 +3,7 @@ const gulp = require( 'gulp' );
 const wpPot = require( 'gulp-wp-pot' );
 const plugins = require( 'gulp-load-plugins' );
 const run = require( 'gulp-run-command' ).default;
+const clean = require( 'gulp-clean' );
 
 
 // Load all Gulp plugins into one variable
@@ -32,5 +33,10 @@ gulp.task( 'package', function() {
 		.pipe( gulp.dest( 'package' ) );
 });
 
+// Clean the package folder
+gulp.task( 'clean', function() {
+	return gulp.src( 'package', { read: false })
+		.pipe( clean() );
+});
 
-gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'package' ) );
+gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'clean', 'package' ) );
