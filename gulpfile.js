@@ -16,10 +16,10 @@ gulp.task( 'wpPot', function() {
 	return gulp.src([
 		'./**/*.php',
 		'!vendor/**/*',
-		'!package/**/*'
+		'!package/**/*',
 	])
 		.pipe( wpPot({
-			domain: config.TEXTDOMAIN
+			domain: config.TEXTDOMAIN,
 		}) )
 		.pipe( gulp.dest( `./languages/${config.TEXTDOMAIN}.pot` ) );
 });

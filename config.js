@@ -4,7 +4,7 @@ module.exports = {
 	COMPATIBILITY: [
 		'last 2 versions',
 		'ie >= 9',
-		'ios >= 7'
+		'ios >= 7',
 	],
 
 	// Your theme textdomain
@@ -27,7 +27,7 @@ module.exports = {
 			'assets/js/owl.carousel': './src/assets/owl-carousel/owl.carousel.js',
 			'assets/css/style': './src/assets/scss/style.scss',
 			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
-			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss'
+			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss',
 		},
 
 		// Where to place images inside dist folder
@@ -37,7 +37,7 @@ module.exports = {
 			outputPath: 'assets/css/',
 
 			// path relative to outputPath
-			relativePath: 'images'
+			relativePath: 'images',
 		},
 
 		// Exclude/Include these files from package when running npm run package
@@ -63,7 +63,7 @@ module.exports = {
 			'!CHANGELOG.md',
 			'!tools',
 			'!phpcs.ruleset.xml',
-			'!**/vendor/**'
-		]
-	}
+			'!**/vendor/**',
+		],
+	},
 };

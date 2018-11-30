@@ -14,22 +14,22 @@ const commonConfig = merge([
 	{
 		entry: config.PATHS.entries,
 		output: {
-			path: path.resolve( __dirname, config.PATHS.dist )
-		}
+			path: path.resolve( __dirname, config.PATHS.dist ),
+		},
 	},
 	{
-		devtool: 'inline-source-map'
+		devtool: 'inline-source-map',
 	},
 	parts.loadJavaScript(),
 	parts.manifest(),
-	parts.rtl()
+	parts.rtl(),
 ]);
 
 const productionConfig = merge([
 	{
 		output: {
-			filename: '[name].[hash].js'
-		}
+			filename: '[name].[hash].js',
+		},
 	},
 	parts.loadSass({
 		use: [
@@ -40,16 +40,17 @@ const productionConfig = merge([
 			{
 				loader: 'sass-loader',
 				options: {
-					includePaths: config.PATHS.sassIncludes
-				}
-			}
-		]
+					includePaths: config.PATHS.sassIncludes,
+				},
+			},
+		],
 	}),
 	parts.generateSourceMaps({ type: 'source-map' }),
 	parts.minifyCSS(),
 	{
-		plugins: [ cleanPlugin ]
-	}
+		plugins: [ cleanPlugin ],
+	},
+	parts.performanceHints(),
 ]);
 
 const developmentConfig = merge([
@@ -57,15 +58,15 @@ const developmentConfig = merge([
 		output: {
 			filename: '[name].js',
 			hotUpdateChunkFilename: 'hot/hot-update.js',
-			hotUpdateMainFilename: 'hot/hot-update.json'
-		}
+			hotUpdateMainFilename: 'hot/hot-update.json',
+		},
 	},
 	{
 		plugins: [
 			new WriteFilePlugin(),
 			new webpack.HotModuleReplacementPlugin(),
-			cleanPlugin
-		]
+			cleanPlugin,
+		],
 	},
 	parts.devServer(),
 	parts.loadSass({
@@ -76,13 +77,13 @@ const developmentConfig = merge([
 			{
 				loader: 'sass-loader',
 				options: {
-					includePaths: config.PATHS.sassIncludes
-				}
-			}
+					includePaths: config.PATHS.sassIncludes,
+				},
+			},
 		],
-		filename: '[name].css'
+		filename: '[name].css',
 	}),
-	parts.generateSourceMaps({ type: 'eval' })
+	parts.generateSourceMaps({ type: 'eval' }),
 ]);
 
 module.exports = mode => {

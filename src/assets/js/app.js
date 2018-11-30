@@ -30,16 +30,16 @@ jQuery( document ).ready( function( jQuery ) {
 		responsive: {
 			0: {
 				items: Math.min( 1, postsNumber ),
-				nav: true
+				nav: true,
 			},
 			600: {
 				items: Math.min( 3, postsNumber ),
-				nav: false
+				nav: false,
 			},
 			1000: {
 				items: Math.min( 3, postsNumber ),
-				nav: true
-			}
-		}
+				nav: true,
+			},
+		},
 	});
 });

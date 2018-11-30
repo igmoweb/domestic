@@ -19,7 +19,7 @@ module.exports = {
 			// Watch for PHP files and reload the page
 			before( app, server ) {
 				const files = [
-					'./**/*.php'
+					'./**/*.php',
 				];
 
 				chokidar
@@ -30,13 +30,13 @@ module.exports = {
 						ignoreInitial: true,
 						ignorePermissionErrors: true,
 						persistent: true,
-						usePolling: true
+						usePolling: true,
 					})
 					.on( 'all', () => {
 						server.sockWrite( server.sockets, 'content-changed' );
 					});
-			}
-		}
+			},
+		},
 	}),
 
 	/**
@@ -51,7 +51,7 @@ module.exports = {
 				rules: [
 					{
 						test: /\.scss$/,
-						use
+						use,
 					},
 					{
 						test: /\.(png|jpg|gif|svg)$/,
@@ -60,15 +60,15 @@ module.exports = {
 							options: {
 								name: `${config.PATHS.images.relativePath}/[name].[ext]`,
 								publicPath: './',
-								outputPath: `${config.PATHS.images.outputPath}`
-							}
-						}
-					}
-				]
+								outputPath: `${config.PATHS.images.outputPath}`,
+							},
+						},
+					},
+				],
 			},
 			plugins: [
-				new MiniCssExtractPlugin({ filename })
-			]
+				new MiniCssExtractPlugin({ filename }),
+			],
 		};
 	},
 
@@ -79,8 +79,8 @@ module.exports = {
 		loader: 'postcss-loader',
 		options: {
 			browsers: config.COMPATIBILITY,
-			plugins: () => [ autoprefixer() ]
-		}
+			plugins: () => [ autoprefixer() ],
+		},
 	}),
 
 	/**
@@ -96,20 +96,20 @@ module.exports = {
 						{
 							loader: 'babel-loader',
 							options: {
-								presets: [ '@babel/preset-env', '@babel/preset-react' ]
-							}
-						}
-					]
-				}
-			]
-		}
+								presets: [ '@babel/preset-env', '@babel/preset-react' ],
+							},
+						},
+					],
+				},
+			],
+		},
 	}),
 
 	/**
 	 * Webpack sourcemaps config
 	 */
 	generateSourceMaps: ({ type }) => ({
-		devtool: type
+		devtool: type,
 	}),
 
 	/**
@@ -124,8 +124,8 @@ module.exports = {
 					file.name = file.name.replace( '.css', '.rtl.css' );
 				}
 				return file;
-			}
-		}) ]
+			},
+		}) ],
 	}),
 
 	/**
@@ -137,22 +137,31 @@ module.exports = {
 				cssProcessor: cssnano,
 				cssProcessorOptions: {
 					discardComments: {
-						removeAll: true
+						removeAll: true,
 					},
 
 					// Run cssnano in safe mode to avoid
 					// potentially unsafe transformations.
-					safe: true
+					safe: true,
 				},
-				canPrint: false
-			})
-		]
+				canPrint: false,
+			}),
+		],
 	}),
 
 	/**
 	 * CSS RTL parsing
 	 */
 	rtl: () => ({
-		plugins: [ new WebpackRTLPlugin() ]
-	})
+		plugins: [ new WebpackRTLPlugin() ],
+	}),
+
+	/**
+	 * Webpack performance hints config
+	 */
+	performanceHints: () => ({
+		performance: {
+			hints: 'warning',
+		},
+	}),
 };
