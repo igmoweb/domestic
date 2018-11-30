@@ -3,7 +3,7 @@ const gulp = require( 'gulp' );
 const wpPot = require( 'gulp-wp-pot' );
 const plugins = require( 'gulp-load-plugins' );
 const run = require( 'gulp-run-command' ).default;
-const zip = require( 'gulp-zip' ).default;
+const zip = require( 'gulp-zip' );
 
 const config = require( './config' );
 const pkg = JSON.parse( fs.readFileSync( './package.json' ) );
@@ -23,7 +23,7 @@ gulp.task( 'wpPot', function() {
 
 // Create a .zip archive of the theme
 gulp.task( 'package', function() {
-	const title = pkg.name + '-' + pkg.version + '.zip';
+	const title = pkg.name + '.zip';
 	return gulp.src( config.PATHS.package )
 		.pipe( zip( title ) )
 		.pipe( gulp.dest( 'package' ) );
