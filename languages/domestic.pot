@@ -211,23 +211,23 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: inc/wp-editor.php:49
+#: inc/wp-editor.php:53
 msgid "Domestic Main Color"
 msgstr ""
 
-#: inc/wp-editor.php:54
+#: inc/wp-editor.php:58
 msgid "Black"
 msgstr ""
 
-#: inc/wp-editor.php:59
+#: inc/wp-editor.php:63
 msgid "Light Gray"
 msgstr ""
 
-#: inc/wp-editor.php:64
+#: inc/wp-editor.php:68
 msgid "White"
 msgstr ""
 
-#: inc/wp-editor.php:69
+#: inc/wp-editor.php:73
 msgid "Dark Gray"
 msgstr ""
 

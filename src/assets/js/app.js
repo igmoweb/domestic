@@ -21,7 +21,7 @@ jQuery( document ).ready( function( jQuery ) {
 		dots: false,
 		center: false,
 		loop: false,
-		autoHeight: true,
+		autoHeight: false,
 		margin: 0,
 		touchDrag: false,
 		mouseDrag: true,
@@ -33,13 +33,16 @@ jQuery( document ).ready( function( jQuery ) {
 				nav: true,
 			},
 			600: {
-				items: Math.min( 3, postsNumber ),
+				items: Math.min( 2, postsNumber ),
 				nav: false,
 			},
 			1000: {
 				items: Math.min( 3, postsNumber ),
 				nav: true,
 			},
+		},
+		onInitialized: () => {
+			jQuery( '.owl-carousel.owl-theme' ).show();
 		},
 	});
 });

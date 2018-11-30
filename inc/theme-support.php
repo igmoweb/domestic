@@ -52,9 +52,6 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		// RSS thingy
 		add_theme_support( 'automatic-feed-links' );
 
-		// Add post formats support: http://codex.wordpress.org/Post_Formats
-		add_theme_support( 'post-formats', [ 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ] );
-
 		$GLOBALS['content_width'] = 1130;
 	}
 

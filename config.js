@@ -28,7 +28,6 @@ module.exports = {
 			'assets/css/style': './src/assets/scss/style.scss',
 			'assets/css/editor-styles': './src/assets/scss/editor-styles.scss',
 			'assets/css/editor-styles-backcomp': './src/assets/scss/editor-styles-backcomp.scss',
-			'assets/css/owl.carousel': './src/assets/scss/owl.carousel.scss',
 		},
 
 		// Where to place images inside dist folder

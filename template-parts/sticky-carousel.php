@@ -36,6 +36,7 @@ $colors     = [ '#EC9787', '#944743', '#6F9FD8', '#E94B3C', '#ECDB54', '#6B5B95'
 			<?php else : ?>
 				background: <?php echo $colors[ array_rand( $colors ) ]; ?>
 			<?php endif; ?>
+			background-size: cover;
 		}
 	<?php endforeach; ?>
 </style>
