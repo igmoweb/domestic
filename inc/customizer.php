@@ -173,6 +173,10 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			return;
 		}
 
+		if ( ! $main_color ) {
+			$main_color = domestic_get_default_schema_color();
+		}
+
 		$palette = domestic_color_palette();
 
 		?>
@@ -192,7 +196,7 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			}
 
 			.top-bar > ul.menu > li.menu-item-has-children:after {
-				border-color: <?php echo esc_attr( $main_color ); ?> transparent transparent;
+				border-color: <?php echo esc_attr( $main_color ); ?>;
 			}
 
 			.dropdown.menu.vertical > li.opens-right > a::after {

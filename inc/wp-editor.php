@@ -44,11 +44,15 @@ add_action( 'after_setup_theme', 'domestic_gutenber_support' );
  * @return array
  */
 function domestic_color_palette() {
+	$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
+	if ( ! $main_color ) {
+		$main_color = domestic_get_default_schema_color();
+	}
 	return [
 		[
 			'name'  => __( 'Domestic Main Color', 'domestic' ),
 			'slug'  => 'domestic-color',
-			'color' => get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() ),
+			'color' => $main_color,
 		],
 		[
 			'name'  => __( 'Black', 'domestic' ),
