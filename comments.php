@@ -6,7 +6,7 @@
  * and the comment form.
  *
  * @package Domestic
- * @since FoundationPress 1.0.0
+ * @since Domestic 1.0.0
  */
 
 if ( have_comments() ) :

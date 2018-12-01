@@ -22,11 +22,16 @@ endif;
 
 if ( ! function_exists( 'domestic_get_manifest' ) ) :
 	function domestic_get_manifest() {
+		global $wp_filesystem;
+
+		require_once( ABSPATH . '/wp-admin/includes/file.php' );
+		WP_Filesystem();
+
 		$dist_path     = get_stylesheet_directory() . '/dist/';
 		$manifest_path = $dist_path . 'manifest.json';
 
-		if ( file_exists( $manifest_path ) ) {
-			$manifest = json_decode( file_get_contents( $manifest_path ), true );
+		if ( $wp_filesystem->exists( $manifest_path ) ) {
+			$manifest = json_decode( $wp_filesystem->get_contents( $manifest_path ), true );
 		} else {
 			$manifest = [];
 		}
@@ -63,7 +68,7 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 		// Enqueue the main Stylesheet.
 		wp_enqueue_style( 'main-stylesheet', domestic_asset_url( "assets/css/style${suffix}.css" ) );
 
-		// Enqueue Foundation scripts
+		// Enqueue Domestic scripts
 		wp_enqueue_script( 'domestic-js', domestic_asset_url( 'assets/js/app.js' ), [ 'jquery' ], null, true );
 
 		if ( is_home() ) {

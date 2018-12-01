@@ -3,7 +3,7 @@
  * Template part for off canvas menu
  *
  * @package Domestic
- * @since FoundationPress 1.0.0
+ * @since Domestic 1.0.0
  */
 $position_class = is_rtl() ? 'position-left' : 'position-right';
 ?>

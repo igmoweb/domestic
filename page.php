@@ -3,7 +3,7 @@
  * The template for displaying all single posts and attachments
  *
  * @package Domestic
- * @since FoundationPress 1.0.0
+ * @since Domestic 1.0.0
  */
 
 get_header(); ?>

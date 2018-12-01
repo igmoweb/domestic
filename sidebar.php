@@ -3,7 +3,7 @@
  * The sidebar containing the main widget area
  *
  * @package Domestic
- * @since FoundationPress 1.0.0
+ * @since Domestic 1.0.0
  */
 
 ?>
