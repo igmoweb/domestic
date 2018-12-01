@@ -16,18 +16,6 @@ global $post;
 				<?php the_content(); ?>
 			</div>
 		</div>
-
-
-		<div class="front-page-sections">
-			<div class="columns small-12">
-				<div class="front-page-section-content">
-					<h2 class="text-center front-page-section-title"><?php the_title(); ?></h2>
-					<?php the_content(); ?>
-				</div>
-			</div>
-
-			<?php wp_reset_postdata(); ?>
-		</div>
 	</div>
 
 	<footer class="row">
