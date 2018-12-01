@@ -79,7 +79,12 @@ textarea#comment {
 }
 
 .bypostauthor {
+	background:$light-gray;
+	border:1px solid $dark-gray;
+}
 
+input[type="submit"] {
+	@include button();
 }
 
 nav.comment-navigation {

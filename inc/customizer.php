@@ -188,6 +188,7 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			.owl-carousel.owl-theme .owl-nav button.owl-next:hover,
 			.owl-carousel.owl-theme .owl-nav button.owl-next:focus,
 			.button,
+			input[type="submit"],
 			#comments .comment-body header.comment-author .reply a,
 			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
 				background-color: <?php echo esc_attr( $main_color ); ?>;
@@ -253,9 +254,8 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 		</style>
 		<?php
 	}
-
-	add_action( 'wp_head', 'domestic_set_schema_color', 999 );
 endif;
+add_action( 'wp_head', 'domestic_set_schema_color', 999 );
 
 
 if ( ! function_exists( 'domestic_editor_styles' ) ) :
@@ -302,3 +302,29 @@ if ( ! function_exists( 'domestic_editor_styles' ) ) :
 		<?php
 	}
 endif;
+
+if ( ! function_exists( 'domestic_set_header_image' ) ):
+	function domestic_set_header_image() {
+		if ( ! get_header_image() ) {
+			return;
+		}
+
+		$header = get_custom_header();
+		$height = absint( $header->height );
+		?>
+		<style>
+			.site-branding {
+				background:url(<?php echo esc_url( $header->url ); ?>) no-repeat center center;
+				background-size: cover;
+				<?php if ( $height < 250 ): ?>
+					height: auto;
+				<?php else: ?>
+					height: <?php echo absint( $height ); ?>px;
+				<?php endif; ?>
+
+			}
+		</style>
+		<?php
+	}
+endif;
+add_action( 'wp_head', 'domestic_set_header_image' );
