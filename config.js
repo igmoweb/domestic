@@ -62,6 +62,7 @@ module.exports = {
 			'!README.md',
 			'!readme.tpl',
 			'!CHANGELOG.md',
+			'!assets/**',
 			'!tools',
 			'!phpcs.ruleset.xml',
 			'!**/vendor/**',
