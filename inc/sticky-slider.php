@@ -2,8 +2,8 @@
 /**
  * Change the class for sticky posts to .wp-sticky to avoid conflicts with Foundation's Sticky plugin
  *
- * @package FoundationPress
- * @since FoundationPress 2.2.0
+ * @package Domestic
+ * @since Domestic 2.2.0
  */
 
 if ( ! function_exists( 'domestic_sticky_posts' ) ) :
@@ -33,9 +33,8 @@ if ( ! function_exists( 'domestic_home_query' ) ) :
 			$query->set( 'post__not_in', (array) get_option( 'sticky_posts' ) );
 		}
 	}
-
-	add_action( 'pre_get_posts', 'domestic_home_query' );
 endif;
+add_action( 'pre_get_posts', 'domestic_home_query' );
 
 
 if ( ! function_exists( 'domestic_display_sticky_slider' ) ) :

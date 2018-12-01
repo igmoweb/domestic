@@ -1,8 +1,8 @@
 <?php
 /**
- * FoundationPress Comments
+ * Domestic Comments
  *
- * @package FoundationPress
+ * @package Domestic
  */
 
 if ( ! class_exists( 'Domestic_Walker_Comments' ) ) {

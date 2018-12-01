@@ -9,9 +9,8 @@ if ( ! function_exists( 'domestic_jetpack_init' ) ) :
 			]
 		);
 	}
-
-	add_action( 'after_setup_theme', 'domestic_jetpack_init' );
 endif;
+add_action( 'after_setup_theme', 'domestic_jetpack_init' );
 
 if ( ! function_exists( 'domestic_jetpack_infinite_scroll_render' ) ) :
 	function domestic_jetpack_infinite_scroll_render() {
@@ -21,6 +20,6 @@ if ( ! function_exists( 'domestic_jetpack_infinite_scroll_render' ) ) :
 		}
 	}
 
-	add_action( 'infinite_scroll_render', 'domestic_jetpack_infinite_scroll_render' );
 endif;
+add_action( 'infinite_scroll_render', 'domestic_jetpack_infinite_scroll_render' );
 

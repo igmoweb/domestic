@@ -4,9 +4,8 @@ if ( ! function_exists( 'domestic_excerpt_more' ) ) :
 	function domestic_excerpt_more() {
 		return '[...] <p class="read-more"><a class="button" href="' . get_permalink() . '">' . __( 'Read more', 'domestic' ) . '</a></p>';
 	}
-
-	add_filter( 'excerpt_more', 'domestic_excerpt_more' );
 endif;
+add_filter( 'excerpt_more', 'domestic_excerpt_more' );
 
 
 if ( ! function_exists( 'domestic_get_content_class' ) ) :
@@ -64,8 +63,8 @@ if ( ! function_exists( 'domestic_body_classes' ) ) :
 		return $classes;
 	}
 
-	add_filter( 'body_class', 'domestic_body_classes' );
 endif;
+add_filter( 'body_class', 'domestic_body_classes' );
 
 if ( ! function_exists( 'domestic_entry_meta' ) ) :
 	function domestic_entry_meta() {

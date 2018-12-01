@@ -2,7 +2,7 @@
 /**
  * Template part for mobile top bar menu
  *
- * @package FoundationPress
+ * @package Domestic
  * @since FoundationPress 1.0.0
  */
 

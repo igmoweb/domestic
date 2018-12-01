@@ -2,8 +2,8 @@
 /**
  * Allow users to select Topbar or Offcanvas menu. Adds body class of offcanvas or topbar based on which they choose.
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package Domestic
+ * @since Domestic 1.0.0
  */
 
 if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
@@ -104,10 +104,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 	}
-
-	add_action( 'customize_register', 'domestic_register_theme_customizer' );
-
 endif;
+add_action( 'customize_register', 'domestic_register_theme_customizer' );
 
 
 if ( ! function_exists( 'domestic_get_default_schema_color' ) ) {
@@ -303,7 +301,7 @@ if ( ! function_exists( 'domestic_editor_styles' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'domestic_set_header_image' ) ):
+if ( ! function_exists( 'domestic_set_header_image' ) ) :
 	function domestic_set_header_image() {
 		if ( ! get_header_image() ) {
 			return;
@@ -316,9 +314,9 @@ if ( ! function_exists( 'domestic_set_header_image' ) ):
 			.site-branding {
 				background:url(<?php echo esc_url( $header->url ); ?>) no-repeat center center;
 				background-size: cover;
-				<?php if ( $height < 250 ): ?>
+				<?php if ( $height < 250 ) : ?>
 					height: auto;
-				<?php else: ?>
+				<?php else : ?>
 					height: <?php echo absint( $height ); ?>px;
 				<?php endif; ?>
 

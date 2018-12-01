@@ -2,8 +2,8 @@
 /**
  * Register theme support for languages, menus, post-thumbnails, post-formats etc.
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package Domestic
+ * @since Domestic 1.0.0
  */
 
 if ( ! function_exists( 'domestic_gutenber_support' ) ) {
@@ -35,7 +35,6 @@ if ( ! function_exists( 'domestic_gutenber_support' ) ) {
 		add_theme_support( 'responsive-embeds' );
 	}
 }
-
 add_action( 'after_setup_theme', 'domestic_gutenber_support' );
 
 
@@ -56,9 +55,8 @@ if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 		// The color palette can be set from customizer, we need to add extra css to the editor
 		domestic_editor_styles();
 	}
-
-	add_action( 'enqueue_block_editor_assets', 'domestic_block_editor_assets' );
 endif;
+add_action( 'enqueue_block_editor_assets', 'domestic_block_editor_assets' );
 
 
 /**

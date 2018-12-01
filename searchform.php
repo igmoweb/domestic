@@ -2,7 +2,7 @@
 /**
  * The template for displaying search form
  *
- * @package FoundationPress
+ * @package Domestic
  * @since FoundationPress 1.0.0
  */
 

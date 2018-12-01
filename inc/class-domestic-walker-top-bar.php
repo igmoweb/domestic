@@ -2,8 +2,8 @@
 /**
  * Customize the output of menus for Foundation top bar
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package Domestic
+ * @since Domestic 1.0.0
  */
 
 /**

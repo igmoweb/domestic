@@ -2,8 +2,8 @@
 /**
  * Register widget areas
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package Domestic
+ * @since Domestic 1.0.0
  */
 
 if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
@@ -32,6 +32,5 @@ if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
 			]
 		);
 	}
-
-	add_action( 'widgets_init', 'domestic_sidebar_widgets' );
 endif;
+add_action( 'widgets_init', 'domestic_sidebar_widgets' );

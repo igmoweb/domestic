@@ -2,8 +2,8 @@
 /**
  * Foundation PHP template
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package Domestic
+ * @since Domestic 1.0.0
  */
 
 /**
@@ -19,9 +19,8 @@ if ( ! function_exists( 'domestic_active_nav_class' ) ) :
 
 		return $classes;
 	}
-
-	add_filter( 'nav_menu_css_class', 'domestic_active_nav_class', 10, 2 );
 endif;
+add_filter( 'nav_menu_css_class', 'domestic_active_nav_class', 10, 2 );
 
 /**
  * Use the is-active class of ZURB Foundation on wp_list_pages output.
@@ -37,9 +36,8 @@ if ( ! function_exists( 'domestic_active_list_pages_class' ) ) :
 
 		return $output;
 	}
-
-	add_filter( 'wp_list_pages', 'domestic_active_list_pages_class', 10, 2 );
 endif;
+add_filter( 'wp_list_pages', 'domestic_active_list_pages_class', 10, 2 );
 
 /**
  * Enable Foundation responsive embeds for WP video embeds
@@ -104,6 +102,5 @@ if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
 		}
 
 	}
-
-	add_filter( 'embed_oembed_html', 'domestic_responsive_video_oembed_html', 10, 4 );
 endif;
+add_filter( 'embed_oembed_html', 'domestic_responsive_video_oembed_html', 10, 4 );

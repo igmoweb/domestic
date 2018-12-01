@@ -19,20 +19,13 @@ global $post;
 
 
 		<div class="front-page-sections">
-			<?php foreach ( $sections as $key => $section ) : ?>
-				<?php
-					$post = get_post( $section['page'] );
-					setup_postdata( $GLOBALS['post'] );
-				?>
-				<div
-						class="front-page-section front-page-section-<?php echo esc_attr( $section['style'] ); ?> front-page-section-key-<?php echo esc_attr( $key ); ?>"
-						style="<?php echo esc_attr( apply_filters( 'domestic_front_page_section_styles', '', $key ) ); ?>"
-				>
-					<div id="post-<?php the_ID(); ?>" <?php echo apply_filters( 'domestic_front_page_section_attributes', '', $section['style'], $key ); ?>>
-						<?php get_template_part( 'template-parts/front-page/' . $section['style'] ); ?>
-					</div>
+			<div class="columns small-12">
+				<div class="front-page-section-content">
+					<h2 class="text-center front-page-section-title"><?php the_title(); ?></h2>
+					<?php the_content(); ?>
 				</div>
-			<?php endforeach; ?>
+			</div>
+
 			<?php wp_reset_postdata(); ?>
 		</div>
 	</div>

@@ -2,8 +2,8 @@
 /**
  * Register theme support for languages, menus, post-thumbnails, post-formats etc.
  *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * @package Domestic
+ * @since Domestic 1.0.0
  */
 
 if ( ! function_exists( 'domestic_theme_support' ) ) :
@@ -49,18 +49,17 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		// RSS thingy
 		add_theme_support( 'automatic-feed-links' );
 
-		$args = array(
+		$args = [
 			'default-text-color' => '000',
 			'width'              => 2000,
 			'height'             => 250,
 			'flex-width'         => true,
 			'flex-height'        => true,
 			'header-text'           => false,
-		);
-        add_theme_support( 'custom-header', $args );
+		];
+		add_theme_support( 'custom-header', $args );
 
 		$GLOBALS['content_width'] = 1130;
 	}
-
-	add_action( 'after_setup_theme', 'domestic_theme_support' );
 endif;
+add_action( 'after_setup_theme', 'domestic_theme_support' );

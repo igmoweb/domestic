@@ -82,8 +82,8 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 		wp_localize_script( 'domestic-js', 'domesticJS', $localize );
 	}
 
-	add_action( 'wp_enqueue_scripts', 'domestic_scripts' );
 endif;
+add_action( 'wp_enqueue_scripts', 'domestic_scripts' );
 
 
 if ( ! function_exists( 'domestic_customize_scripts' ) ) :
@@ -98,6 +98,5 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 			]
 		);
 	}
-	add_action( 'customize_preview_init', 'domestic_customize_scripts' );
-
 endif;
+add_action( 'customize_preview_init', 'domestic_customize_scripts' );

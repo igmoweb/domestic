@@ -13,8 +13,8 @@ if ( ! function_exists( 'domestic_register_front_page_meta_box' ) ) :
 			add_meta_box( 'domestic-front-page', __( 'Customize Front Page', 'domestic' ), 'domestic_front_page_meta_box', 'page', 'side', 'high' );
 		}
 	}
-	add_action( 'add_meta_boxes', 'domestic_register_front_page_meta_box' );
 endif;
+add_action( 'add_meta_boxes', 'domestic_register_front_page_meta_box' );
 
 if ( ! function_exists( 'domestic_front_page_meta_box' ) ) :
 	function domestic_front_page_meta_box() {
@@ -91,8 +91,8 @@ if ( ! function_exists( 'domestic_page_attributes_misc_attributes' ) ) :
 		}
 	}
 
-	add_action( 'page_attributes_misc_attributes', 'domestic_page_attributes_misc_attributes' );
 endif;
+add_action( 'page_attributes_misc_attributes', 'domestic_page_attributes_misc_attributes' );
 
 if ( ! function_exists( 'domestic_maybe_load_front_page' ) ) :
 	function domestic_maybe_load_front_page( $template ) {
@@ -103,6 +103,6 @@ if ( ! function_exists( 'domestic_maybe_load_front_page' ) ) :
 		return $template;
 	}
 
-	add_filter( 'template_include', 'domestic_maybe_load_front_page' );
 endif;
+add_filter( 'template_include', 'domestic_maybe_load_front_page' );
 
