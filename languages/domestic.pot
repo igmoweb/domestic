@@ -102,12 +102,12 @@ msgid "Read more"
 msgstr ""
 
 #. translators: %1$s: the post date
-#: inc/content.php:78
+#: inc/content.php:77
 msgid "Posted on %1$s at."
 msgstr ""
 
 #. translators: %s: Post Author
-#: inc/content.php:89
+#: inc/content.php:88
 msgid "by %s"
 msgstr ""
 
@@ -171,22 +171,6 @@ msgstr ""
 msgid "Start creating child pages of this one to customize Front Page sections"
 msgstr ""
 
-#: inc/images.php:34
-msgid "FP Small"
-msgstr ""
-
-#: inc/images.php:35
-msgid "FP Medium"
-msgstr ""
-
-#: inc/images.php:36
-msgid "FP Large"
-msgstr ""
-
-#: inc/images.php:37
-msgid "FP XLarge"
-msgstr ""
-
 #: inc/navigation.php:12
 msgid "Right Top Bar"
 msgstr ""
@@ -223,23 +207,23 @@ msgstr ""
 msgid "Drag widgets to this footer container"
 msgstr ""
 
-#: inc/wp-editor.php:76
+#: inc/wp-editor.php:74
 msgid "Domestic Main Color"
 msgstr ""
 
-#: inc/wp-editor.php:81
+#: inc/wp-editor.php:79
 msgid "Black"
 msgstr ""
 
-#: inc/wp-editor.php:86
+#: inc/wp-editor.php:84
 msgid "Light Gray"
 msgstr ""
 
-#: inc/wp-editor.php:91
+#: inc/wp-editor.php:89
 msgid "White"
 msgstr ""
 
-#: inc/wp-editor.php:96
+#: inc/wp-editor.php:94
 msgid "Dark Gray"
 msgstr ""
 
@@ -247,7 +231,7 @@ msgstr ""
 msgid "Page with sidebar"
 msgstr ""
 
-#: template-parts/content-front-page.php:42, template-parts/content-page.php:14, template-parts/content.php:43
+#: template-parts/content-front-page.php:35, template-parts/content-page.php:14, template-parts/content.php:43
 msgid "(Edit)"
 msgstr ""
 

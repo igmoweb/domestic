@@ -3,6 +3,8 @@ const gulp = require( 'gulp' );
 const wpPot = require( 'gulp-wp-pot' );
 const run = require( 'gulp-run-command' ).default;
 const zip = require( 'gulp-zip' );
+const replace = require( 'gulp-replace' );
+const rename = require( 'gulp-rename' );
 
 const config = require( './config' );
 const pkg = JSON.parse( fs.readFileSync( './package.json' ) );
@@ -28,4 +30,13 @@ gulp.task( 'package', function() {
 		.pipe( gulp.dest( 'package' ) );
 });
 
-gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'package' ) );
+gulp.task( 'generate-readme', function() {
+	return gulp.src( 'readme.tpl' )
+		.pipe( replace( '<%%version%%>', pkg.version ) )
+		.pipe( replace( '<%%testedUpTo%%>', pkg.theme.testedUpTo ) )
+		.pipe( replace( '<%%contributors%%>', pkg.theme.contributors ) )
+		.pipe( rename( 'readme.txt' ) )
+		.pipe( gulp.dest( './' ) );
+});
+
+gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'package' ) );

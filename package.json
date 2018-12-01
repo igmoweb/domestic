@@ -45,6 +45,8 @@
     "foundation-sites": "6.4.3",
     "gulp": "git+https://github.com/gulpjs/gulp.git#v4.0.0",
     "gulp-prompt": "^1.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "gulp-run-command": "0.0.9",
     "gulp-wp-pot": "^2.3.3",
     "gulp-zip": "^4.2.0",
@@ -78,5 +80,9 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
+  },
+  "theme": {
+    "contributors": "igmoweb,mrfoxtalbot",
+    "testedUpTo": "WordPress 5.0-trunk"
   }
 }

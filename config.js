@@ -60,6 +60,7 @@ module.exports = {
 			'!.editorconfig',
 			'!.gitignore',
 			'!README.md',
+			'!readme.tpl',
 			'!CHANGELOG.md',
 			'!tools',
 			'!phpcs.ruleset.xml',
