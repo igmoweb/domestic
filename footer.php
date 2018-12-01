@@ -20,6 +20,7 @@
 <?php endif; ?>
 
 </div><!-- Close off-canvas content -->
+</div><!-- Close off-canvas wrapper -->
 
 <?php wp_footer(); ?>
 </body>
