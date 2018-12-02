@@ -4,6 +4,7 @@
 	<file>.</file>
 
 	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
 
 
 	<!-- Run against the PHPCompatibility ruleset -->

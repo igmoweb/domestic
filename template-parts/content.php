@@ -15,14 +15,14 @@
 
 	<div class="entry-content">
 
-		<?php get_template_part( 'template-parts/featured-image' ) ?>
+		<?php get_template_part( 'template-parts/featured-image' ); ?>
 
 		<?php domestic_entry_meta(); ?>
 
 		<?php if ( is_singular() ) : ?>
 			<?php the_content(); ?>
 		<?php else : ?>
-			<?php the_excerpt() ?>
+			<?php the_excerpt(); ?>
 		<?php endif; ?>
 
 	</div>
