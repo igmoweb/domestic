@@ -5,14 +5,18 @@
 
 	<arg name="colors"/>
 
-	<!-- Use HM Coding Standards -->
-	<rule ref="vendor/humanmade/coding-standards">
-		<exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace" />
-		<exclude name="HM.Functions.NamespacedFunctions.MissingNamespace" />
-		<exclude name="PSR1.Files.SideEffects.FoundWithSymbols" />
-	</rule>
 
-	<rule ref="HM.Debug.ESLint" />
+	<!-- Run against the PHPCompatibility ruleset -->
+	<rule ref="PHPCompatibility"/>
+
+	<!-- Run against the PHPCompatibilityWP ruleset -->
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- Run against the WordPress ruleset -->
+	<rule ref="WordPress"/>
+
+	<!-- Run against the Theme Review ruleset -->
+	<rule ref="WPThemeReview"/>
 
 	<!-- Directories and third party library exclusions -->
 	<exclude-pattern>/dist/*</exclude-pattern>
