@@ -13,7 +13,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 	function domestic_register_theme_customizer( $wp_customize ) {
 
 		$wp_customize->add_section(
-			'domestic_colors', [
+			'domestic_colors',
+			[
 				'panel'          => 'domestic_settings',
 				'theme_supports' => '',
 				'title'          => __( 'Colors', 'domestic' ),
@@ -30,7 +31,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		);
 
 		$wp_customize->add_control(
-			'domestic_menu_schema', [
+			'domestic_menu_schema',
+			[
 				'label'       => __( 'Menu Color Schema', 'domestic' ),
 				'section'     => 'domestic_colors',
 				'settings'    => 'domestic_menu_schema',
@@ -52,7 +54,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		);
 
 		$wp_customize->add_control(
-			'domestic_color_schema', [
+			'domestic_color_schema',
+			[
 				'label'       => __( 'Main Color Schema', 'domestic' ),
 				'section'     => 'domestic_colors',
 				'settings'    => 'domestic_color_schema',
@@ -62,14 +65,16 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		);
 
 		$wp_customize->add_panel(
-			'domestic_settings', [
+			'domestic_settings',
+			[
 				'priority' => 1000,
 				'title'    => __( 'Domestic Settings', 'domestic' ),
 			]
 		);
 
 		$wp_customize->add_section(
-			'domestic_sticky_slider', [
+			'domestic_sticky_slider',
+			[
 				'panel'          => 'domestic_settings',
 				'theme_supports' => '',
 				'title'          => __( 'Home Slider', 'domestic' ),
@@ -78,7 +83,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		);
 
 		$wp_customize->add_section(
-			'domestic_footer_tagline', [
+			'domestic_footer_tagline',
+			[
 				'panel'          => 'domestic_settings',
 				'theme_supports' => '',
 				'title'          => __( 'Footer Tagline', 'domestic' ),
@@ -96,7 +102,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		);
 
 		$wp_customize->add_control(
-			'domestic_footer_tagline', [
+			'domestic_footer_tagline',
+			[
 				'label'    => __( 'Footer tagline', 'domestic' ),
 				'section'  => 'domestic_footer_tagline',
 				'settings' => 'domestic_footer_tagline',

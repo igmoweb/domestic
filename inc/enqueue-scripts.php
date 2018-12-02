@@ -4,7 +4,6 @@
  *
  * Learn more about enqueue_script: {@link https://codex.wordpress.org/Function_Reference/wp_enqueue_script}
  * Learn more about enqueue_style: {@link https://codex.wordpress.org/Function_Reference/wp_enqueue_style }
- *
  */
 
 
@@ -24,7 +23,7 @@ if ( ! function_exists( 'domestic_get_manifest' ) ) :
 	function domestic_get_manifest() {
 		global $wp_filesystem;
 
-		require_once( ABSPATH . '/wp-admin/includes/file.php' );
+		require_once ABSPATH . '/wp-admin/includes/file.php';
 		WP_Filesystem();
 
 		$dist_path     = get_stylesheet_directory() . '/dist/';
@@ -98,7 +97,9 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 	function domestic_customize_scripts() {
 		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/dist/assets/js/customize.js', [ 'jquery', 'customize-preview' ], false, true );
 		wp_localize_script(
-			'domestic-customize', 'domesticCustomize', [
+			'domestic-customize',
+			'domesticCustomize',
+			[
 				'sections' => array_values( domestic_get_front_page_children() ),
 			]
 		);

@@ -13,7 +13,8 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 
 		// Switch default core markup for search form, comment form, and comments to output valid HTML5
 		add_theme_support(
-			'html5', [
+			'html5',
+			[
 				'search-form',
 				'comment-form',
 				'comment-list',
@@ -23,7 +24,8 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		);
 
 		add_theme_support(
-			'custom-background', [
+			'custom-background',
+			[
 				'default-color'    => '#fefefe',
 				'wp-head-callback' => '_custom_background_cb',
 			]
@@ -31,7 +33,8 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 
 		// Custom logo
 		add_theme_support(
-			'custom-logo', [
+			'custom-logo',
+			[
 				'height'      => 100,
 				'width'       => 400,
 				'flex-height' => true,
@@ -55,7 +58,7 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 			'height'             => 250,
 			'flex-width'         => true,
 			'flex-height'        => true,
-			'header-text'           => false,
+			'header-text'        => false,
 		];
 		add_theme_support( 'custom-header', $args );
 

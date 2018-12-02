@@ -26,7 +26,7 @@ if ( ! function_exists( 'domestic_front_page_meta_box' ) ) :
 			<?php
 		} else {
 			?>
-			<p><a href="<?php echo esc_url( wp_customize_url() ) ?>" target="_blank"><?php esc_html_e( 'Customize Front Page', 'domestic' ); ?></a></p>
+			<p><a href="<?php echo esc_url( wp_customize_url() ); ?>" target="_blank"><?php esc_html_e( 'Customize Front Page', 'domestic' ); ?></a></p>
 			<?php
 		}
 

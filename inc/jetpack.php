@@ -3,7 +3,8 @@
 if ( ! function_exists( 'domestic_jetpack_init' ) ) :
 	function domestic_jetpack_init() {
 		add_theme_support(
-			'infinite-scroll', [
+			'infinite-scroll',
+			[
 				'type'      => 'click',
 				'container' => 'main',
 			]

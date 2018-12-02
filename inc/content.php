@@ -78,7 +78,7 @@ if ( ! function_exists( 'domestic_entry_meta' ) ) :
 				?>
 			</time>
 			<time class="updated hide-for-sr" datetime="<?php echo esc_attr( get_the_time( 'c' ) ); ?>">
-				<?php the_date() ?>
+				<?php the_date(); ?>
 			</time>
 
 			<span class="byauthor">

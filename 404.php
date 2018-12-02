@@ -1,4 +1,4 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
 	<main id="main" class="columns small-12">
 		<article class="hentry">
@@ -28,7 +28,7 @@
 					</li>
 					<li>
 						<br>
-						<?php get_search_form() ?>
+						<?php get_search_form(); ?>
 					</li>
 				</ul>
 			</div>
@@ -37,4 +37,4 @@
 
 
 
-<?php get_footer() ?>
+<?php get_footer(); ?>
