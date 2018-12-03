@@ -11,9 +11,6 @@
 /** Required for Foundation to work properly */
 require_once 'inc/foundation.php';
 
-/** Format comments */
-require_once 'inc/class-domestic-walker-comments.php';
-
 /** Register all navigation menus */
 require_once 'inc/navigation.php';
 

@@ -178,6 +178,28 @@ if ( ! function_exists( 'domestic_darken_color' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'domestic_footer_tagline' ) ) :
+	/**
+	 * Return the footer tagline
+	 *
+	 * @return string
+	 */
+	function domestic_footer_tagline() {
+		return get_theme_mod( 'domestic_footer_tagline', domestic_default_footer_tagline() );
+	}
+endif;
+
+if ( ! function_exists( 'domestic_default_footer_tagline' ) ) :
+	/**
+	 * Return the default footer tagline
+	 *
+	 * @return string
+	 */
+	function domestic_default_footer_tagline() {
+		return '<a href="https://wordpress.org/">Proudly powered by WordPress</a>';
+	}
+endif;
+
 if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 	function domestic_set_schema_color() {
 		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );

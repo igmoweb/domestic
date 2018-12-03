@@ -39,7 +39,6 @@ if ( have_comments() ) :
 
 			wp_list_comments(
 				[
-					'walker'            => new Domestic_Walker_Comments(),
 					'max_depth'         => '',
 					'style'             => 'ol',
 					'callback'          => null,
