@@ -58,12 +58,11 @@ function commit() {
 		.pipe(git.commit('Test', {args:'--no-verify'}));
 }
 
-function tagRelease() {
-	return gulp.src([ './package.json' ])
-		.pipe( tagVersion() );
+function checkoutVersionTag() {
+	git.checkout( `v${pkg.version}` );
 }
 
 // Don't call this directly. Do it with npm run tag
-gulp.task( 'tag', gulp.series( stageDistAssets, stageLangs, commit ) );
+gulp.task( 'tag', gulp.series( tagVersion, checkoutVersionTag, stageDistAssets, stageLangs, commit ) );
 
 gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'package' ) );
