@@ -1,12 +1,15 @@
 <?php
 /**
- * The template for displaying all single posts and attachments
+ * The template for displaying all single posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<main id="main" class="columns <?php echo esc_attr( domestic_get_content_class( 'main' ) ); ?>">
 		<?php

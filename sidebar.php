@@ -3,7 +3,7 @@
  * The sidebar containing the main widget area
  *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
 ?>

@@ -1,13 +1,13 @@
 <?php
 /**
- * Register theme support for languages, menus, post-thumbnails, post-formats etc.
+ * WP Editor support
  *
  * @package Domestic
  * @since Domestic 1.0.0
  */
 
-if ( ! function_exists( 'domestic_gutenber_support' ) ) {
-	function domestic_gutenber_support() {
+if ( ! function_exists( 'domestic_gutenberg_support' ) ) {
+	function domestic_gutenberg_support() {
 		global $wp_version;
 
 		add_theme_support( 'editor-color-palette', domestic_color_palette() );
@@ -35,7 +35,7 @@ if ( ! function_exists( 'domestic_gutenber_support' ) ) {
 		add_theme_support( 'responsive-embeds' );
 	}
 }
-add_action( 'after_setup_theme', 'domestic_gutenber_support' );
+add_action( 'after_setup_theme', 'domestic_gutenberg_support' );
 
 
 if ( ! function_exists( 'domestic_block_editor_assets' ) ) :

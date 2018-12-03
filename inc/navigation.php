@@ -1,10 +1,11 @@
 <?php
 /**
- * Register Menus
+ * Register Navigation Menus
  *
  * @link http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
+ *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
 register_nav_menus(

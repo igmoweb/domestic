@@ -1,4 +1,12 @@
 <?php
+/**
+ * Domestic functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
 
 /** Required for Foundation to work properly */
 require_once 'inc/foundation.php';
@@ -38,5 +46,3 @@ require_once 'inc/content.php';
 
 /** WP Editor setup */
 require_once 'inc/wp-editor.php';
-
-require_once 'inc/front-page.php';

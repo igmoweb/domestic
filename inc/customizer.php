@@ -1,9 +1,15 @@
 <?php
 /**
- * Allow users to select Topbar or Offcanvas menu. Adds body class of offcanvas or topbar based on which they choose.
+ * Theme Customizer options
+ *
+ * It allows users to define the following theme settings:
+ * - Color schema
+ * - Top navigation color schema
+ * - Toggle sticky carousel
+ * - Footer tagline content
  *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
 if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
@@ -11,7 +17,16 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 	 * @param WP_Customize_Manager $wp_customize
 	 */
 	function domestic_register_theme_customizer( $wp_customize ) {
+		// Domestic Settings panel
+		$wp_customize->add_panel(
+			'domestic_settings',
+			[
+				'priority' => 1000,
+				'title'    => __( 'Domestic Settings', 'domestic' ),
+			]
+		);
 
+		// Domestic colors section
 		$wp_customize->add_section(
 			'domestic_colors',
 			[
@@ -21,6 +36,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
+		// Domestic mtop menu color schema
 		$wp_customize->add_setting(
 			'domestic_menu_schema',
 			[
@@ -45,6 +61,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
+		// Domestic color schema
 		$wp_customize->add_setting(
 			'domestic_color_schema',
 			[
@@ -64,14 +81,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		$wp_customize->add_panel(
-			'domestic_settings',
-			[
-				'priority' => 1000,
-				'title'    => __( 'Domestic Settings', 'domestic' ),
-			]
-		);
-
+		// Toggle sticky slider
 		$wp_customize->add_section(
 			'domestic_sticky_slider',
 			[
@@ -82,6 +92,23 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
+		$wp_customize->add_setting(
+			'domestic_show_sticky_slider',
+			[
+				'default' => true,
+			]
+		);
+
+		$wp_customize->add_control(
+			'domestic_show_sticky_slider', [
+				'label'    => __( 'Display the home slider', 'domestic' ),
+				'section'  => 'domestic_sticky_slider',
+				'settings' => 'domestic_show_sticky_slider',
+				'type'     => 'checkbox',
+			]
+		);
+
+		// Footer tagline
 		$wp_customize->add_section(
 			'domestic_footer_tagline',
 			[
@@ -115,11 +142,11 @@ endif;
 add_action( 'customize_register', 'domestic_register_theme_customizer' );
 
 
-if ( ! function_exists( 'domestic_get_default_schema_color' ) ) {
+if ( ! function_exists( 'domestic_get_default_schema_color' ) ) :
 	function domestic_get_default_schema_color() {
 		return '#f47a29';
 	}
-}
+endif;
 
 if ( ! function_exists( 'domestic_darken_color' ) ) :
 	/**

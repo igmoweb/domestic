@@ -38,6 +38,11 @@ add_action( 'pre_get_posts', 'domestic_home_query' );
 
 
 if ( ! function_exists( 'domestic_display_sticky_slider' ) ) :
+	/**
+	 * Check if the sticky slider should be displayed
+	 *
+	 * @return boolean True if the slider is present in the current page
+	 */
 	function domestic_display_sticky_slider() {
 		$stickies = get_option( 'sticky_posts' );
 		return ! empty( $stickies ) && is_home() && ! is_admin();
@@ -45,6 +50,11 @@ if ( ! function_exists( 'domestic_display_sticky_slider' ) ) :
 endif;
 
 if ( ! function_exists( 'domestic_get_sticky_carousel_query' ) ) :
+	/**
+	 * Return the query for the sticky carousel
+	 *
+	 * @return WP_Query
+	 */
 	function domestic_get_sticky_carousel_query() {
 		$args = [
 			'post_type'      => 'post',
@@ -53,11 +63,5 @@ if ( ! function_exists( 'domestic_get_sticky_carousel_query' ) ) :
 		];
 
 		return new WP_Query( $args );
-	}
-endif;
-
-if ( ! function_exists( 'domestic_get_sticky_slider_slides' ) ) :
-	function domestic_get_sticky_slider_slides() {
-		return absint( get_theme_mod( 'domestic_sticky_slider_slides', 5 ) );
 	}
 endif;

@@ -1,8 +1,11 @@
 <?php
 /**
- * Domestic Comments
+ * The walker to display comments
+ *
+ * It allows to inject some classes needed for Foundation CSS framework
  *
  * @package Domestic
+ * @since 1.0.0
  */
 
 if ( ! class_exists( 'Domestic_Walker_Comments' ) ) {

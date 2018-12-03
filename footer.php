@@ -1,3 +1,16 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
+
+?>
 </div><!-- #content -->
 
 <?php if ( domestic_has_sidebar( 'footer' ) || domestic_footer_tagline() ) : ?>

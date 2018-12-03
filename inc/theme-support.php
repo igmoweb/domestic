@@ -3,7 +3,7 @@
  * Register theme support for languages, menus, post-thumbnails, post-formats etc.
  *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
 if ( ! function_exists( 'domestic_theme_support' ) ) :

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Functions related to content rendering
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
 
 if ( ! function_exists( 'domestic_excerpt_more' ) ) :
 	function domestic_excerpt_more() {

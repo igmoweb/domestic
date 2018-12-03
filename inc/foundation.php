@@ -1,17 +1,15 @@
 <?php
 /**
- * Foundation PHP template
+ * Foundation fixes
  *
  * @package Domestic
  * @since Domestic 1.0.0
  */
 
-/**
- * A fallback when no navigation is selected by default.
- */
-
-// Add Foundation 'is-active' class for the current menu item.
 if ( ! function_exists( 'domestic_active_nav_class' ) ) :
+	/**
+	 * Add Foundation 'is-active' class for the current menu item.
+	 */
 	function domestic_active_nav_class( $classes, $item ) {
 		if ( $item->current === 1 || $item->current_item_ancestor === true ) {
 			$classes[] = 'is-active';
@@ -22,11 +20,14 @@ if ( ! function_exists( 'domestic_active_nav_class' ) ) :
 endif;
 add_filter( 'nav_menu_css_class', 'domestic_active_nav_class', 10, 2 );
 
-/**
- * Use the is-active class of ZURB Foundation on wp_list_pages output.
- * From required+ Foundation http://themes.required.ch.
- */
 if ( ! function_exists( 'domestic_active_list_pages_class' ) ) :
+	/**
+	 * Use the is-active class of ZURB Foundation on wp_list_pages output.
+	 *
+	 * @param string $input
+	 *
+	 * @return null|string|string[]
+	 */
 	function domestic_active_list_pages_class( $input ) {
 
 		$pattern = '/current_page_item/';
@@ -39,11 +40,10 @@ if ( ! function_exists( 'domestic_active_list_pages_class' ) ) :
 endif;
 add_filter( 'wp_list_pages', 'domestic_active_list_pages_class', 10, 2 );
 
-/**
- * Enable Foundation responsive embeds for WP video embeds
- */
-
 if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
+	/**
+	 * Enable Foundation responsive embeds for WP video embeds
+	 */
 	function domestic_responsive_video_oembed_html( $html, $url, $attr, $post_id ) {
 
 		// Whitelist of oEmbed compatible sites that **ONLY** support video.

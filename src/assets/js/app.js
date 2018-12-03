@@ -42,7 +42,7 @@ jQuery( document ).ready( function( jQuery ) {
 			},
 		},
 		onInitialized: () => {
-			jQuery( '.owl-carousel.owl-theme' ).show();
+			jQuery( '.owl-carousel.owl-theme' ).css( 'visibility', 'visible' );
 		},
 	});
 });

@@ -3,7 +3,7 @@
  * Customize the output of menus for Foundation mobile walker
  *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
 /**

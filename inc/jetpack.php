@@ -1,4 +1,10 @@
 <?php
+/**
+ * Jepack Infinite Scroll support
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
 
 if ( ! function_exists( 'domestic_jetpack_init' ) ) :
 	function domestic_jetpack_init() {
