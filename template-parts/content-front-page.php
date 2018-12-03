@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template part for a the front page content
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
+
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if ( get_the_title() ) : ?>
 		<header>

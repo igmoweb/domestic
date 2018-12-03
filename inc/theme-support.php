@@ -7,11 +7,14 @@
  */
 
 if ( ! function_exists( 'domestic_theme_support' ) ) :
+	/**
+	 * Setup Domestic Theme and what it supports
+	 */
 	function domestic_theme_support() {
-		// Add language support
+		// Add language support.
 		load_theme_textdomain( 'domestic', get_template_directory() . '/languages' );
 
-		// Switch default core markup for search form, comment form, and comments to output valid HTML5
+		// Switch default core markup for search form, comment form, and comments to output valid HTML5.
 		add_theme_support(
 			'html5',
 			[
@@ -31,7 +34,7 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 			]
 		);
 
-		// Custom logo
+		// Custom logo.
 		add_theme_support(
 			'custom-logo',
 			[
@@ -43,15 +46,16 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 			]
 		);
 
-		// Let WordPress manage the document title
+		// Let WordPress manage the document title.
 		add_theme_support( 'title-tag' );
 
-		// Add post thumbnail support: http://codex.wordpress.org/Post_Thumbnails
+		// Add post thumbnail support: http://codex.wordpress.org/Post_Thumbnails.
 		add_theme_support( 'post-thumbnails' );
 
-		// RSS thingy
+		// RSS thingy.
 		add_theme_support( 'automatic-feed-links' );
 
+		// Custom header.
 		$args = [
 			'default-text-color' => '000',
 			'width'              => 2000,
@@ -62,6 +66,7 @@ if ( ! function_exists( 'domestic_theme_support' ) ) :
 		];
 		add_theme_support( 'custom-header', $args );
 
+		// Global content width.
 		$GLOBALS['content_width'] = 1130;
 	}
 endif;

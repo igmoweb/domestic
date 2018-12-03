@@ -7,6 +7,13 @@
  */
 
 if ( ! function_exists( 'domestic_sticky_posts' ) ) :
+	/**
+	 * Add a new class to posts that are sticky
+	 *
+	 * @param array $classes Current array of post classes.
+	 *
+	 * @return array new list of classes
+	 */
 	function domestic_sticky_posts( $classes ) {
 		if ( in_array( 'sticky', $classes, true ) ) {
 			$classes   = array_diff( $classes, [ 'sticky' ] );
@@ -14,9 +21,8 @@ if ( ! function_exists( 'domestic_sticky_posts' ) ) :
 		}
 		return $classes;
 	}
-	add_filter( 'post_class', 'domestic_sticky_posts' );
-
 endif;
+add_filter( 'post_class', 'domestic_sticky_posts' );
 
 if ( ! function_exists( 'domestic_home_query' ) ) :
 	/**
@@ -24,7 +30,7 @@ if ( ! function_exists( 'domestic_home_query' ) ) :
 	 *
 	 * This function is attached to the 'pre_get_posts' action hook.
 	 *
-	 * @param WP_Query $query
+	 * @param WP_Query $query Home query object.
 	 *
 	 * @since 1.0.0
 	 */

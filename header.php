@@ -30,7 +30,7 @@
 			</span>
 		</div>
 		<div class="title-bar-right">
-			<button aria-label="<?php _e( 'Main Menu', 'domestic' ); ?>" class="menu-icon" type="button" data-toggle="off-canvas-menu"></button>
+			<button aria-label="<?php esc_attr( esc_html__( 'Main Menu', 'domestic' ) ); ?>" class="menu-icon" type="button" data-toggle="off-canvas-menu"></button>
 		</div>
 	</div>
 

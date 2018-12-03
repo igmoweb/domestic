@@ -1,4 +1,11 @@
 <?php
+/**
+ * The template part for the home sticky carousel
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
+
 $query      = domestic_get_sticky_carousel_query();
 $thumbnails = [];
 $colors     = [ '#EC9787', '#944743', '#6F9FD8', '#E94B3C', '#ECDB54', '#6B5B95' ];
@@ -29,12 +36,12 @@ $colors     = [ '#EC9787', '#944743', '#6F9FD8', '#E94B3C', '#ECDB54', '#6B5B95'
 </div>
 
 <style>
-	<?php foreach ( $thumbnails as $post_id => $url ) : ?>
-		.owl-carousel-item-<?php echo esc_attr( $post_id ); ?> {
+	<?php foreach ( $thumbnails as $thumb_id => $url ) : ?>
+		.owl-carousel-item-<?php echo esc_attr( $thumb_id ); ?> {
 			<?php if ( $url ) : ?>
-				background:transparent url(<?php echo $url; ?>) no-repeat center;
+				background:transparent url(<?php echo esc_url( $url ); ?>) no-repeat center;
 			<?php else : ?>
-				background: <?php echo $colors[ array_rand( $colors ) ]; ?>
+				background: <?php echo esc_attr( $colors[ array_rand( $colors ) ] ); ?>
 			<?php endif; ?>
 			background-size: cover;
 		}

@@ -7,6 +7,9 @@
  */
 
 if ( ! function_exists( 'domestic_sidebar_widgets' ) ) :
+	/**
+	 * Register Domestic Theme sidebars
+	 */
 	function domestic_sidebar_widgets() {
 		register_sidebar(
 			[

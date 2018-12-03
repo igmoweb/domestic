@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template part for the main loop
+ *
+ * @package Domestic
+ * @since 1.0.0
+ */
+
+?>
 <?php if ( have_posts() ) : ?>
 
 	<?php /* Start the Loop */ ?>

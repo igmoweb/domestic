@@ -6,7 +6,6 @@
  * @since Domestic 1.0.0
  */
 
-// Add featured image sizes
 add_image_size( 'featured-medium', 870, 500, true );
 add_image_size( 'featured-xlarge', 1920, 800, true );
 add_image_size( 'sticky-carousel', 700, 300, true );

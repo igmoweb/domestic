@@ -7,6 +7,11 @@
  */
 
 if ( ! function_exists( 'domestic_jetpack_init' ) ) :
+	/**
+	 * Initializes jetpack support
+	 *
+	 * @since 1.0.0
+	 */
 	function domestic_jetpack_init() {
 		add_theme_support(
 			'infinite-scroll',
@@ -20,6 +25,11 @@ endif;
 add_action( 'after_setup_theme', 'domestic_jetpack_init' );
 
 if ( ! function_exists( 'domestic_jetpack_infinite_scroll_render' ) ) :
+	/**
+	 * Jetpack Infinite Scroll display
+	 *
+	 * @since 1.0.0
+	 */
 	function domestic_jetpack_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();

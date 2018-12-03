@@ -9,9 +9,16 @@
 if ( ! function_exists( 'domestic_active_nav_class' ) ) :
 	/**
 	 * Add Foundation 'is-active' class for the current menu item.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array   $classes Current active nav element list of classes.
+	 * @param WP_Post $item Item object.
+	 *
+	 * @return array New classes list
 	 */
 	function domestic_active_nav_class( $classes, $item ) {
-		if ( $item->current === 1 || $item->current_item_ancestor === true ) {
+		if ( 1 === $item->current || true === $item->current_item_ancestor ) {
 			$classes[] = 'is-active';
 		}
 
@@ -24,7 +31,9 @@ if ( ! function_exists( 'domestic_active_list_pages_class' ) ) :
 	/**
 	 * Use the is-active class of ZURB Foundation on wp_list_pages output.
 	 *
-	 * @param string $input
+	 * @since 1.0.0
+	 *
+	 * @param string $input HTML output of the pages list.
 	 *
 	 * @return null|string|string[]
 	 */
@@ -33,74 +42,7 @@ if ( ! function_exists( 'domestic_active_list_pages_class' ) ) :
 		$pattern = '/current_page_item/';
 		$replace = 'current_page_item is-active';
 
-		$output = preg_replace( $pattern, $replace, $input );
-
-		return $output;
+		return preg_replace( $pattern, $replace, $input );
 	}
 endif;
-add_filter( 'wp_list_pages', 'domestic_active_list_pages_class', 10, 2 );
-
-if ( ! function_exists( 'domestic_responsive_video_oembed_html' ) ) :
-	/**
-	 * Enable Foundation responsive embeds for WP video embeds
-	 */
-	function domestic_responsive_video_oembed_html( $html, $url, $attr, $post_id ) {
-
-		// Whitelist of oEmbed compatible sites that **ONLY** support video.
-		// Cannot determine if embed is a video or not from sites that
-		// support multiple embed types such as Facebook.
-		// Official list can be found here https://codex.wordpress.org/Embeds
-		$video_sites = [
-			'youtube', // first for performance
-			'collegehumor',
-			'dailymotion',
-			'funnyordie',
-			'ted',
-			'videopress',
-			'vimeo',
-		];
-
-		$is_video = false;
-
-		// Determine if embed is a video
-		foreach ( $video_sites as $site ) {
-			// Match on `$html` instead of `$url` because of
-			// shortened URLs like `youtu.be` will be missed
-			if ( strpos( $html, $site ) ) {
-				$is_video = true;
-				break;
-			}
-		}
-
-		// Process video embed
-		if ( true === $is_video ) {
-
-			// Find the `<iframe>`
-			$doc = new DOMDocument();
-			$doc->loadHTML( $html );
-			$tags = $doc->getElementsByTagName( 'iframe' );
-
-			// Get width and height attributes
-			foreach ( $tags as $tag ) {
-				$width  = $tag->getAttribute( 'width' );
-				$height = $tag->getAttribute( 'height' );
-				break; // should only be one
-			}
-
-			$class = 'responsive-embed'; // Foundation class
-
-			// Determine if aspect ratio is 16:9 or wider
-			if ( is_numeric( $width ) && is_numeric( $height ) && ( $width / $height >= 1.7 ) ) {
-				$class .= ' widescreen'; // space needed
-			}
-
-			// Wrap oEmbed markup in Foundation responsive embed
-			return '<div class="' . $class . '">' . $html . '</div>';
-
-		} else { // not a supported embed
-			return $html;
-		}
-
-	}
-endif;
-add_filter( 'embed_oembed_html', 'domestic_responsive_video_oembed_html', 10, 4 );
+add_filter( 'wp_list_pages', 'domestic_active_list_pages_class', 10 );

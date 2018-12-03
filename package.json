@@ -8,7 +8,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "postinstall": "npm run build && gulp wpPot && npm run composer:install",
-    "composer": "docker run --rm --interactive --volume $PWD:/app composer",
+    "composer": "docker run --rm --interactive -w /app --volume $PWD:/app composer",
     "composer:install": "npm run composer -- install",
     "package": "gulp",
     "start": "webpack-dev-server --mode development --env development",

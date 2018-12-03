@@ -13,11 +13,11 @@
 if ( ! class_exists( 'Domestic_Walker_Mobile_Menu' ) ) {
 
 	/**
-	 * Class used to implement an HTML list of the top bar menu
+	 * Class used to implement an HTML list of the mobile bar menu
 	 *
 	 * @since 3.0.0
 	 *
-	 * @see Walker
+	 * @see Walker_Nav_Menu
 	 */
 	class Domestic_Walker_Mobile_Menu extends Walker_Nav_Menu {
 		/**

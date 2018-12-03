@@ -6,44 +6,13 @@
  * @since Domestic 1.0.0
  */
 
-if ( ! function_exists( 'domestic_gutenberg_support' ) ) {
-	function domestic_gutenberg_support() {
-		global $wp_version;
-
-		add_theme_support( 'editor-color-palette', domestic_color_palette() );
-
-		add_theme_support( 'align-wide' );
-
-		add_theme_support( 'disable-custom-colors' );
-
-		add_theme_support( 'editor-styles' );
-
-		$suffix = '';
-		if ( is_rtl() ) {
-			$suffix = '.rtl';
-		}
-
-		if ( version_compare( $wp_version, '5.0', '>=' ) || function_exists( 'the_gutenberg_project' ) ) {
-			$asset = "assets/css/editor-styles${suffix}.css";
-		} else {
-			$asset = "assets/css/editor-styles-backcomp${suffix}.css";
-		}
-
-		$path = domestic_asset_path( $asset );
-		add_editor_style( $path );
-
-		add_theme_support( 'responsive-embeds' );
-	}
-}
-add_action( 'after_setup_theme', 'domestic_gutenberg_support' );
-
-
 if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 	/**
 	 * Enqueue editor JS assets
 	 */
 	function domestic_block_editor_assets() {
-		// Gutenberg scripts
+		// Gutenberg scripts.
+		// phpcs:disable
 		wp_enqueue_script(
 			'domestic-gutenberg',
 			domestic_asset_url( 'assets/js/gutenberg.js' ),
@@ -51,8 +20,9 @@ if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 			'',
 			true
 		);
+		// phpcs:enable
 
-		// The color palette can be set from customizer, we need to add extra css to the editor
+		// The color palette can be set from customizer, we need to add extra css to the editor.
 		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
 		if ( domestic_get_default_schema_color() === $main_color ) {
 			return;
@@ -88,6 +58,41 @@ if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 	}
 endif;
 add_action( 'enqueue_block_editor_assets', 'domestic_block_editor_assets' );
+
+if ( ! function_exists( 'domestic_gutenberg_support' ) ) :
+	/**
+	 * Add support for Gutenberg Editor
+	 */
+	function domestic_gutenberg_support() {
+		/* phpcs:ignore. */
+		global $wp_version;
+
+		add_theme_support( 'editor-color-palette', domestic_color_palette() );
+
+		add_theme_support( 'align-wide' );
+
+		add_theme_support( 'disable-custom-colors' );
+
+		add_theme_support( 'editor-styles' );
+
+		$suffix = '';
+		if ( is_rtl() ) {
+			$suffix = '.rtl';
+		}
+
+		if ( version_compare( $wp_version, '5.0', '>=' ) || function_exists( 'the_gutenberg_project' ) ) {
+			$asset = "assets/css/editor-styles${suffix}.css";
+		} else {
+			$asset = "assets/css/editor-styles-backcomp${suffix}.css";
+		}
+
+		$path = domestic_asset_path( $asset );
+		add_editor_style( $path );
+
+		add_theme_support( 'responsive-embeds' );
+	}
+endif;
+add_action( 'after_setup_theme', 'domestic_gutenberg_support' );
 
 
 /**

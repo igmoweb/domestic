@@ -5,7 +5,7 @@
         "wptrt/wpthemereview": "*"
     },
     "scripts": {
-        "lint:php": "phpcs --standard=phpcs.ruleset.xml -s ./inc/content.php --runtime-set testVersion 5.4-",
+        "lint:php": "phpcs --standard=phpcs.ruleset.xml -s . --runtime-set testVersion 5.4-",
         "fix:php": "phpcbf --standard=phpcs.ruleset.xml -s . --runtime-set testVersion 5.4-"
     },
     "require": {

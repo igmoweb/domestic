@@ -16,12 +16,12 @@ register_nav_menus(
 );
 
 
-/**
- * Desktop navigation - right top bar
- *
- * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
- */
 if ( ! function_exists( 'domestic_top_bar_r' ) ) {
+	/**
+	 * Register Desktop navigation - right top bar
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+	 */
 	function domestic_top_bar_r() {
 		wp_nav_menu(
 			[
@@ -38,14 +38,16 @@ if ( ! function_exists( 'domestic_top_bar_r' ) ) {
 }
 
 
-/**
- * Mobile navigation - topbar (default) or offcanvas
- */
 if ( ! function_exists( 'domestic_mobile_nav' ) ) {
+	/**
+	 * Register Mobile navigation - topbar (default) or offcanvas
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+	 */
 	function domestic_mobile_nav() {
 		wp_nav_menu(
 			[
-				'container'      => false,                         // Remove nav container
+				'container'      => false,
 				'menu'           => __( 'mobile-nav', 'domestic' ),
 				'menu_class'     => 'vertical menu',
 				'theme_location' => 'mobile-nav',
@@ -58,24 +60,10 @@ if ( ! function_exists( 'domestic_mobile_nav' ) ) {
 }
 
 
-/**
- * Add support for buttons in the top-bar menu:
- * 1) In WordPress admin, go to Apperance -> Menus.
- * 2) Click 'Screen Options' from the top panel and enable 'CSS CLasses' and 'Link Relationship (XFN)'
- * 3) On your menu item, type 'has-form' in the CSS-classes field. Type 'button' in the XFN field
- * 4) Save Menu. Your menu item will now appear as a button in your top-menu
-*/
-if ( ! function_exists( 'domestic_add_menuclass' ) ) {
-	function domestic_add_menuclass( $ulclass ) {
-		$find    = [ '/<a rel="button"/', '/<a title=".*?" rel="button"/' ];
-		$replace = [ '<a rel="button" class="button"', '<a rel="button" class="button"' ];
-
-		return preg_replace( $find, $replace, $ulclass, 1 );
-	}
-	add_filter( 'wp_nav_menu', 'domestic_add_menuclass' );
-}
-
 if ( ! function_exists( 'domestic_posts_navigation' ) ) :
+	/**
+	 * Display posts navigation links
+	 */
 	function domestic_posts_navigation() {
 		?>
 		<nav id="post-nav" class="row">

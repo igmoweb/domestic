@@ -1,7 +1,11 @@
 <?php
-/*
-Template Name: Page with sidebar
-*/
+/**
+ * Template Name: Page with sidebar
+ *
+ * @package Domestic
+ *
+ * @since 1.0.0
+ */
 
 get_header(); ?>
 

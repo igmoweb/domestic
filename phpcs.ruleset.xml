@@ -20,6 +20,7 @@
 	<rule ref="WPThemeReview"/>
 
 	<!-- Directories and third party library exclusions -->
+	<exclude-pattern>/package/*</exclude-pattern>
 	<exclude-pattern>/dist/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>
 	<exclude-pattern>/vendor/*</exclude-pattern>

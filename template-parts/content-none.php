@@ -5,37 +5,21 @@
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
  * @package Domestic
- * @since Domestic 1.0.0
+ * @since 1.0.0
  */
 
 ?>
 
 <header class="page-header">
-	<h1 class="page-title"><?php _e( 'Nothing Found', 'domestic' ); ?></h1>
+	<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'domestic' ); ?></h1>
 </header>
 
 <div class="page-content">
-	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
-
-	<p>
-		<?php
-			printf(
-				/* translators: %1$s: New post admin URL */
-				__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'domestic' ),
-				admin_url( 'post-new.php' )
-			);
-		?>
-	</p>
-
-	<?php elseif ( is_search() ) : ?>
-
-	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'domestic' ); ?></p>
-	<?php get_search_form(); ?>
-
+	<?php if ( is_search() ) : ?>
+		<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'domestic' ); ?></p>
+		<?php get_search_form(); ?>
 	<?php else : ?>
-
-	<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'domestic' ); ?></p>
-	<?php get_search_form(); ?>
-
+		<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'domestic' ); ?></p>
+		<?php get_search_form(); ?>
 	<?php endif; ?>
 </div>

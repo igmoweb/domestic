@@ -25,7 +25,7 @@
 		<?php if ( domestic_footer_tagline() ) : ?>
 			<div class="site-info row">
 				<div class="columns small-12">
-					<?php echo domestic_footer_tagline(); ?>
+					<?php echo domestic_footer_tagline(); /* WPCS: XSS OK */ ?>
 				</div>
 			</div><!-- .site-info -->
 		<?php endif; ?>
