@@ -1,8 +1,3 @@
-<?php
-$sections = domestic_get_front_page_sections();
-global $post;
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if ( get_the_title() ) : ?>
 		<header>

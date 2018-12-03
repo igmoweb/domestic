@@ -14,10 +14,14 @@
 
 if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 	/**
-	 * @param WP_Customize_Manager $wp_customize
+	 * Register Theme Customizer controls and settings
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param WP_Customize_Manager $wp_customize WP_Customize_Manager instance.
 	 */
 	function domestic_register_theme_customizer( $wp_customize ) {
-		// Domestic Settings panel
+		// Domestic Settings panel.
 		$wp_customize->add_panel(
 			'domestic_settings',
 			[
@@ -26,7 +30,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		// Domestic colors section
+		// Domestic colors section.
 		$wp_customize->add_section(
 			'domestic_colors',
 			[
@@ -36,7 +40,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		// Domestic mtop menu color schema
+		// Domestic mtop menu color schema.
 		$wp_customize->add_setting(
 			'domestic_menu_schema',
 			[
@@ -61,7 +65,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		// Domestic color schema
+		// Domestic color schema.
 		$wp_customize->add_setting(
 			'domestic_color_schema',
 			[
@@ -77,11 +81,11 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 				'section'     => 'domestic_colors',
 				'settings'    => 'domestic_color_schema',
 				'type'        => 'color',
-				'description' => __( 'Changes the color schema for the theme.', 'domestic' ),
+				'description' => esc_html__( 'Changes the color schema for the theme.', 'domestic' ),
 			]
 		);
 
-		// Toggle sticky slider
+		// Toggle sticky slider.
 		$wp_customize->add_section(
 			'domestic_sticky_slider',
 			[
@@ -100,7 +104,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		);
 
 		$wp_customize->add_control(
-			'domestic_show_sticky_slider', [
+			'domestic_show_sticky_slider',
+			[
 				'label'    => __( 'Display the home slider', 'domestic' ),
 				'section'  => 'domestic_sticky_slider',
 				'settings' => 'domestic_show_sticky_slider',
@@ -108,7 +113,7 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			]
 		);
 
-		// Footer tagline
+		// Footer tagline.
 		$wp_customize->add_section(
 			'domestic_footer_tagline',
 			[
@@ -143,6 +148,11 @@ add_action( 'customize_register', 'domestic_register_theme_customizer' );
 
 
 if ( ! function_exists( 'domestic_get_default_schema_color' ) ) :
+	/**
+	 * Return the default Theme color schema
+	 *
+	 * @return string Hex color
+	 */
 	function domestic_get_default_schema_color() {
 		return '#f47a29';
 	}
@@ -154,10 +164,10 @@ if ( ! function_exists( 'domestic_darken_color' ) ) :
 	 *
 	 * @props to Aleš Farčnik - https://coderwall.com/p/dvecdg/darken-hex-color-in-php
 	 *
-	 * @param $rgb
-	 * @param int $darker
+	 * @param string $rgb An Hex color.
+	 * @param int    $darker How much should the color be darkened (0 min, 2 max).
 	 *
-	 * @return string
+	 * @return string The hex color darkened
 	 */
 	function domestic_darken_color( $rgb, $darker = 2 ) {
 
@@ -201,6 +211,9 @@ if ( ! function_exists( 'domestic_default_footer_tagline' ) ) :
 endif;
 
 if ( ! function_exists( 'domestic_set_schema_color' ) ) :
+	/**
+	 * Add inline styles to change the color schema
+	 */
 	function domestic_set_schema_color() {
 		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
 		if ( domestic_get_default_schema_color() === $main_color ) {
@@ -213,9 +226,7 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 
 		$palette = domestic_color_palette();
 
-		?>
-		<style>
-			a,
+		$custom_css = 'a,
 			.top-bar ul.menu li > a:hover,
 			.top-bar ul.menu li > a:active,
 			.footer table a,
@@ -225,18 +236,16 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			.mobile-menu .menu .is-active > a, .mobile-off-canvas-menu .menu .is-active > a,
 			h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus,
 			#content article.hentry .entry-content .post-meta a:hover, #content article.hentry .entry-content .post-meta a:focus,
-			.post-tags li a:hover, .post-tags li a:focus {
-				color: <?php echo esc_attr( $main_color ); ?>;
+			.post-tags li a:hover, .post-tags li a:focus,
+			.has-domestic-color-color {
+				color: ' . esc_attr( $main_color ) . ';
 			}
-
 			.top-bar > ul.menu > li.menu-item-has-children:after {
-				border-color: <?php echo esc_attr( $main_color ); ?>;
+				border-color: ' . esc_attr( $main_color ) . ';
 			}
-
 			.dropdown.menu.vertical > li.opens-right > a::after {
-				border-color: transparent <?php echo esc_attr( $main_color ); ?> transparent;
+				border-color: transparent ' . esc_attr( $main_color ) . ' transparent;
 			}
-
 			.owl-carousel.owl-theme .owl-nav button.owl-prev:hover,
 			.owl-carousel.owl-theme .owl-nav button.owl-prev:focus,
 			.owl-carousel.owl-theme .owl-nav button.owl-next:hover,
@@ -244,120 +253,59 @@ if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 			.button,
 			input[type="submit"],
 			#comments .comment-body header.comment-author .reply a,
-			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
-				background-color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			.has-domestic-color-color {
-				color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			.has-domestic-color-background-color {
-				background-color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			.wp-block-button .wp-block-button__link {
-				background-color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
+			#buddypress .standard-form button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress .generic-button a, #buddypress .comment-reply-link, a.bp-title-button,
+			.has-domestic-color-background-color,
+			.wp-block-button .wp-block-button__link,
 			.wp-block-button .wp-block-button__link:hover {
-				background-color: <?php echo esc_attr( domestic_darken_color( $main_color ) ); ?>;
+				background-color: ' . esc_attr( $main_color ) . ';
 			}
-
+		
 			.wp-block-button.is-style-outline .wp-block-button__link {
-				color: <?php echo esc_attr( $main_color ); ?>;
-				border-color: <?php echo esc_attr( $main_color ); ?>;
+				color: ' . esc_attr( $main_color ) . ';
+				border-color: ' . esc_attr( $main_color ) . ';
 				background-color: transparent;
 			}
 
 			.wp-block-button.is-style-outline .wp-block-button__link:hover {
-				color: <?php echo domestic_darken_color( $main_color ); ?>;
-				border-color: <?php echo esc_attr( domestic_darken_color( $main_color ) ); ?>;
+				color: ' . esc_attr( domestic_darken_color( $main_color ) ) . ';
+				border-color: ' . esc_attr( domestic_darken_color( $main_color ) ) . ';
 				background: transparent;
 			}
+			';
 
-			<?php foreach ( $palette as $item ) : ?>
-			body #content .entry-content .wp-block-button .wp-block-button__link.has-<?php echo $item['slug']; ?>-color {
-				color: <?php echo esc_attr( $item['color'] ); ?>
-			}
+		foreach ( $palette as $item ) {
+			$custom_css .= '
+				body #content .entry-content .wp-block-button .wp-block-button__link.has-' . esc_attr( $item['slug'] ) . '-color,
+				body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-' . esc_attr( $item['slug'] ) . '-color {
+					color: ' . esc_attr( $item['color'] ) . ';
+				}
 
-			body #content .entry-content .wp-block-button .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color {
-				background: <?php echo esc_attr( $item['color'] ); ?>
-			}
+				body #content .entry-content .wp-block-button .wp-block-button__link.has-' . esc_attr( $item['slug'] ) . '-background-color,
+				body #content .entry-content .wp-block-button .wp-block-button__link.has-' . esc_attr( $item['slug'] ) . '-background-color:hover {
+					background: ' . esc_attr( $item['color'] ) . ';
+				}
 
-			body #content .entry-content .wp-block-button .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color:hover {
-				background: <?php echo esc_attr( domestic_darken_color( $item['color'], 2 ) ); ?>
-			}
+				body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-' . esc_attr( $item['slug'] ) . '-background-color {
+					border-color: ' . esc_attr( $item['color'] ) . ';
+					background: transparent;
+				}
 
-			body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-<?php echo $item['slug']; ?>-color {
-				color: <?php echo esc_attr( $item['color'] ); ?>
-			}
-
-			body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color {
-				border-color: <?php echo esc_attr( $item['color'] ); ?>;
-				background: transparent;
-			}
-
-			body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-<?php echo $item['slug']; ?>-background-color:hover {
-				border-color: <?php echo esc_attr( domestic_darken_color( $item['color'], 2 ) ); ?>;
-			}
-
-			<?php endforeach; ?>
-
-
-		</style>
-		<?php
-	}
-endif;
-add_action( 'wp_head', 'domestic_set_schema_color', 999 );
-
-
-if ( ! function_exists( 'domestic_editor_styles' ) ) :
-	/**
-	 * Styles for WP Editor
-	 */
-	function domestic_editor_styles() {
-		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
-		if ( domestic_get_default_schema_color() === $main_color ) {
-			return;
+				body #content .entry-content .wp-block-button.is-style-outline .wp-block-button__link.has-' . esc_attr( $item['slug'] ) . '-background-color:hover {
+					border-color: ' . esc_attr( domestic_darken_color( $item['color'], 2 ) ) . ';
+				}
+				';
 		}
-		?>
-		<style>
-			body .editor-styles-wrapper a {
-				color: <?php echo esc_attr( $main_color ); ?> !important;
-			}
 
-			body .editor-styles-wrapper .wp-block-button .wp-block-button__link {
-				background-color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
-				border: 1px solid<?php echo esc_attr( $main_color ); ?>;
-				color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:hover.disabled,
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:hover[disabled],
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:focus.disabled,
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:focus[disabled] {
-				border: 1px solid<?php echo esc_attr( $main_color ); ?>;
-				color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link.has-domestic-color-color {
-				color: <?php echo esc_attr( $main_color ); ?>;
-			}
-
-			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link.has-domestic-color-background-color {
-				border-color: <?php echo esc_attr( $main_color ); ?>;
-				background-color: transparent;
-			}
-		</style>
-		<?php
+			wp_add_inline_style( 'domestic-stylesheet', $custom_css );
 	}
 endif;
+add_action( 'wp_enqueue_scripts', 'domestic_set_schema_color', 999 );
+
 
 if ( ! function_exists( 'domestic_set_header_image' ) ) :
+	/**
+	 * Add inline styles for the header image
+	 */
 	function domestic_set_header_image() {
 		if ( ! get_header_image() ) {
 			return;
@@ -365,20 +313,16 @@ if ( ! function_exists( 'domestic_set_header_image' ) ) :
 
 		$header = get_custom_header();
 		$height = absint( $header->height );
-		?>
-		<style>
-			.site-branding {
-				background:url(<?php echo esc_url( $header->url ); ?>) no-repeat center center;
+		$height = $height < 250 ? 'auto' : absint( $height );
+		$css    = '
+		.site-branding {
+				background:url(' . esc_url( $header->url ) . ') no-repeat center center;
 				background-size: cover;
-				<?php if ( $height < 250 ) : ?>
-					height: auto;
-				<?php else : ?>
-					height: <?php echo absint( $height ); ?>px;
-				<?php endif; ?>
-
+				height: ' . esc_attr( $height ) . '
 			}
-		</style>
-		<?php
+		';
+
+		wp_add_inline_style( 'domestic-stylesheet', $css );
 	}
 endif;
-add_action( 'wp_head', 'domestic_set_header_image' );
+add_action( 'wp_enqueue_scripts', 'domestic_set_header_image' );

@@ -27,9 +27,9 @@ if ( ! class_exists( 'Domestic_Walker_Mobile_Menu' ) ) {
 		 *
 		 * @see Walker::start_lvl()
 		 *
-		 * @param string   $output Used to append additional content (passed by reference).
-		 * @param int      $depth  Depth of menu item. Used for padding.
-		 * @param array    $args   An object of wp_nav_menu() arguments.
+		 * @param string $output Used to append additional content (passed by reference).
+		 * @param int    $depth  Depth of menu item. Used for padding.
+		 * @param array  $args   An object of wp_nav_menu() arguments.
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = [] ) {
 			$indent  = str_repeat( "\t", $depth );

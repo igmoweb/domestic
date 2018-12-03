@@ -68,7 +68,7 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 
 		$localize = [];
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', domestic_asset_url( "assets/css/style${suffix}.css" ) );
+		wp_enqueue_style( 'domestic-stylesheet', domestic_asset_url( "assets/css/style${suffix}.css" ) );
 
 		// Enqueue Domestic scripts
 		wp_enqueue_script( 'domestic-js', domestic_asset_url( 'assets/js/app.js' ), [ 'jquery' ], null, true );
@@ -91,21 +91,3 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 
 endif;
 add_action( 'wp_enqueue_scripts', 'domestic_scripts' );
-
-
-if ( ! function_exists( 'domestic_customize_scripts' ) ) :
-	/**
-	 * Load dynamic logic for the customizer controls area.
-	 */
-	function domestic_customize_scripts() {
-		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/dist/assets/js/customize.js', [ 'jquery', 'customize-preview' ], false, true );
-		wp_localize_script(
-			'domestic-customize',
-			'domesticCustomize',
-			[
-				'sections' => array_values( domestic_get_front_page_children() ),
-			]
-		);
-	}
-endif;
-add_action( 'customize_preview_init', 'domestic_customize_scripts' );

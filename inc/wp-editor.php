@@ -53,7 +53,38 @@ if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 		);
 
 		// The color palette can be set from customizer, we need to add extra css to the editor
-		domestic_editor_styles();
+		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
+		if ( domestic_get_default_schema_color() === $main_color ) {
+			return;
+		}
+
+		$custom_css = '
+			body .editor-styles-wrapper a,
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link.has-domestic-color-color {
+				color: ' . esc_attr( $main_color ) . ' !important;
+			}
+
+			body .editor-styles-wrapper .wp-block-button .wp-block-button__link {
+				background-color: ' . esc_attr( $main_color ) . ';
+			}
+
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link,
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:hover.disabled,
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:hover[disabled],
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:focus.disabled,
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link:focus[disabled] {
+				border: 1px solid' . esc_attr( $main_color ) . ';
+				color: ' . esc_attr( $main_color ) . ';
+			}
+
+			body .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link.has-domestic-color-background-color {
+				border-color: ' . esc_attr( $main_color ) . ';
+				background-color: transparent;
+			}
+		';
+
+		wp_add_inline_style( 'wp-editor', $custom_css );
+
 	}
 endif;
 add_action( 'enqueue_block_editor_assets', 'domestic_block_editor_assets' );
