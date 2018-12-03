@@ -1,10 +1,13 @@
 const fs = require( 'fs' );
-const gulp = require( 'gulp' );
-const wpPot = require( 'gulp-wp-pot' );
-const run = require( 'gulp-run-command' ).default;
-const zip = require( 'gulp-zip' );
-const replace = require( 'gulp-replace' );
-const rename = require( 'gulp-rename' );
+	gulp = require( 'gulp' ),
+	wpPot = require( 'gulp-wp-pot' ),
+	run = require( 'gulp-run-command' ).default,
+	zip = require( 'gulp-zip' ),
+	replace = require( 'gulp-replace' ),
+	rename = require( 'gulp-rename' ),
+	tagVersion = require( 'gulp-tag-version' ),
+	git = require( 'gulp-git' ),
+	bump = require('gulp-bump');
 
 const config = require( './config' );
 const pkg = JSON.parse( fs.readFileSync( './package.json' ) );
@@ -38,5 +41,29 @@ gulp.task( 'generate-readme', function() {
 		.pipe( rename( 'readme.txt' ) )
 		.pipe( gulp.dest( './' ) );
 });
+
+
+function stageDistAssets() {
+	return gulp.src([ './dist' ])
+		.pipe( git.add({args:'-f'}) );
+}
+
+function stageLangs() {
+	return gulp.src([ './languages' ])
+		.pipe( git.add({args:'-f'}) );
+}
+
+function commit() {
+	return gulp.src(['./dist/*', './languages/*'])
+		.pipe(git.commit('Test', {args:'--no-verify'}));
+}
+
+function tagRelease() {
+	return gulp.src([ './package.json' ])
+		.pipe( tagVersion() );
+}
+
+// Don't call this directly. Do it with npm run tag
+gulp.task( 'tag', gulp.series( stageDistAssets, stageLangs, commit ) );
 
 gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'package' ) );
