@@ -67,11 +67,10 @@ if ( ! function_exists( 'domestic_asset_path' ) ) :
 	 * @return string Path to the asset
 	 */
 	function domestic_asset_path( $filename ) {
-		$dist_path = get_stylesheet_directory() . '/dist/';
 		$manifest  = domestic_get_manifest();
 
 		if ( array_key_exists( $filename, $manifest ) ) {
-			return $dist_path . $manifest[ $filename ];
+			return 'dist/' . $manifest[ $filename ];
 		}
 		return $filename;
 	}
@@ -115,3 +114,13 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 
 endif;
 add_action( 'wp_enqueue_scripts', 'domestic_scripts' );
+
+if ( ! function_exists( 'domestic_customize_scripts' ) ) :
+	/**
+	 * Load dynamic logic for the customizer controls area.
+	 */
+	function domestic_customize_scripts() {
+		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/dist/assets/js/customize.js', [ 'jquery', 'customize-preview' ], false, true );
+	}
+	add_action( 'customize_preview_init', 'domestic_customize_scripts' );
+endif;
