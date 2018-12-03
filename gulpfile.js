@@ -42,27 +42,4 @@ gulp.task( 'generate-readme', function() {
 		.pipe( gulp.dest( './' ) );
 });
 
-
-function stageDistAssets() {
-	return gulp.src([ './dist' ])
-		.pipe( git.add({args:'-f'}) );
-}
-
-function stageLangs() {
-	return gulp.src([ './languages' ])
-		.pipe( git.add({args:'-f'}) );
-}
-
-function commit() {
-	return gulp.src(['./dist/*', './languages/*'])
-		.pipe(git.commit('Test', {args:'--no-verify'}));
-}
-
-function checkoutVersionTag() {
-	git.checkout( `v${pkg.version}` );
-}
-
-// Don't call this directly. Do it with npm run tag
-gulp.task( 'tag', gulp.series( tagVersion, checkoutVersionTag, stageDistAssets, stageLangs, commit ) );
-
 gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'package' ) );
