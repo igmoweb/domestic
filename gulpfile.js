@@ -7,7 +7,7 @@ const fs = require( 'fs' );
 	rename = require( 'gulp-rename' ),
 	tagVersion = require( 'gulp-tag-version' ),
 	git = require( 'gulp-git' ),
-	bump = require('gulp-bump');
+	bump = require( 'gulp-bump' );
 
 const config = require( './config' );
 const pkg = JSON.parse( fs.readFileSync( './package.json' ) );
