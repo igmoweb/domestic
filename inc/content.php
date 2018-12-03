@@ -122,7 +122,7 @@ if ( ! function_exists( 'domestic_entry_meta' ) ) :
 				<?php
 				printf(
 					/* translators: %s: Post Author */
-					esc_html_x( 'by %s', 'domestic' ),
+					esc_html_x( 'by %s', 'posted by author', 'domestic' ),
 					'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" class="fn">'
 					. get_the_author()
 					. '</a>'

@@ -99,7 +99,8 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		$wp_customize->add_setting(
 			'domestic_show_sticky_slider',
 			[
-				'default' => true,
+				'sanitize_callback' => 'boolval',
+				'default'           => true,
 			]
 		);
 
