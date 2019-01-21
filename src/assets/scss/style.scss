@@ -1,8 +1,9 @@
 @import 'settings';
 @import '~foundation-sites/scss/foundation';
 @import '~motion-ui/motion-ui';
+@import 'foundation-overrides';
 
-@include foundation-global-styles;
+@include domestic-global-styles;
 @include foundation-flex-grid;
 @include foundation-typography;
 @include foundation-button;

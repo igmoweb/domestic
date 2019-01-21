@@ -1,6 +1,4 @@
-@import 'settings';
-@import '~foundation-sites/scss/foundation';
-@import 'mixins';
+@import 'style';
 
 $content-width: 1129px;
 
@@ -25,27 +23,21 @@ $content-width: 1129px;
 
 
 
-body {
-	margin: 0;
-	padding: 0;
-
-	background: $body-background;
-
-	font-family: $body-font-family;
-	font-weight: $global-weight-normal;
-	line-height: $global-lineheight;
-	color: $body-font-color;
-
-	@if ($body-antialiased) {
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
+// Fix conflicting styles
+.editor-block-list__insertion-point-inserter .editor-inserter__toggle {
+	margin-top: -4px;
+	border-radius: 50%;
+	color: #007cba;
+	background: #fff;
+	height: 36px;
+	width: 36px;
+	padding: 8px;
 }
 
-body,
-body p {
-	font-size:19px;
+button {
+	overflow:hidden;
 }
+
 
 // Headings
 .wp-block-heading {
@@ -154,8 +146,89 @@ blockquote.wp-block-quote {
 	}
 }
 
-// No margin styles
-@include gutenberg-no-margin-styles( -32px );
+/** Blocks **/
+/** - List **/
+.wp-block[data-type="core/list"] {
+	padding-left:0;
+}
+
+/** - Sparator **/
+.wp-block[data-type="core/separator"] hr {
+	max-width:1300px;
+}
+
+/** - Tables **/
+.wp-block[data-type="core/table"] td,
+.wp-block[data-type="core/table"] th {
+	border:none;
+}
+@include gutenberg-block-table();
+
+/** - Latest posts **/
+.wp-block[data-type="core/latest-posts"] {
+	padding-left:0;
+}
+
+/** - Blockquote **/
+.wp-block[data-type="core/quote"] blockquote {
+	border-left:1px solid #cacaca
+}
+
+.wp-block[data-type="core/quote"] blockquote .wp-block-quote__citation:before {
+	content: "— ";
+}
+
+/** - Buttons **/
+.wp-block[data-type="core/button"] .wp-block-button__link {
+	line-height:39.6px;
+	padding: 12px 24px;
+}
+.wp-block[data-type="core/button"][data-align="left"] .editor-block-list__block-edit {
+	margin-right:0;
+	padding-right:19px;
+	margin-bottom:0;
+}
+
+.wp-block[data-type="core/button"][data-align="right"] .editor-block-list__block-edit {
+	margin-left:0;
+	padding-left:19px;
+	margin-bottom:0;
+}
+
+/** - Categories **/
+.wp-block[data-type="core/categories"] {
+	padding-left:0;
+}
+
+/** - Archives **/
+.wp-block[data-type="core/archives"] {
+	padding-left:0;
+}
+
+/** - Pullquote **/
+.wp-block[data-type="core/pullquote"] .wp-block-pullquote__citation {
+	text-transform: none;
+}
+.wp-block[data-type="core/pullquote"] .wp-block-pullquote__citation:before {
+	content: "— ";
+}
+.wp-block[data-type="core/pullquote"] .wp-block-pullquote {
+	border:none;
+}
+
+/** - Images **/
+.wp-block[data-type="core/image"][data-align="left"] .editor-block-list__block-edit {
+	margin-right:0;
+	padding-right:19px;
+	margin-bottom:0;
+}
+
+.wp-block[data-type="core/image"][data-align="right"] .editor-block-list__block-edit {
+	margin-left:0;
+	padding-left:19px;
+	margin-bottom:0;
+}
+
 
 // Color palette styles
 @include gutenberg-editor-color-palette-styles( 'domestic-color', $primary-color );
@@ -163,6 +236,3 @@ blockquote.wp-block-quote {
 @include gutenberg-editor-color-palette-styles( 'domestic-light-gray', $light-gray );
 @include gutenberg-editor-color-palette-styles( 'domestic-white', $white );
 @include gutenberg-editor-color-palette-styles( 'domestic-dark-gray', $dark-gray );
-
-// Table Block
-@include gutenberg-block-table();

@@ -169,15 +169,3 @@
 		}
 	}
 }
-
-@mixin gutenberg-no-margin-styles( $margin-bottom: 0 ) {
-	.is-style-domestic-no-margin {
-		&.wp-block-image,
-		&.wp-block-cover {
-			margin-bottom: $margin-bottom;
-		}
-		&.wp-block-image .editor-rich-text {
-			display:none;
-		}
-	}
-}

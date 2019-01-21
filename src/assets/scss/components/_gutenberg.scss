@@ -67,7 +67,3 @@ body.has-sidebar #content .entry-content {
 @include gutenberg-color-palette-styles( 'domestic-light-gray', $light-gray );
 @include gutenberg-color-palette-styles( 'domestic-white', $white );
 @include gutenberg-color-palette-styles( 'domestic-dark-gray', $dark-gray );
-
-// No margin styles
-@include gutenberg-no-margin-styles();
-

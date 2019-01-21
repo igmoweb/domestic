@@ -11,17 +11,6 @@ if ( ! function_exists( 'domestic_block_editor_assets' ) ) :
 	 * Enqueue editor JS assets
 	 */
 	function domestic_block_editor_assets() {
-		// Gutenberg scripts.
-		// phpcs:disable
-		wp_enqueue_script(
-			'domestic-gutenberg',
-			domestic_asset_url( 'assets/js/gutenberg.js' ),
-			[ 'wp-blocks', 'wp-i18n' ],
-			'',
-			true
-		);
-		// phpcs:enable
-
 		// The color palette can be set from customizer, we need to add extra css to the editor.
 		$main_color = get_theme_mod( 'domestic_color_schema', domestic_get_default_schema_color() );
 		if ( domestic_get_default_schema_color() === $main_color ) {

@@ -57,7 +57,6 @@ Running this command will build and minify the theme's assets and place a .zip a
   
  * `src/assets/js/app.js`: The main Theme JS file. Loads Foundation scripts and initializes Owl Carousel.
  * `src/assets/js/customize.js`: JS loaded in WP Customizer.
- * `src/assets/js/gutenberg.js`: JS loaded in Gutenberg Editor.
  
 ### JavaScript Compilation
 
