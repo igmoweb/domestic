@@ -89,6 +89,10 @@
     "*.js": [
       "npm run fix:js",
       "git add"
+    ],
+    "*.php": [
+      "npm run lint:php",
+      "git add"
     ]
   },
   "theme": {
