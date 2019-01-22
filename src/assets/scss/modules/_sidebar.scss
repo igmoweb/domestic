@@ -14,16 +14,16 @@
 		list-style: none;
 		margin-left: 0;
 		li {
-			line-height: 1.2 * $global-lineheight;
+			line-height: 0.9 * $global-lineheight;
 		}
 	}
 }
 
+.widget_recent_entries,
 .widget_archive,
 .widget_categories,
 .widget_nav_menu {
 	ul, ol {
-		text-align: right;
 		li {
 			width: 100%;
 			display:inline-block;
