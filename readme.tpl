@@ -52,11 +52,10 @@ Source: foundation.zurb.com/motion-ui
 2. Some blocks created with the new Gutenberg editor (or WordPress 5.0 Editor)
 3. The color scheme selector in Customizer
 4. A sample of a blog post
-5. Style some blocks with margin or not
-6. Your sticky posts will be displayed as a carousel
+5. Your sticky posts will be displayed as a carousel
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
 
 Initial release

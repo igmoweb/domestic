@@ -7,6 +7,7 @@ const fs = require( 'fs' );
 	rename = require( 'gulp-rename' ),
 	tagVersion = require( 'gulp-tag-version' ),
 	git = require( 'gulp-git' ),
+	del = require( 'del' );
 	bump = require( 'gulp-bump' );
 
 const config = require( './config' );
@@ -42,4 +43,11 @@ gulp.task( 'generate-readme', function() {
 		.pipe( gulp.dest( './' ) );
 });
 
-gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'package' ) );
+gulp.task( 'delete:builds', function() {
+	return del([
+		'dist/assets/css/*.js',
+		'dist/assets/css/*.js.map',
+	]);
+});
+
+gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'delete:builds', 'package' ) );

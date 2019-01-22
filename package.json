@@ -1,7 +1,7 @@
 {
   "name": "domestic",
   "title": "Domestic Theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Domestic Theme for WordPress",
   "homepage": "https://igmoweb.com",
   "license": "MIT",
@@ -39,6 +39,7 @@
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.7",
+    "del": "^3.0.0",
     "eslint": "^5.9.0",
     "eslint-config-wordpress": "^2.0.0",
     "file-loader": "^2.0.0",
