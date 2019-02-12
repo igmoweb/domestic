@@ -20,7 +20,7 @@ if ( ! function_exists( 'domestic_asset_url' ) ) :
 	 * @return string URL to the asset
 	 */
 	function domestic_asset_url( $filename ) {
-		$dist_url = get_stylesheet_directory_uri() . '/dist/';
+		$dist_url = get_template_directory_uri() . '/dist/';
 		$manifest = domestic_get_manifest();
 
 		if ( array_key_exists( $filename, $manifest ) ) {
@@ -39,7 +39,7 @@ if ( ! function_exists( 'domestic_get_manifest' ) ) :
 	function domestic_get_manifest() {
 		global $wp_filesystem;
 
-		require_once ABSPATH . '/wp-admin/includes/file.php';
+		require_once ABSPATH . '/wp-admin/includes/file.php'; //phpcs:ignore
 		WP_Filesystem();
 
 		$dist_path     = get_stylesheet_directory() . '/dist/';
