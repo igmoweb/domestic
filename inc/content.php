@@ -11,7 +11,7 @@ if ( ! function_exists( 'domestic_excerpt_more' ) ) :
 	 * Customize the excerpt more link
 	 */
 	function domestic_excerpt_more() {
-		return '[...] <p class="read-more"><a class="button" href="' . get_permalink() . '">' . __( 'Read more', 'domestic' ) . '</a></p>';
+		return '[...] <p class="read-more"><a class="button" href="' . esc_url( get_permalink() ) . '">' . __( 'Read more', 'domestic' ) . '</a></p>';
 	}
 endif;
 add_filter( 'excerpt_more', 'domestic_excerpt_more' );

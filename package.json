@@ -87,14 +87,17 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "npm run fix:js",
-      "git add"
-    ],
-    "*.php": [
-      "npm run lint:php",
-      "git add"
-    ]
+    "linters": {
+      "*.js": [
+        "npm run fix:js",
+        "git add"
+      ],
+      "*.php": [
+        "npm run lint:php",
+        "git add"
+      ]
+    },
+    "relative": true
   },
   "theme": {
     "contributors": "igmoweb,mrfoxtalbot",
