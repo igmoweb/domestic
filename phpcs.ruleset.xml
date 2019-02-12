@@ -5,13 +5,14 @@
 
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
+	<config name="testVersion" value="5.4-" />
 
 
 	<!-- Run against the PHPCompatibility ruleset -->
 	<rule ref="PHPCompatibility"/>
 
 	<!-- Run against the PHPCompatibilityWP ruleset -->
-	<rule ref="PHPCompatibilityWP"/>
+	<rule ref="PHPCompatibilityWP" />
 
 	<!-- Run against the WordPress ruleset -->
 	<rule ref="WordPress"/>
