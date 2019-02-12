@@ -67,10 +67,10 @@ if ( ! function_exists( 'domestic_get_thumbnail_size' ) ) :
 		$has_sidebar = domestic_has_sidebar();
 
 		if ( ( is_single() || is_home() ) && $has_sidebar ) {
-			return 'featured-medium';
+			return 'domestic-featured-medium';
 		}
 
-		return 'featured-xlarge';
+		return 'domestic-featured-xlarge';
 	}
 endif;
 

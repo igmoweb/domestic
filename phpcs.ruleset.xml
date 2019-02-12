@@ -5,7 +5,6 @@
 
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
-	<config name="testVersion" value="5.4-" />
 
 
 	<!-- Run against the PHPCompatibility ruleset -->

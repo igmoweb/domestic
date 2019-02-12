@@ -18,7 +18,7 @@ $colors     = [ '#EC9787', '#944743', '#6F9FD8', '#E94B3C', '#ECDB54', '#6B5B95'
 			$query->the_post();
 			?>
 			<?php
-				$thumbnail                  = get_the_post_thumbnail_url( get_the_ID(), 'sticky-carousel' );
+				$thumbnail                  = get_the_post_thumbnail_url( get_the_ID(), 'domestic-sticky-carousel' );
 				$thumbnails[ get_the_ID() ] = $thumbnail ? $thumbnail : '';
 			?>
 			<div class="owl-carousel-item owl-carousel-item-<?php echo esc_attr( get_the_ID() ); ?>" onclick="location.href='<?php echo esc_url( get_permalink() ); ?>'">

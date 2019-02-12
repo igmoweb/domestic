@@ -5,8 +5,8 @@
         "wptrt/wpthemereview": "*"
     },
     "scripts": {
-        "lint:php": "phpcs --standard=phpcs.ruleset.xml -s",
-        "fix:php": "phpcbf --standard=phpcs.ruleset.xml -s"
+        "lint:php": "phpcs --standard=phpcs.ruleset.xml -s --runtime-set testVersion 5.4-",
+        "fix:php": "phpcbf --standard=phpcs.ruleset.xml -s --runtime-set testVersion 5.4-"
     },
     "require": {
         "wp-coding-standards/wpcs": "^1.2",
