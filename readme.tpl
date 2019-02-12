@@ -3,6 +3,8 @@ Contributors: <%%contributors%%>
 Requires at least: WordPress 4.7
 Tested up to: <%%testedUpTo%%>
 Version: <%%version%%>
+Requires PHP: 5.4
+Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: one-column, two-columns, right-sidebar, custom-header, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -45,6 +47,20 @@ Source: https://github.com/OwlCarousel2/OwlCarousel2
 Motion UI by ZURB, Inc., Copyright 2018
 License: MIT
 Source: foundation.zurb.com/motion-ui
+
+All Images from Pexels CC0 licensed:
+
+* https://www.pexels.com/photo/black-and-white-butterfly-on-red-flower-53957/
+* https://www.pexels.com/photo/close-up-of-fruits-hanging-on-tree-257840/
+* https://www.pexels.com/photo/close-up-of-peacock-326900/
+* https://www.pexels.com/photo/airport-arched-window-architecture-belgium-447426/
+* https://www.pexels.com/photo/black-and-white-blank-challenge-connect-262488/
+* https://www.pexels.com/photo/side-view-of-woman-in-illuminated-city-at-night-315191/
+* https://www.pexels.com/photo/yellow-residential-building-248868/
+* https://www.pexels.com/photo/agriculture-countryside-crop-cropland-259280/
+* https://www.pexels.com/photo/city-road-street-italy-5166/
+* https://www.pexels.com/photo/photo-of-sea-on-sunrise-106132/
+* https://www.pexels.com/photo/architecture-bricks-buildings-cobblestone-461832/
 
 == Screenshots ==
 

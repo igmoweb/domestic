@@ -101,6 +101,6 @@
   },
   "theme": {
     "contributors": "igmoweb,mrfoxtalbot",
-    "testedUpTo": "WordPress 5.0-trunk"
+    "testedUpTo": "WordPress 5.0.3"
   }
 }
