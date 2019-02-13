@@ -3,7 +3,15 @@
 $content-width: 1129px;
 
 .wp-block {
-	max-width: $content-width;
+	max-width: 90%;
+
+	@include breakpoint( small only ) {
+		max-width:100%;
+	}
+
+	@include breakpoint( medium only ) {
+		max-width: 80%;
+	}
 
 	&[data-align="full"] {
 		max-width: none;
