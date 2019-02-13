@@ -3,8 +3,8 @@ Theme Name:         Domestic
 Theme URI:          https://igmoweb.com/domestic-theme-documentation/
 Github Theme URI:   https://github.com/igmoweb/domestic
 Description:        Domestic Theme is a simple and modern theme suitable for personal sites
-Version:            1.0.3
-Author:             igmoweb,mrfoxtalbot
+Version:            <%%version%%>
+Author:             <%%contributors%%>
 Author URI:         http://igmoweb.com/
 
 License:            GPLv2 or later

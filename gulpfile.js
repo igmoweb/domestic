@@ -43,6 +43,15 @@ gulp.task( 'generate-readme', function() {
 		.pipe( gulp.dest( './' ) );
 });
 
+gulp.task( 'generate-style', function() {
+	return gulp.src( 'style.css.tpl' )
+		.pipe( replace( '<%%version%%>', pkg.version ) )
+		.pipe( replace( '<%%testedUpTo%%>', pkg.theme.testedUpTo ) )
+		.pipe( replace( '<%%contributors%%>', pkg.theme.contributors ) )
+		.pipe( rename( 'style.css' ) )
+		.pipe( gulp.dest( './' ) );
+});
+
 gulp.task( 'delete:builds', function() {
 	return del([
 		'dist/assets/css/*.js',
@@ -50,4 +59,4 @@ gulp.task( 'delete:builds', function() {
 	]);
 });
 
-gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'delete:builds', 'package' ) );
+gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'generate-style', 'delete:builds', 'package' ) );
