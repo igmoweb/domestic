@@ -52,6 +52,12 @@ gulp.task( 'generate-style', function() {
 		.pipe( gulp.dest( './' ) );
 });
 
+gulp.task( 'delete-style', function() {
+	return del([
+		'style.css',
+	]);
+});
+
 gulp.task( 'delete:builds', function() {
 	return del([
 		'dist/assets/css/*.js',
@@ -59,4 +65,4 @@ gulp.task( 'delete:builds', function() {
 	]);
 });
 
-gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'generate-style', 'delete:builds', 'package' ) );
+gulp.task( 'default', gulp.series( run( 'npm run build' ), 'wpPot', 'generate-readme', 'delete-style', 'generate-style', 'delete:builds', 'package' ) );
