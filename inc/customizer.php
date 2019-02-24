@@ -207,7 +207,7 @@ if ( ! function_exists( 'domestic_default_footer_tagline' ) ) :
 	 * @return string
 	 */
 	function domestic_default_footer_tagline() {
-		return '<a href="https://wordpress.org/">' . esc_html_e( 'Proudly powered by WordPress', 'domestic' ) . '</a>';
+		return '<a href="https://wordpress.org/">' . esc_html__( 'Proudly powered by WordPress', 'domestic' ) . '</a>';
 	}
 endif;
 
