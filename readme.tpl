@@ -72,6 +72,6 @@ All Images from Pexels CC0 licensed:
 
 == Changelog ==
 
-= 1.0.2 =
+= 1.0.5 =
 
 Initial release
