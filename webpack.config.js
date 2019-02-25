@@ -28,7 +28,7 @@ const commonConfig = merge([
 const productionConfig = merge([
 	{
 		output: {
-			filename: '[name].[hash].js',
+			filename: '[name].min.js',
 		},
 	},
 	parts.loadSass({

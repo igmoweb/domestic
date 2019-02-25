@@ -42,7 +42,7 @@ module.exports = {
 	/**
 	 * Sass loader config
 	 */
-	loadSass: ({ use = [], filename = '[name].[hash].css' } = {}) => {
+	loadSass: ({ use = [], filename = '[name].min.css' } = {}) => {
 
 
 		// Output extracted CSS to a file
@@ -153,7 +153,8 @@ module.exports = {
 	 * CSS RTL parsing
 	 */
 	rtl: () => ({
-		plugins: [ new WebpackRTLPlugin() ],
+		plugins: [ new WebpackRTLPlugin({
+		}) ],
 	}),
 
 	/**

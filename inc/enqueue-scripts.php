@@ -84,6 +84,8 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 	 * @since 1.0.0
 	 */
 	function domestic_scripts() {
+		$theme_version = wp_get_theme()->version;
+
 		$suffix = '';
 		if ( is_rtl() ) {
 			$suffix = '.rtl';
@@ -91,13 +93,13 @@ if ( ! function_exists( 'domestic_scripts' ) ) :
 
 		$localize = [];
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'domestic-stylesheet', domestic_asset_url( "assets/css/style${suffix}.css" ), [], '1.0.0' );
+		wp_enqueue_style( 'domestic-stylesheet', domestic_asset_url( "assets/css/style${suffix}.css" ), [], $theme_version );
 
 		// Enqueue Domestic scripts.
-		wp_enqueue_script( 'domestic-js', domestic_asset_url( 'assets/js/app.js' ), [ 'jquery' ], '1.0.0', true );
+		wp_enqueue_script( 'domestic-js', domestic_asset_url( 'assets/js/app.js' ), [ 'jquery' ], $theme_version, true );
 
 		if ( is_home() ) {
-			wp_enqueue_script( 'owl-carousel', domestic_asset_url( 'assets/js/owl.carousel.js' ), [ 'jquery', 'domestic-js' ], '1.0.0', true );
+			wp_enqueue_script( 'owl-carousel', domestic_asset_url( 'assets/js/owl.carousel.js' ), [ 'jquery', 'domestic-js' ], $theme_version, true );
 			wp_enqueue_style( 'dashicons' );
 
 			$query                           = domestic_get_sticky_carousel_query();
@@ -120,7 +122,7 @@ if ( ! function_exists( 'domestic_customize_scripts' ) ) :
 	 * Load dynamic logic for the customizer controls area.
 	 */
 	function domestic_customize_scripts() {
-		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/dist/assets/js/customize.js', [ 'jquery', 'customize-preview' ], '1.0.0', true );
+		wp_enqueue_script( 'domestic-customize', get_template_directory_uri() . '/dist/assets/js/customize.js', [ 'jquery', 'customize-preview' ], $theme_version, true );
 	}
 	add_action( 'customize_preview_init', 'domestic_customize_scripts' );
 endif;
