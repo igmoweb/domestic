@@ -55,9 +55,6 @@
 		<nav class="site-navigation top-bar" role="navigation">
 			<?php domestic_top_bar_r(); ?>
 		</nav>
-		<nav class="mobile-menu vertical menu" id="off-canvas-menu" role="navigation">
-			<?php domestic_mobile_nav(); ?>
-		</nav>
 	<?php endif; ?>
 
 </header>
