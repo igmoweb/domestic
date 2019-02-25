@@ -45,7 +45,6 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 			'domestic_menu_schema',
 			[
 				'default'           => 'dark',
-				'transport'         => 'postMessage',
 				'sanitize_callback' => 'sanitize_text_field',
 			]
 		);
@@ -99,18 +98,17 @@ if ( ! function_exists( 'domestic_register_theme_customizer' ) ) :
 		$wp_customize->add_setting(
 			'domestic_show_sticky_slider',
 			[
-				'sanitize_callback' => 'boolval',
-				'default'           => true,
+				'sanitize_callback' => 'absint',
+				'default'           => 1,
 			]
 		);
 
 		$wp_customize->add_control(
 			'domestic_show_sticky_slider',
 			[
-				'label'    => __( 'Display the home slider', 'domestic' ),
-				'section'  => 'domestic_sticky_slider',
-				'settings' => 'domestic_show_sticky_slider',
-				'type'     => 'checkbox',
+				'label'   => __( 'Display the home slider', 'domestic' ),
+				'section' => 'domestic_sticky_slider',
+				'type'    => 'checkbox',
 			]
 		);
 
@@ -210,6 +208,7 @@ if ( ! function_exists( 'domestic_default_footer_tagline' ) ) :
 		return '<a href="https://wordpress.org/">' . esc_html__( 'Proudly powered by WordPress', 'domestic' ) . '</a>';
 	}
 endif;
+
 
 if ( ! function_exists( 'domestic_set_schema_color' ) ) :
 	/**

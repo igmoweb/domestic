@@ -51,7 +51,7 @@ if ( ! function_exists( 'domestic_display_sticky_slider' ) ) :
 	 */
 	function domestic_display_sticky_slider() {
 		$stickies = get_option( 'sticky_posts' );
-		return ! empty( $stickies ) && is_home() && ! is_admin();
+		return ! empty( $stickies ) && is_home() && ! is_admin() && get_theme_mod( 'domestic_show_sticky_slider', 1 );
 	}
 endif;
 
