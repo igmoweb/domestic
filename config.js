@@ -67,4 +67,8 @@ module.exports = {
 			'!**/vendor/**',
 		],
 	},
+
+	extDeps: [
+		'./node_modules/owl.carousel/dist/owl.carousel.js',
+	],
 };

@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
-    "postinstall": "npm run build && gulp wpPot && npm run composer:install",
+    "postinstall": "npm run build && gulp wpPot && gulp copyDeps && npm run composer:install",
     "composer": "docker run --rm --interactive -w /app --volume $PWD:/app composer",
     "composer:install": "npm run composer -- install",
     "package": "gulp",
@@ -47,6 +47,7 @@
     "gulp": "git+https://github.com/gulpjs/gulp.git#v4.0.0",
     "gulp-bump": "^3.1.1",
     "gulp-git": "^2.8.0",
+    "gulp-if": "^2.0.2",
     "gulp-prompt": "^1.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
